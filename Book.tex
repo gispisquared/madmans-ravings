@@ -3,54 +3,86 @@
 \hypersetup{colorlinks=true}
 \newtheorem{problem}{Problem}
 \newtheorem{example}{Example}
+\newcommand{\Rr}{\mathbb{R}}
 \title{Some Madman's Ravings}
 \author{gispisquared}
 \begin{document}
 \maketitle
 \tableofcontents
-%\part{Introduction}
-%I've been told to leave the intro till last, and I'm lazy so I will.
-\part{Methods of Proof}
+\part{Introduction}
+I'm writing this since I think that most of the resources out there that try to
+teach you olympiad maths have all the theory you need to solve IMO-level
+problems (and sometimes much more!), but it's much more rare to see people who
+tell you how to look at problems and figure out approaches that may, or in some
+cases should, work. True, much of this is an individual learning experience, but
+I think a lot of this can be written more explicitly.
+
+This may reduce some of the magic of figuring this stuff out for yourself; to
+mitigate this effect, I have relegated the solutions to examples to the back so
+that you can (and I encourage you to!) try the examples before reading the
+solutions.
+
 Since I refuse to rehash stuff that others have done better, I'll refer you to a
 couple of resources about how to write proofs properly:
 \begin{itemize}
   \item
     \href{https://artofproblemsolving.com/news/articles/how-to-write-a-solution}
     {How to Write a Maths Solution}
-  \item Chapter 1 of the
-    \href{https://web.evanchen.cc/textbooks/OTIS-Excerpts.pdf}{OTIS Excerpts}
+  \item \href{https://web.evanchen.cc/handouts/english/english.pdf}{Notes on
+    English}
 \end{itemize}
 
 Cool, hopefully now you know how to write proofs. Guess that means every time
 you solve a problem you'll get a 7, right?
 
-Now it's time to learn how to actually prove something. There are a few main
-methods of proof --- that is, ways in which you can go from the conditions in the
-problem to your given condition.
+\part{Theory}
+Now it's time to learn how to actually prove problems.
+\section{Methods of Proof}
+There are a few main methods of proof --- that is, ways in which you can go from
+the conditions in the problem to your given condition.
 
-\section{Direct Proof}
-This is perhaps the simplest type of proof. The idea is to start only with
-the stuff you're given, and finish with what you want to prove.
+\subsection{Direct Proof}
+This is perhaps the simplest type of proof. The idea is to start with the stuff
+you're given, do some logical deduction, and finish with what you want to prove.
 
-Time for an example.
+I'll give a few examples.
 
 \begin{example}
   \hypertarget{ex:1}
-  Let $a, b$ be positive real numbers. Prove that \[\frac{a+b}2\ge\sqrt{ab}.\]
+  Let $a, b\in\Rr^+$. Prove that \[\frac{a+b}2\ge\sqrt{ab}.\]
+  \hyperlink{s:1}{Solution}
 \end{example}
-\hyperlink{s:1}{Solution}
-\part{Theory}
-\part{Practice}
+\begin{example}
+  \hypertarget{ex:2}
+  Prove that if we divide any perfect square by 4, the remainder is either 0 or
+  1.
+  \hyperlink{s:1}{Solution}
+\end{example}
 \part{Problems}
 \part{Proofs}
-\hyperlink{ex:1}{Problem}
 \begin{proof}
+  \hyperlink{ex:1}{Problem}
   \hypertarget{s:1}
   Since squares are nonnegative, we have
   \begin{align*}
     \left(\sqrt a-\sqrt b\right)^2 & \ge 0 \\
     \iff a+b-2\sqrt{ab} & \ge 0 \\
-    \iff a+b & \ge 2\sqrt{ab}. \qedhere
+    \iff a+b & \ge 2\sqrt{ab} \\
+    \iff \frac{a+b}2 & \ge \sqrt{ab},
   \end{align*}
+  which is what we wanted to prove.
+\end{proof}
+\begin{proof}
+  \hyperlink{ex:2}{Problem}
+  \hypertarget{s:2}
+  Let our perfect square be $a^2$. We split into cases depending on whether $a$
+  is even or odd.
+  \begin{itemize}
+    \item If $a$ is even, write $a=2b$. Then \[a^2=(2b)^2=4b\] so the remainder is
+      0 in this case.
+    \item If $a$ is odd, write $a=2b+1$. Then
+      \[a^2=(2b+1)^2=4b^2+4b+1=4(b^2+b)+1\] so the remainder is 1 in this case.
+  \end{itemize}
+  In either case, the remainder is either 0 or 1 as needed.
 \end{proof}
 \end{document}
