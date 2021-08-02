@@ -1,17 +1,18 @@
-\documentclass{book}
-\usepackage{hyperref}
+\documentclass{amsart}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
 \hypersetup{colorlinks=true}
+\newtheorem{problem}{Problem}
+\newtheorem{example}{Example}
 \title{Some Madman's Ravings}
-\author{Andres Buritica}
+\author{gispisquared}
 \begin{document}
 \maketitle
 \tableofcontents
 %\part{Introduction}
 %I've been told to leave the intro till last, and I'm lazy so I will.
 \part{Methods of Proof}
-Since I refuse to rehash stuff that others have done better (read: I'm too
-lazy to do it better myself), I'll refer you to a couple of resources about how
-to write proofs properly:
+Since I refuse to rehash stuff that others have done better, I'll refer you to a
+couple of resources about how to write proofs properly:
 \begin{itemize}
   \item
     \href{https://artofproblemsolving.com/news/articles/how-to-write-a-solution}
@@ -22,8 +23,34 @@ to write proofs properly:
 
 Cool, hopefully now you know how to write proofs. Guess that means every time
 you solve a problem you'll get a 7, right?
+
+Now it's time to learn how to actually prove something. There are a few main
+methods of proof --- that is, ways in which you can go from the conditions in the
+problem to your given condition.
+
+\section{Direct Proof}
+This is perhaps the simplest type of proof. The idea is to start only with
+the stuff you're given, and finish with what you want to prove.
+
+Time for an example.
+
+\begin{example}
+  \hypertarget{ex:1}
+  Let $a, b$ be positive real numbers. Prove that \[\frac{a+b}2\ge\sqrt{ab}.\]
+\end{example}
+\hyperlink{s:1}{Solution}
 \part{Theory}
 \part{Practice}
 \part{Problems}
-\part{Proof}
+\part{Proofs}
+\hyperlink{ex:1}{Problem}
+\begin{proof}
+  \hypertarget{s:1}
+  Since squares are nonnegative, we have
+  \begin{align*}
+    \left(\sqrt a-\sqrt b\right)^2 & \ge 0 \\
+    \iff a+b-2\sqrt{ab} & \ge 0 \\
+    \iff a+b & \ge 2\sqrt{ab}. \qedhere
+  \end{align*}
+\end{proof}
 \end{document}
