@@ -176,13 +176,12 @@ The key here is to assume, for contradiction, that there are
 only finitely many primes. Then we want to prove a suitable contradiction --- a
 nice way of doing this is to find a number that isn't 1 but isn't divisible by
 any of our finitely many primes. The idea of constructing such a number by
-multiplying everything and adding 1 is surprisingly common.
+multiplying everything and adding 1 is surprisingly common in Olympiad maths.
 \begin{proof}
-  Assume that there were only finitely many primes $p_1,p_2,\ldots,p_n$. Then,
-  consider the number $A=p_1p_2\cdots p_n+1$. Then $A$ is a positive integer
-  larger than 1, so
-  it must have a prime factor, which means that for some $i$, $p_i\mid A$. But
-  clearly also $p_i\mid A-1$, so $p_i\mid A-(A-1)=1$, which is our
+  Assume that there are only finitely many primes $p_1,p_2,\ldots,p_n$. Then,
+  consider the number $A=p_1p_2\cdots p_n+1$. Clearly $A$ is a positive integer
+  larger than 1, so it must have a prime factor, which means that for some $i$,
+  $p_i\mid A$. But $p_i\mid A-1$, so $p_i\mid A-(A-1)=1$, which is our
   contradiction.
 \end{proof}
 \hyperlink{p:1:3:1}{Example 3}
@@ -212,7 +211,7 @@ into cases that naturally give you each part of the ``or'', like in
 This is a classic induction problem. Apart from being instructive because it
 isolates the idea of induction, it does highlight a minor point. In the
 inductive step, it's just as acceptable to assume the problem is true for $k$
-and prove it for $k+1$ as to assume the problem is true for $k-1$ prove it for
+and prove it for $k+1$ as to assume the problem is true for $k-1$ and prove it for
 $k$. In this particular case, the latter is somewhat easier.
 \begin{proof}
   We prove this by induction on $n$.
@@ -272,8 +271,8 @@ Let's write it up.
   1 is not in $S$. (Notice where I used the contrapositive here?)
 
   Strong inductive step: Assume that for all $i=1,2,\ldots,k,\ i\not\in S$. I
-  claim that $i+1\not\in S$. Indeed, if $i+1$ were in $S$, then it would be the
-  smallest element of $S$. But since $S$ has no smallest element, $i+1$ can't be
+  claim that $k+1\not\in S$. Indeed, if $k+1$ were in $S$, then it would be the
+  smallest element of $S$. But since $S$ has no smallest element, $k+1$ can't be
   in $S$.
 
   This completes the induction, so no integer is in $S$ meaning that $S$ is
@@ -287,15 +286,16 @@ Let's write it up.
   element $a$.
 
   Since we know that $1\in S$, we know that $a\ne 1$. So $a-1$ is a positive
-  integer. Since $a-1<a$ and $a$ is the smallest member of $Nn\setminus S$,
+  integer. Since $a-1<a$ and $a$ is the smallest member of $\Nn\setminus S$,
   $a-1\not\in\Nn\setminus S\implies a-1\in S$. So since $a-1\in S,\ a\in S$
   which contradicts the assumption that $a\not\in S$.
 \end{proof}
+\newpage
 \section{TLDR}
 \hypertarget{tldr}
-This section contains some ideas about how to approach problems that may or may
-not be useful; basically, it's what I consider to be the most unique and
-important parts of this whole thing in condensed form.
+This section contains some ideas about how to approach problems; basically,
+I've taken what I think are the most important bits and condensed them together
+here.
 \begin{itemize}
   \item How are the objects referred to in the problem defined? What properties
     do you know them to have?
