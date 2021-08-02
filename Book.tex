@@ -1,5 +1,6 @@
+%chktex-file 3
 \documentclass{amsart}
-\usepackage{amsmath,amssymb,amsthm,hyperref}
+\usepackage{amsmath,amssymb,amsthm,tcolorbox,hyperref}
 \hypersetup{colorlinks=true}
 \newtheorem{problem}{Problem}
 \newtheorem{example}{Example}
@@ -32,60 +33,153 @@ couple of resources about how to write proofs properly:
   \item \href{https://web.evanchen.cc/handouts/english/english.pdf}{Notes on
     English}
 \end{itemize}
-
 Cool, hopefully now you know how to write proofs. Guess that means every time
 you solve a problem you'll get a 7, right?
 \newpage
 \section{Theory}
-Now it's time to learn how to actually solve problems.
+Now it's time to learn how proofs work.
 \subsection{Methods of Proof}
 There are a few main methods of proof --- that is, ways in which you can go from
 the conditions in the problem to your given condition.
-
 \subsubsection{Direct Proof}
 This is perhaps the simplest type of proof. The idea is to start with the stuff
 you're given, do some logical deduction, and finish with what you want to prove.
-
-I'll give a few examples.
-
 \begin{example}
-  \hypertarget{ex:1}
-  Let $a, b\in\Rr^+$. Prove that \[\frac{a+b}2\ge\sqrt{ab}.\]
-  \hyperlink{s:1}{Solution}
-\end{example}
-\begin{example}
-  \hypertarget{ex:2}
-  Prove that if we divide any perfect square by 4, the remainder is either 0 or
+  \hypertarget{p:1:1:1}
+  Prove that the remainder when a perfect square is divided by 4 is either 0 or
   1.
-  \hyperlink{s:1}{Solution}
+  \hyperlink{s:1:1:1}{Solution}
 \end{example}
+\subsubsection{Contradiction}
+This is where you assume that what you're trying to prove is wrong and try to
+derive some kind of logical impossibility. Then the only place where the logic
+could have gone wrong was in the assumption so the statement you were trying to
+prove must be true.
+\begin{example}
+  \hypertarget{p:1:2:1}
+  Prove that there are infinitely many primes.
+  \hyperlink{s:1:2:1}{Solution}
+\end{example}
+\subsubsection{Contrapositive}
+It turns out that the statement $A\implies B$ is logically equivalent to the
+statement $\neg B\implies\neg A$. This is probably easiest to see intuitively
+with an example: ``If John is a bachelor, then John is not married'' is logically
+equivalent to ``If John is married, then John is not a bachelor''. Therefore, if
+we're asked to prove $A\implies B$, it's enough to prove $\neg B\implies\neg A$,
+which is sometimes easier.
+\begin{example}
+  \hypertarget{p:1:3:1}
+  Let $a,b\in\Rr$ such that $a+b$ is irrational. Prove that at least one of $a$
+  and $b$ is irrational.
+  \hyperlink{s:1:3:1}{Solution}
+\end{example}
+\subsubsection{Induction}
+Perhaps the hardest to understand of the basic proof techniques, this can be
+used to prove properties of positive integers where the property for each
+integer can be related to those of previous integers.
+
+Here is the Principle of Mathematical Induction (PMI):
+\begin{tcolorbox}
+Let $S$ be a set of positive integers such that $1\in S$ and for each $k\in S$,
+$k+1\in S$. Then $S$ contains all positive integers.
+\end{tcolorbox}
+
+To prove a statement for all positive integers, we let $S$ be the set of all
+positive integers for which the statement is true. Then it's enough to prove:
+\begin{itemize}
+  \item $1\in S$. This is called the \emph{base case}.
+  \item If $k\in S$ (the \emph{inductive hypothesis}), then $k+1\in S$. This is
+    called the \emph{inductive case}.
+\end{itemize}
+Then by PMI, $S$ will contain all positive integers.
+
+There are two ways to make induction superficially more powerful, though they're
+both equivalent to the usual form of induction:
+\begin{itemize}
+  \item Say we want to prove a statement for all integers larger than $n$, for
+    some $n$. Then it's enough to prove:
+    \begin{itemize}
+      \item The statement is true for $n$.
+      \item If the statement is true for some integer $k>n$, then it's true for
+        $k+1$.
+    \end{itemize}
+    This is equivalent to the normal PMI:\@ to see this, let $S$ be the set of
+    all integers $m$ for which the statement is true for all $m+n$.
+  \item Say we want to use not just the inductive assumption not just for $k$,
+    but for smaller integers as well. Intuitively this should be fine, since
+    we've in some sense ``proved this already'' by the time we get to $k+1$.
+    Formally, to prove a statement $P(n)$ for all positive integers $n$, it's
+    enough to prove:
+    \begin{itemize}
+      \item $P(1)$.
+      \item If $P(1),\ldots,P(k)$ are all true, then $P(k+1)$ is also true.
+    \end{itemize}
+    This form of proof by induction is called \emph{strong induction}, and
+    although most proofs by induction only explicitly use $P(k)$, there's no
+    reason to try to make your proof inductive over strong inductive since
+    strong induction gives you more assumptions to work with ``for free''.
+\end{itemize}
+The key idea in both of these reductions to PMI is to somehow encapsulate the
+extra information you're trying to assume into the framework of standard PMI.
 \newpage
-\section{Problems}
+\section{Practice}
 \newpage
-\section{Proofs}
+\section{Solutions}
+\hyperlink{p:1:1:1}{Example 1}
+\hypertarget{s:1:1:1}
+If you start trying some small cases, what you'll eventually find is that if $n$
+is an even integer, then $n^2$ leaves a remainder of 0 when divided by 4, and
+if $n$ is an odd integer, then $n^2$ leaves a remainder of 1 when divided by
+4. Once you've conjectured this, all that's left is to recall what it means for
+a number to be even or odd, and then the proof falls out quite naturally:
 \begin{proof}
-  \hyperlink{ex:1}{Problem}
-  \hypertarget{s:1}
-  Since squares are nonnegative, we have
-  \begin{align*}
-    \left(\sqrt a-\sqrt b\right)^2 & \ge 0 \\
-    \iff a+b-2\sqrt{ab} & \ge 0 \\
-    \iff a+b & \ge 2\sqrt{ab} \\
-    \iff \frac{a+b}2 & \ge \sqrt{ab},
-  \end{align*}
+  Let the perfect square be $n^2$. We split into cases depending on the parity
+  of $n$.
+  \begin{itemize}
+    \item If $n$ is even, let $n=2m$ for some integer $m$. Then
+      \[n^2=(2m)^2=4m^2,\] which leaves a remainder of 0 when divided by 4.
+    \item If $n$ is odd, let $n=2m+1$ for some integer $m$. Then
+      \[n^2=(2m+1)^2=4m^2+4m+1=4(m^2+m)+1,\] which leaves a remainder of 1 when
+      divided by 4.
+  \end{itemize}
+  In either case, the remainder left when dividing $n^2$ by 4 is either 0 or 1,
   which is what we wanted to prove.
 \end{proof}
+\hyperlink{p:1:2:1}{Example 2}
+\hypertarget{s:1:2:1}
+The key here is to assume, for contradiction, that there are
+only finitely many primes. Then we want to prove a suitable contradiction --- a
+nice way of doing this is to find a number that isn't 1 but isn't divisible by
+any of our finitely many primes. The idea of constructing such a number by
+multiplying everything and adding 1 is surprisingly common.
 \begin{proof}
-  \hyperlink{ex:2}{Problem}
-  \hypertarget{s:2}
-  Let our perfect square be $a^2$. We split into cases depending on whether $a$
-  is even or odd.
-  \begin{itemize}
-    \item If $a$ is even, write $a=2b$. Then \[a^2=(2b)^2=4b\] so the remainder is
-      0 in this case.
-    \item If $a$ is odd, write $a=2b+1$. Then
-      \[a^2=(2b+1)^2=4b^2+4b+1=4(b^2+b)+1\] so the remainder is 1 in this case.
-  \end{itemize}
-  In either case, the remainder is either 0 or 1 as needed.
+  Assume that there were only finitely many primes $p_1,p_2,\ldots,p_n$. Then,
+  consider the number $A=p_1p_2\cdots p_n+1$. Then $A$ is a positive integer
+  larger than 1, so
+  it must have a prime factor, which means that for some $i$, $p_i\mid A$. But
+  clearly also $p_i\mid A-1$, so $p_i\mid A-(A-1)=1$, which is our
+  contradiction.
+\end{proof}
+\hyperlink{p:1:3:1}{Example 3}
+\hypertarget{s:1:3:1}
+The problem itself is not of much interest once you realise that you're meant to
+prove the contrapositive. However, this problem is instructive for two main
+reasons. First, it shows how much easier it is (in this particular instance) to
+prove the contrapositive than the original statement. You could be stuck for
+ages trying the original problem, but as soon as you ask ``what if the conclusion
+wasn't true'' the problem pretty much solves itself. The second, more subtle,
+takeaway here is about how to realise that you should use some kind of indirect
+(contrapositive or contradiction) approach. Usually, a conclusion that has some
+kind of ``or'' statement in it is a good sign that an indirect approach may be
+easier, since negating the conclusion turns the ``or'' into an ``and'', which is
+much easier to work with. The exception is when you can split the conditions
+into cases that naturally give you each part of the ``or'', like in
+\hyperlink{p:1:1:1}{Example 1}.
+\begin{proof}
+  We prove the contrapositive: that if $a$ and $b$ are both rational, then so is
+  $a+b$.
+
+  Let $a=\frac wx,\ b=\frac yz$. Then \[a+b=\frac wx+\frac
+  yz=\frac{wz+xy}{xz},\] which is clearly rational.
 \end{proof}
 \end{document}
