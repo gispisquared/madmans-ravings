@@ -17,7 +17,7 @@
 \maketitle
 \tableofcontents
 \newpage
-\part{Introduction}
+\section*{Introduction}
 \emph{If you can't be bothered reading, see the tldr \hyperlink{tldr}{here}}.
 
 I'm writing this since I think that most of the resources out there that try to
@@ -37,8 +37,8 @@ will be problems and solutions. There will be two main types of problems:
   \item \emph{Results}, which are considered important and well-known, and come
     up sporadically (or in some cases consistently) as steps in the harder
     problems.
-  \item \emph{Problems}, which will be questions taken from contests (mostly
-    AMC, AIMO, AMO, EGMO and IMO).
+  \item \emph{Problems}, which will be questions taken from contests (mostly AMC
+    and AIMO in Part 2, and AMO, EGMO and IMO in Part 3).
 \end{itemize}
 The ideas used to prove results are usually considered pretty
 basic ideas, though I think that's not because they're simple but because
@@ -61,11 +61,9 @@ you solve a problem you'll get a 7, right?
 Oh, and apologies for the bad formatting typesetting hyperlinking etc.
 \newpage
 \part{Theory}
-Now it's time to learn how proofs work.
-\section{Methods of Proof}
-There are a few main methods of proof --- that is, ways in which you can go from
-the conditions in the problem to your given condition.
-\subsection{Direct Proof}
+\section{Basics}
+\subsection{Methods of Proof}
+\subsubsection{Direct Proof}
 This is perhaps the simplest type of proof. The idea is to start with the stuff
 you're given, do some logical deduction, and finish with what you want to prove.
 \begin{result}
@@ -73,7 +71,7 @@ you're given, do some logical deduction, and finish with what you want to prove.
   The remainder when a perfect square is divided by 4 is either 0 or 1.
   \hyperlink{s:m:1:1}{Solution}
 \end{result}
-\subsection{Contradiction}
+\subsubsection{Contradiction}
 This is where you assume that what you're trying to prove is wrong and try to
 derive some kind of logical impossibility. Then the only place where the logic
 could have gone wrong was in the assumption so the statement you were trying to
@@ -83,7 +81,7 @@ prove must be true.
   There are infinitely many primes.
   \hyperlink{s:m:2:1}{Solution}
 \end{result}
-\subsection{Contrapositive}
+\subsubsection{Contrapositive}
 It turns out that the statement $A\implies B$ is logically equivalent to the
 statement $\neg B\implies\neg A$. This is probably easiest to see intuitively
 with an result: ``If $x$ is an integer, then $x$ is rational'' is
@@ -96,7 +94,7 @@ prove $\neg B\implies\neg A$, which is sometimes easier.
   and $b$ is irrational.
   \hyperlink{s:m:3:1}{Solution}
 \end{problem}
-\subsection{Induction}
+\subsubsection{Induction}
 Perhaps the hardest to understand of the basic proof techniques, this can be
 used to prove properties of positive integers where the property for each
 integer can be related to those of previous integers.
@@ -126,7 +124,7 @@ both equivalent to the usual form of induction:
       \item If the statement is true for some integer $k>n$, then it's true for
         $k+1$.
     \end{itemize}
-    This is equivalent to the normal PMI:\@ to see this, let $S$ be the set of
+    This is equivalent to the normal PMI\@: to see this, let $S$ be the set of
     all integers $m$ for which the statement is true for all $m+n$.
   \item Say we want to use not just the inductive assumption not just for $k$,
     but for smaller integers as well. Intuitively this should be fine, since
@@ -143,26 +141,24 @@ both equivalent to the usual form of induction:
     strong induction gives you more assumptions to work with ``for free''.
 \end{itemize}
 The key idea in both of these reductions to PMI is to somehow encapsulate the
-extra information you're trying to assume into the framework of standard PMI.
+extra information you're trying to assume into the framework of standard PMI\@.
 \begin{result}
   \hypertarget{r:m:4:1}
-  Prove that for all positive integers $n$, \[1+2+\cdots+n=\frac{n(n+1)}2.\]
+  For all positive integers $n$, \[1+2+\cdots+n=\frac{n(n+1)}2.\]
   \hyperlink{s:m:4:1}{Solution}
 \end{result}
-To conclude the Methods of Proof part, I'll include one final result that
+To conclude the Methods of Proof section, I'll include one final result that
 combines most of what we've covered so far.
 \begin{result}
   \hypertarget{r:m:4:2}
   The \emph{Well-Ordering Principle} states that any set of positive integers
-  has a least element. Prove that it's equivalent to PMI --- that is, prove that
+  has a least element. It's equivalent to PMI --- that is,
   PMI is true if and only if well-ordering is true.
   \hyperlink{s:m:4:2}{Solution}
 \end{result}
 I find it intriguing that induction and minimality are really just two sides of
 the same coin. Often you will find that a solution is much more natural to think
 about and write up in terms of one than the other.
-\newpage
-\section{Basics}
 \subsection{Algebra}
 \subsubsection{Factorisations}
 I won't have any problems attached to these, but they tend to pop up everywhere
@@ -173,6 +169,8 @@ so keep an eye out. Here are some common factorisations:
   \item $x^2+2ax+a^2=(x+a)^2$
   \item $x^3-a^3=(x-a)(x^2+ax+a^2)$
   \item $x^3+a^3=(x+a)(x^2-ax+a^2)$
+  \item $x^3+3x^2a+3xa^2+a^3=(x+a)^3$
+  \item $x^3-3x^2a+3xa^2-a^3=(x-a)^3$
 \end{itemize}
 The cases $a=1$ are especially common.
 \subsubsection{Systems of equations}
@@ -244,22 +242,78 @@ are.
   Find all real numbers $x$ for which $x^3+3x^2+3x+5=0$.
   \hyperlink{sp:b:a:quad:3}{Solution}
 \end{problem}
+\subsubsection{Inequalities}
+At this level, inequalities are mostly about making stuff into squares or, well,
+``mostly-squares''. The guiding principle is to try and find an expression which
+you want to be always nonnegative, figure out where it's 0, and write it in
+terms of stuff that's 0 there and obviously nonnegative elsewhere.
+
+\begin{result}
+  \hypertarget{r:b:a:ineq:1}
+  If $a$ and $b$ are real numbers, then \[\frac{a+b}2\ge\sqrt{ab}.\]
+  \hyperlink{sr:b:a:ineq:1}{Solution}
+\end{result}
+
+\begin{problem}
+  \hypertarget{p:b:a:ineq:1}
+  The set $S$ consists of distinct integers such that the smallest is 0 and the
+  largest is 2015. What is the minimum possible average value of the numbers in
+  $S$?
+  \hyperlink{sp:b:a:ineq:1}{Solution}
+\end{problem}
+\subsubsection{Sums of sequences}
+\begin{result}
+  \hypertarget{r:b:a:sums:1}
+  If $n$ is a positive integer and $a$ and $b$ are real numbers, then
+  \[\sum_{i=0}^n(a+bi)=\frac{(n+1)(2a+bn)}2.\]
+  \hyperlink{sr:b:a:sums:1}{Solution}
+\end{result}
+\begin{result}
+  \hypertarget{r:b:a:sums:2}
+  If $n$ is a positive integer and $r$ is a real number distinct from 1, then
+  \[\sum_{i=0}^n r^i=\frac{1-r^{n+1}}{1-r}.\]
+  \hyperlink{sr:b:a:sums:2}{Solution}
+\end{result}
+\subsubsection{Polynomials}
+A polynomial is just an expression of the form
+\[P(x)=a_n x^n+a_{n-1}x^{n-1}+\cdots+a_0x^0,\] where each of the $a_i$s is a
+constant and $a_n\ne 0$.
+The number $n$ is called the \emph{degree} of the polynomial. The expression
+$P(x)=0$ is also a polynomial, and it's defined to have degree $-\infty$.
+
+\begin{result}
+  \hypertarget{r:b:a:polys:1}
+  If a polynomial $P(x)$ of degree $n$ has a root $r$, then there is a
+  polynomial $Q(x)$ of degree $n-1$ such that \[P(x)=(x-r)Q(x).\]
+  \hyperlink{sr:b:a:polys:1}{Solution}
+\end{result}
+\begin{result}
+  \hypertarget{r:b:a:polys:2}
+  If a polynomial \[P(x)=a_n x^n+a_{n-1}x^{n-1}+\cdots+a_0x^0\] has roots
+  $r_1,\ldots,r_n$ then for each $i$, \[a_{n-i}=(-1)^i a_n
+  \sum_{j_1<\cdots<j_i} \prod_{k=1}^i r_{j_k}.\]
+  \hyperlink{sr:b:a:polys:2}{Solution}
+\end{result}
 \subsection{Combinatorics}
 \subsubsection{Addition and Multiplication Principles}
 \subsubsection{Permutations and Combinations}
+\subsubsection{Double Counting and Combinatorial Identities}
 \subsubsection{Venn Diagrams and PIE}
 \subsubsection{Supermarket Principle}
 \subsubsection{Recurrences}
 \subsection{Geometry}
-\subsubsection{Pick's Theorem}
+\subsubsection{Congruence}
+\subsubsection{Basic angle chasing}
+\subsubsection{Similarity}
 \subsubsection{Pythagoras}
 \subsubsection{Common right-angled triangles}
-\subsubsection{Congruence}
-\subsubsection{Similarity}
-\subsubsection{Basic angle chasing}
 \subsection{Number Theory}
+\subsubsection{Primes and FTOA}
 \subsubsection{SFFT}
-\subsubsection{Working with divisibility}
+\subsubsection{Divisibility}
+\subsubsection{Number bases}
+\hypertarget{b:n:bases}
+hi
 \section{Not-so-basics}
 \subsection{Algebra}
 \subsubsection{Systems of equations}
@@ -307,19 +361,12 @@ multiplying everything and adding 1 is surprisingly common in Olympiad maths.
 \end{proof}
 \hyperlink{p:m:3:1}{Problem 1}
 \hypertarget{s:m:3:1}
-The problem itself is not of much interest once you realise that you're meant to
-prove the contrapositive. However, this problem is instructive for two main
-reasons. First, it shows how much easier it is (in this particular instance) to
-prove the contrapositive than the original statement. You could be stuck for
-ages trying the original problem, but as soon as you ask ``what if the conclusion
-wasn't true'' the problem pretty much solves itself. The second, more subtle,
-takeaway here is about how to realise that you should use some kind of indirect
-(contrapositive or contradiction) approach. Usually, a conclusion that has some
-kind of ``or'' statement in it is a good sign that an indirect approach may be
-easier, since negating the conclusion turns the ``or'' into an ``and'', which is
-much easier to work with. The exception is when you can split the conditions
-into cases that naturally give you each part of the ``or'', like in
-\hyperlink{r:m:1:1}{Result 1}.
+This is more an exercise in logic than in maths.
+You could be stuck for ages trying to prove the problem directly, but as soon as
+you try to use some indirect approach (like contrapositive, contradiction, or
+assuming one part of the conclusion is false and proving the other is true) the
+problem pretty much solves itself. I think the cleanest solution in this
+particular case uses the contrapositive.
 \begin{proof}
   We prove the contrapositive: that if $a$ and $b$ are both rational, then so is
   $a+b$.
@@ -362,7 +409,7 @@ contrapositive --- start with a set of positive integers that has no smallest
 element, and prove it's empty using our sequential checking process. Make sure
 you actually use PMI somewhere, otherwise it's probably a fakesolve.
 
-Now, let's use well-ordering to prove PMI. You'll probably get nowhere if you
+Now, let's use well-ordering to prove PMI\@. You'll probably get nowhere if you
 aren't completely clear about what you're trying to prove (you may as well
 replace PMI by gibberish), so let's write out PMI in full:
 
@@ -399,7 +446,7 @@ Let's write it up.
   This completes the induction, so no integer is in $S$ meaning that $S$ is
   empty as needed.
 
-  Now I prove that if well-ordering is true, then so is PMI. Assume for
+  Now I prove that if well-ordering is true, then so is PMI\@. Assume for
   contradiction that well-ordering is true but PMI is not. Then, there is a set
   $S$ of positive integers that contains 1 and such that for each $a\in S,\
   a+1\in S$ but that does not contain all positive integers. Then, the set
@@ -500,8 +547,8 @@ previous result.
   \end{align*}
   as needed.
 
-  If $\Delta<0$ there are no square roots so there are no solutions. If
-  $\Delta=0$ the unique solution is $x=\frac{-b}{2a}$. If $\Delta=0$ there are
+  If $\Delta<0$ there are clearly no solutions. If
+  $\Delta=0$ the unique solution is $x=\frac{-b}{2a}$. If $\Delta>0$ there are
   two solutions given by our equation.
 \end{proof}
 \hyperlink{p:b:a:quad:1}{Problem 4}
@@ -521,10 +568,13 @@ Answer: 57.
            &=4\pm3
   \end{align*}
   But since $b>2$ we get $b=7\implies x=7^2+7+1=57$.
+
+  Finally, 57 is indeed 111 in base 7 and 212 in base 5.
 \end{proof}
 \hyperlink{p:b:a:quad:2}{Problem 5}
 \hypertarget{sp:b:a:quad:2}
-The key here is to use the discriminant ($\Delta$ in result 6). In particular,
+The key here is to use the discriminant ($\Delta$ in
+\hyperlink{r:b:a:quad:2}{Result 6}). In particular,
 it's enough to prove that at least one of the two $\Delta$s is nonnegative. The
 easiest way of doing this is to assume that the first is negative and prove that
 the second isn't.
@@ -557,12 +607,151 @@ Answer: $x=-1-\sqrt[3]{4}$.
   algebra, or notice that each step above was actually an equivalence so the
   implications run backwards as well.
 \end{proof}
+
+\hyperlink{r:b:a:ineq:1}{Result 7}
+\hypertarget{sr:b:a:ineq:1}
+Since we want to use the fact that squares are nonnegative, we collect all the
+terms on one side. The rest is recognition, which can be helped by noticing that
+we want equality to occur when $a=b$.
+\begin{proof}
+  \[\RHS-\LHS=\frac{a+b}2-\sqrt{ab}=\frac{a+b-2\sqrt{ab}}2=\frac{(\sqrt a-\sqrt
+  b)^2}2\ge 0,\] as needed.
+\end{proof}
+
+\hyperlink{p:b:a:ineq:1}{Problem 7}
+\hypertarget{sp:b:a:ineq:1}
+We have to have a 0 and a 2015 in the set, but apart from them the rest of the
+terms should be as small as possible. This means that we can apply
+\hyperlink{r:m:4:1}{Result 3} to get a function we want to minimise. A little
+algebraic trickery means it's enough to minimise \[n+\frac{4032}n.\] Then, by
+\hyperlink{r:b:a:ineq:1}{Result 7}, the  minimum of this over $\Rr$ is
+$2\sqrt{4032}$ at $n=\sqrt{4032}\approx 63.5$, which means either 63 or 64
+should minimise the expression over $\Nn$. In fact both do, which means we should
+try to force the expression into something that looks like $(n-63)(n-64)$, and
+indeed doing that solves the problem.
+
+Answer: 62.
+\begin{proof}
+  Let $n$ be the number of elements in $S$, and let $S=\{s_1,s_2,\ldots,s_n\}$,
+  where the $s_i$s are in increasing order.
+  Then \[s_i\ge i-1\, \forall\, i<n,\] and $s_n=2015$, so the average is at
+  least
+  \begin{align*}
+    \frac{0+1+\cdots+n-2+2015}n&=\frac{\frac{(n-2)(n-1)}2+2015}n \\
+                              &=\frac{n^2-3n+4032}{2n}\\
+                              &=\frac{n^2-127n+4032}{2n}+62 \\
+                              &=\frac{(n-63)(n-64)}{2n}+62.
+  \end{align*}
+  Since $n$ is an integer, the first term is 0 if $n$ is either 63 or 64 and
+  positive otherwise, which means that the minimum value is 62, achieved when
+  $S$ is either $\{0,1,\ldots,61,2015\}$ or $\{0,1,\ldots,61,62,2015\}$.
+\end{proof}
+\hyperlink{r:b:a:sums:1}{Result 8}
+\hypertarget{sr:b:a:sums:1}
+There are three ways I know of doing this. One of them is a standard induction,
+but the other two are more interesting.
+
+For the first way, we notice that we already know the special case (see
+\hyperlink{r:m:4:1}{Result 3}) where $a=0$ and $b=1$. A little algebra allows us
+to reduce the whole problem to this particular case.
+\begin{proof}
+  We have
+  \begin{align*}
+    \sum_{i=0}^n(a+bi)&=\sum_{i=0}^n a+\sum_{i=0}^n bi \\
+                      &=a(n+1)+b\sum_{i=0}^n i \\
+                      &=a(n+1)+b\frac{n(n+1)}2 \\
+                      &=\frac{(2a+bn)(n+1)}2,
+  \end{align*}
+  as needed.
+\end{proof}
+For the second way, we use a trick called \emph{Gaussian pairing} --- we pair the
+first term with the last term and so on --- so that each pair has the same
+sum.
+\begin{proof}
+  We have
+  \begin{align*}
+    \sum_{i=0}^n(a+bi)&=\sum_{i=0}^n(a+b(n-i)) \\
+                      &=\frac12\left(\sum_{i=0}^n(a+bi)+\sum_{i=0}^n(a+b(n-i))\right)
+                      \\
+                      &=\frac12\left(\sum_{i=0}^n(2a+bn)\right) \\
+                      &=\frac{(n+1)(2a+bn)}2,
+  \end{align*}
+  as needed.
+\end{proof}
+\hyperlink{r:b:a:sums:2}{Result 9}
+\hypertarget{sr:b:a:sums:2}
+The main idea here comes from extending a couple of the common factorisations:
+\begin{itemize}
+  \item $1-r^2=(1-r)(1+r)$
+  \item $1-r^3=(1-r)(1+r+r^2)$
+\end{itemize}
+Let's write it up.
+\begin{proof}
+  We have \[1-r^{n+1}=(1-r)(1+r+r^2+\cdots+r^n),\] since all the middle terms
+  cancel. Dividing both sides by $1-r$ yields the desired result.
+\end{proof}
+\hyperlink{r:b:a:polys:1}{Result 10}
+\hypertarget{sr:b:a:polys:1}
+For those of you who have seen polynomial long division, this should seem very
+familiar, and indeed the same idea of dividing from highest to lowest degree
+works. The neatest and most rigorous way to write it up uses induction.
+\begin{proof}
+  By strong induction on the degree.
+
+  Base case $n=1$: if $ar-b=0$ then $\frac ba=r$ so $ax-b=a(x-\frac ba)=a(x-r)$,
+  as needed. Clearly $Q(x)=a$ has degree 0.
+
+  Inductive step: Write \[P(x)=a_n x^{n-1}(x-r)+P_1(x),\] so that $P_1(x)$ is a
+  polynomial of degree less than $n$ and $P_1(r)=P(r)-0=0$.
+  By the strong inductive hypothesis there
+  is a polynomial $Q_1(x)$ of degree less than $n-1$ such that
+  $P_1(x)=(x-r)Q_1(x)$. Then, \[P(x)=(x-r)\left(a_n x^{n-1}+Q_1(x)\right),\] so
+  if we let $Q(x)=x^{n-1}+Q_1(x)$ we have $P(x)=(x-r)Q(x)$. Finally, $Q(x)$ has
+  degree $n-1$ since $Q_1(x)$ has degree less than $n-1$ and $a_n x^{n-1}$ has
+  degree $n-1$.
+\end{proof}
+\hyperlink{r:b:a:polys:2}{Result 11}
+\hypertarget{sr:b:a:polys:2}
+First we need to understand what the problem is saying. Try special cases:
+$i=0,\ i=n,\ n=1,\ n=2$ and so on, until you know what it's saying.
+
+The idea here is to use the previous result multiple times to factorise our
+polynomial fully, then expand it again. Then when we extract the $x^{n-i}$
+coefficient, each term that contributes to it is a product where $x$ appears
+$n-i$ times, and the rest is a product of $i$ $(r_i)$s and a constant term.
+Since each combination of $i$ $(-r_i)$s appears exactly once in the expansion,
+we get the claimed formula.
+
+The neatest way of writing this up is to use induction.
+\begin{proof}
+  By induction on the degree.
+
+  Base case $n=0$: there are no $r_i$s so all that
+  we have to prove is $a_0=a_0$, which is obvious.
+
+  Inductive step: Since $r_n$ is a root of $P(x)$, we can write
+  $P(x)=(x-r_n)Q(x)$ for some polynomial $Q(x)$ of degree $n-1$. Then we know
+  that $Q(x)$ has roots $r_1,\ldots,r_{n-1}$ so by the inductive hypothesis, we
+  know that in $Q(x)$:
+  \begin{itemize}
+    \item The coefficient of $x^{n-i}$ is
+      \[(-1)^{i-1}a_n\sum_{j_1<\cdots<j_{i-1}}\prod_{k=1}^{i-1}r_{j_k}.\]
+    \item The coefficient of $x^{n-i-1}$ is
+      \[(-1)^{i}a_n\sum_{j_1<\cdots<j_i}\prod_{k=1}^i r_{j_k}.\]
+  \end{itemize}
+  Since the coefficient of $x^{n-i}$ in $P(x)$ is the coefficient of $x^{n-i-1}$
+  in $Q(x)$ minus $r_n$ times the coefficient of $x^{n-i}$ in $Q(x)$, it's what
+  we claim it is. Since this argument works for each $i$, the induction is
+  complete.
+\end{proof}
 \newpage
 \part{TLDR}
 \hypertarget{tldr}
 This part contains some ideas about how to approach problems; basically,
 I've taken what I think are the most important bits and condensed them together
 here.
+
+(With apologies to P\'olya)
 \begin{itemize}
   \item How are the objects referred to in the problem defined? What properties
     do you know them to have?
@@ -571,7 +760,11 @@ here.
     of these patterns help?
   \item Look at stuff that is extremal in some way: biggest, smallest, most
     connected, most disconnected, most composite, prime, whatever
-  \item Can you reduce a counterexample to a smaller counterexample?
   \item Think about what happens if the problem, or the conclusion, is wrong.
+  \item Can you reduce any instance of the problem to a smaller instance? 
+    Can you reduce a counterexample to a smaller counterexample?
+  \item Have you seen something similar before? Can you use the result or the
+    method? Can you introduce some auxiliary element to make its use possible?
+  \item Can you draw a diagram to help you understand the problem?
 \end{itemize}
 \end{document}
