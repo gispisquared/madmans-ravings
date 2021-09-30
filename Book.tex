@@ -1,12 +1,9 @@
 %chktex-file 3
 \documentclass{amsart}
 \usepackage{amsmath,amssymb,amsthm,tcolorbox,hyperref}
-\tcbset{colback=gray!15!black, coltext=white}
-\hypersetup{colorlinks=true, linkcolor=blue!50!white}
+\hypersetup{colorlinks=true}
 \newtheorem{problem}{Problem}
 \newtheorem{result}{Result}
-\pagecolor{black}
-\color{white}
 \newcommand{\LHS}{\text{LHS}}
 \newcommand{\RHS}{\text{RHS}}
 \newcommand{\Rr}{\mathbb{R}}
@@ -386,8 +383,8 @@ particular case uses the contrapositive.
 This is a classic induction problem. Apart from being instructive because it
 isolates the idea of induction, it does highlight a minor point. In the
 inductive step, it's just as acceptable to assume the problem is true for $k$
-and prove it for $k+1$ as to assume the problem is true for $k-1$ and prove it for
-$k$. In this particular case, the latter is somewhat easier.
+and prove it for $k+1$ as to assume the problem is true for $k-1$ and prove it
+for $k$. In this particular case, the latter is somewhat easier.
 \begin{proof}
   We prove this by induction on $n$.
   
@@ -408,9 +405,9 @@ Since this is an ``if and only if'' problem, we will probably need to find
 separate proofs in each direction. 
 
 First, let's use induction to prove well-ordering. Our desired conclusion is
-that every nonempty set of positive integers has a smallest element. Intuitively,
+that any nonempty set of positive integers has a smallest element. Intuitively,
 what we would like to do is to check if 1 is in it, then if 2 is in it, and so
-on until we first find an element that's in it. But this quickly becomes circular
+on until we find an element that's in it. But this quickly becomes circular
 and it's difficult to make airtight. The trick is to utilise proof by
 contrapositive --- start with a set of positive integers that has no smallest
 element, and prove it's empty using our sequential checking process. Make sure
@@ -633,7 +630,7 @@ terms should be as small as possible. This means that we can apply
 algebraic trickery means it's enough to minimise \[n+\frac{4032}n.\] Then, by
 \hyperlink{r:b:a:ineq:1}{Result 7}, the  minimum of this over $\Rr$ is
 $2\sqrt{4032}$ at $n=\sqrt{4032}\approx 63.5$, which means either 63 or 64
-should minimise the expression over $\Nn$. In fact both do, which means we should
+should minimise the expression over $\Nn$. In fact both do, so we should
 try to force the expression into something that looks like $(n-63)(n-64)$, and
 indeed doing that solves the problem.
 
@@ -774,4 +771,9 @@ here.
     method? Can you introduce some auxiliary element to make its use possible?
   \item Can you draw a diagram to help you understand the problem?
 \end{itemize}
+\part{Wishlist}
+  \begin{itemize}
+    \item Master listing of named and unnamed results
+    \item Livesolves
+  \end{itemize}
 \end{document}
