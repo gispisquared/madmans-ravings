@@ -1,9 +1,9 @@
 %chktex-file 3
 \documentclass{amsart}
-\usepackage{amsmath,amssymb,amsthm,tcolorbox,hyperref}
+\usepackage{amsmath,amssymb,amsthm,tcolorbox,hyperref,booktabs}
 \hypersetup{colorlinks=true}
-\newtheorem{problem}{Problem}
-\newtheorem{result}{Result}
+\newtheorem{problem}{Problem}[subsubsection]
+\newtheorem{result}{Result}[subsubsection]
 \newcommand{\LHS}{\text{LHS}}
 \newcommand{\RHS}{\text{RHS}}
 \newcommand{\Rr}{\mathbb{R}}
@@ -15,21 +15,35 @@
 \tableofcontents
 \newpage
 \section*{Introduction}
-\emph{If you can't be bothered reading, see the tldr \hyperlink{tldr}{here}}.
+I was recently\footnote{February 2022} asked what advice I would give to a
+beginner Olympiad student. Partly for your sake if you're reading this, and
+partly to inform how I write this, I'll copy (and punctuate) my response here:
+\begin{itemize}
+  \item Don't believe people (like whoever writes
+    \href{https://how-did-i-get-here.com/olympiad/}{hdigh}) when they say methods
+    of proof is all you should learn before spamming problems. Maybe that works
+    if you're as smart as them, but most of us don't wanna spend most of our
+    training reinventing the wheel.
+  \item On the other hand, don't waste time looking up the latest crazy theorem
+    aopsers start mentioning; those are unlikely to ever be necessary and are
+    probably only rarely useful because problem setters and pscs prefer problems
+    where the easiest solution involves only canonical Olympiad knowledge.
+  \item Most of the problems you're trying right now are gonna be pretty
+    trivial for more advanced students, so whenever you solve or
+    don't solve a problem figure out why it should have been trivial and
+    hopefully this hindsight will start turning into foresight.
+\end{itemize}
 
-I'm writing this since I think that most of the resources out there that try to
-teach you olympiad maths have all the theory you need to solve IMO-level
-problems (and sometimes much more!), but it's much more rare to see people who
-tell you how to look at problems and figure out approaches that may, or in some
-cases should, work. True, much of this is an individual learning experience, but
-I think a lot of this can be written more explicitly.
+If I am to be consistent, then, this book's contents should be of three main
+types: canonical Olympiad knowledge and techniques, problems on which to
+practice these techniques, and solutions with motivation that try to make the
+problems seem as trivial as possible. I've also chosen both to include proofs to
+the known results (since their proofs are within Olympiad students' grasp and
+are often the source of canonical techniques), and to separate these proofs from
+the theorem statements in the same way as with problems (so that
+students can try to prove the theorems themselves).
 
-This may reduce some of the magic of figuring this stuff out for yourself; to
-mitigate this effect, I have relegated all the proofs and solutions to
-the back so that you can try prove everything before reading the solutions.
-
-Apart from the methods of proof chapter, the overwhelming majority of this book
-will be problems and solutions. There will be two main types of problems:
+There will be two main types of questions:
 \begin{itemize}
   \item \emph{Results}, which are considered important and well-known, and come
     up sporadically (or in some cases consistently) as steps in the harder
@@ -37,11 +51,6 @@ will be problems and solutions. There will be two main types of problems:
   \item \emph{Problems}, which will be questions taken from contests (mostly AMC
     and AIMO in Part 2, and AMO, EGMO and IMO in Part 3).
 \end{itemize}
-The ideas used to prove results are usually considered pretty
-basic ideas, though I think that's not because they're simple but because
-they're used often enough that they become standard. Then again I usually gave
-up far too early and looked at the proofs, so maybe I just didn't give myself
-enough time to prove them back when I was learning them.
 
 Since I refuse to rehash stuff that others have done better, I'll refer you to a
 couple of resources about how to write proofs properly:
@@ -52,19 +61,50 @@ couple of resources about how to write proofs properly:
   \item \href{https://web.evanchen.cc/handouts/english/english.pdf}{Notes on
     English}
 \end{itemize}
-Cool, hopefully now you know how to write proofs. Guess that means every time
+Cool, hopefully now you know how to write proofs. Guess that means every time 
 you solve a problem you'll get a 7, right?
+\newpage
+\part{General Recommendations}
+This part contains some general ideas about how to approach problems, or what to
+try when stuck.
 
-Oh, and apologies for the bad formatting typesetting hyperlinking etc.
+(With apologies to P\'olya)
+\begin{itemize}
+  \item How are the objects referred to in the problem defined? What properties
+    do you know them to have?
+  \item Try small or special cases. Can you spot patterns in their structure? In
+    how you solve them? Can you prove any of these patterns in general? Do any
+    of these patterns help?
+  \item Look at stuff that is extremal in some way: biggest, smallest, most
+    connected, most disconnected, most composite, prime, whatever
+  \item Think about what happens if the problem, or the conclusion, is wrong.
+  \item Can you reduce any instance of the problem to a smaller instance? 
+    Can you reduce a counterexample to a smaller counterexample?
+  \item Have you seen something similar before? Can you use the result or the
+    method? Can you introduce some auxiliary element to make its use possible?
+  \item Can you draw a diagram to help you understand the problem?
+\end{itemize}
 \newpage
 \part{Theory}
+\setcounter{section}{-1}
+\section{Notation}
+\begin{center}
+  \begin{tabular}{cc}
+    \toprule
+    Notation & Meaning \\ \midrule
+
+    $\Rr$ & The real numbers \\
+
+    \bottomrule
+  \end{tabular}
+\end{center}
+\newpage
 \section{Basics}
 \subsection{Methods of Proof}
 \subsubsection{Direct Proof}
 This is perhaps the simplest type of proof. The idea is to start with the stuff
 you're given, do some logical deduction, and finish with what you want to prove.
-\begin{result}
-  \hypertarget{r:m:1:1}
+\begin{result}\label{r:m:1:1}
   The remainder when a perfect square is divided by 4 is either 0 or 1.
   \hyperlink{s:m:1:1}{Solution}
 \end{result}
@@ -73,8 +113,7 @@ This is where you assume that what you're trying to prove is wrong and try to
 derive some kind of logical impossibility. Then the only place where the logic
 could have gone wrong was in the assumption so the statement you were trying to
 prove must be true.
-\begin{result}
-  \hypertarget{r:m:2:1}
+\begin{result}\label{r:m:2:1}
   There are infinitely many primes.
   \hyperlink{s:m:2:1}{Solution}
 \end{result}
@@ -85,8 +124,7 @@ with an result: ``If $x$ is an integer, then $x$ is rational'' is
 logically equivalent to ``If $x$ is not rational, then $x$ is not an integer''.
 Therefore, if we're asked to prove $A\implies B$, it's enough to
 prove $\neg B\implies\neg A$, which is sometimes easier.
-\begin{problem}
-  \hypertarget{p:m:3:1}
+\begin{problem}\label{p:m:3:1}
   Let $a,b\in\Rr$ such that $a+b$ is irrational. Prove that at least one of $a$
   and $b$ is irrational.
   \hyperlink{s:m:3:1}{Solution}
@@ -98,8 +136,8 @@ integer can be related to those of previous integers.
 
 Here is the Principle of Mathematical Induction (PMI):
 \begin{tcolorbox}
-Let $S$ be a set of positive integers such that $1\in S$ and for each $k\in S$,
-$k+1\in S$. Then $S$ contains all positive integers.
+  Let $S$ be a set of positive integers such that $1\in S$ and for each $k\in S$,
+  $k+1\in S$. Then $S$ contains all positive integers.
 \end{tcolorbox}
 
 To prove a statement for all positive integers, we let $S$ be the set of all
@@ -139,15 +177,13 @@ both equivalent to the usual form of induction:
 \end{itemize}
 The key idea in both of these reductions to PMI is to somehow encapsulate the
 extra information you're trying to assume into the framework of standard PMI\@.
-\begin{result}
-  \hypertarget{r:m:4:1}
+\begin{result}\label{r:m:4:1}
   For all positive integers $n$, \[1+2+\cdots+n=\frac{n(n+1)}2.\]
   \hyperlink{s:m:4:1}{Solution}
 \end{result}
 To conclude the Methods of Proof section, I'll include one final result that
 combines most of what we've covered so far.
-\begin{result}
-  \hypertarget{r:m:4:2}
+\begin{result}\label{r:m:4:2}
   The \emph{Well-Ordering Principle} states that any set of positive integers
   has a least element. It's equivalent to PMI --- that is,
   PMI is true if and only if well-ordering is true.
@@ -177,16 +213,14 @@ you can try and combine the equations in such a way that stuff cancels. The
 first method is usually fine in school maths and the AMC, but the second is more
 likely to be useful in harder Olympiad questions.
 
-Sometimes these techniques won't be enough --- see \hyperlink{n:a:systems}{here}.
-\begin{problem}
-  \hypertarget{p:b:a:systems:1}
+Sometimes these techniques won't be enough --- see Section~\ref{n:a:systems}.
+\begin{problem}\label{p:b:a:systems:1}
   The difference between two numbers is 20. When 4 is added to each number the
   larger is three times the smaller. What is the larger of the two original
   numbers?
   \hyperlink{s:b:a:systems:1}{Solution}
 \end{problem}
-\begin{problem}
-  \hypertarget{p:b:a:systems:2}
+\begin{problem}\label{p:b:a:systems:2}
   Find all triples $(x,y,z)$ of real numbers that simultaneously satisfy the
   equations
   \begin{align*}
@@ -197,14 +231,12 @@ Sometimes these techniques won't be enough --- see \hyperlink{n:a:systems}{here}
   \hyperlink{s:b:a:systems:2}{Solution}
 \end{problem}
 \subsubsection{Quadratics}
-\begin{result}
-  \hypertarget{r:b:a:quad:1}
+\begin{result}\label{r:b:a:quad:1}
   Let $m$ and $p$ be given real numbers. All real numbers $x$ such that
   \[x^2-2mx+p=0\] are given by $x=m\pm\sqrt{m^2-p}$.
   \hyperlink{sr:b:a:quad:1}{Solution}
 \end{result}
-\begin{result}
-  \hypertarget{r:b:a:quad:2}
+\begin{result}\label{r:b:a:quad:2}
   Let $a,\ b,\ c$ be given real numbers. All real numbers $x$ such that
   \[ax^2+bx+c=0\] are given by \[x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.\]
   In particular, if we let $\Delta=b^2-4ac$, then the equation has no real roots
@@ -216,16 +248,14 @@ This number $\Delta$ is called the \emph{discriminant} of the quadratic.
 
 Now, a couple of problems which show how useful both the results and the method
 are.
-\begin{problem}
-  \hypertarget{p:b:a:quad:1}
-  [See \hyperlink{b:n:bases}{here} if you don't know what number bases are.]
+\begin{problem}\label{p:b:a:quad:1}
+  [See Section~\ref{b:n:bases} if you don't know what number bases are.]
 
   The number $x$ is 111 when written in base $b$, but it is 212 when written in
   base $b-2$. What is $x$ is base 10?
   \hyperlink{sp:b:a:quad:1}{Solution}
 \end{problem}
-\begin{problem}
-  \hypertarget{p:b:a:quad:2}
+\begin{problem}\label{p:b:a:quad:2}
   For each pair of real numbers $(r,s)$, prove that there exists a real numer
   $x$ that satisfies at least one of the following two equations.
   \begin{align*}
@@ -234,80 +264,171 @@ are.
   \end{align*}
   \hyperlink{sp:b:a:quad:2}{Solution}
 \end{problem}
-\begin{problem}
-  \hypertarget{p:b:a:quad:3}
+\begin{problem}\label{p:b:a:quad:3}
   Find all real numbers $x$ for which $x^3+3x^2+3x+5=0$.
   \hyperlink{sp:b:a:quad:3}{Solution}
 \end{problem}
 \subsubsection{Inequalities}
 At this level, inequalities are mostly about making stuff into squares or, well,
-``mostly-squares''. The guiding principle is to try and find an expression which
+``mostly squares''. The guiding principle is to try and find an expression which
 you want to be always nonnegative, figure out where it's 0, and write it in
 terms of stuff that's 0 there and obviously nonnegative elsewhere.
 
-\begin{result}
-  \hypertarget{r:b:a:ineq:1}
+\begin{result}\label{r:b:a:ineq:1}
   If $a$ and $b$ are real numbers, then \[\frac{a+b}2\ge\sqrt{ab}.\]
   \hyperlink{sr:b:a:ineq:1}{Solution}
 \end{result}
 
-\begin{problem}
-  \hypertarget{p:b:a:ineq:1}
+\begin{problem}\label{p:b:a:ineq:1}
   The set $S$ consists of distinct integers such that the smallest is 0 and the
   largest is 2015. What is the minimum possible average value of the numbers in
   $S$?
   \hyperlink{sp:b:a:ineq:1}{Solution}
 \end{problem}
 \subsubsection{Sums of sequences}
-\begin{result}
-  \hypertarget{r:b:a:sums:1}
+\begin{result}\label{r:b:a:sums:1}
   If $n$ is a positive integer and $a$ and $b$ are real numbers, then
   \[\sum_{i=0}^n(a+bi)=\frac{(n+1)(2a+bn)}2.\]
   \hyperlink{sr:b:a:sums:1}{Solution}
 \end{result}
-\begin{result}
-  \hypertarget{r:b:a:sums:2}
+\begin{result}\label{r:b:a:sums:2}
   If $n$ is a positive integer and $r$ is a real number distinct from 1, then
   \[\sum_{i=0}^n r^i=\frac{1-r^{n+1}}{1-r}.\]
   \hyperlink{sr:b:a:sums:2}{Solution}
 \end{result}
-\subsubsection{Polynomials}
-A polynomial is just an expression of the form
-\[P(x)=a_n x^n+a_{n-1}x^{n-1}+\cdots+a_0x^0,\] where each of the $a_i$s is a
-constant and $a_n\ne 0$.
-The number $n$ is called the \emph{degree} of the polynomial. The expression
-$P(x)=0$ is also a polynomial, and it's defined to have degree $-\infty$.
-
-\begin{result}
-  \hypertarget{r:b:a:polys:1}
-  If a polynomial $P(x)$ of degree $n$ has a root $r$, then there is a
-  polynomial $Q(x)$ of degree $n-1$ such that \[P(x)=(x-r)Q(x).\]
-  \hyperlink{sr:b:a:polys:1}{Solution}
-\end{result}
-\begin{result}
-  \hypertarget{r:b:a:polys:2}
-  If a polynomial \[P(x)=a_n x^n+a_{n-1}x^{n-1}+\cdots+a_0x^0\] has roots
-  $r_1,\ldots,r_n$ then for each $i$, \[a_{n-i}=(-1)^i a_n
-  \sum_{j_1<\cdots<j_i} \prod_{k=1}^i r_{j_k}.\]
-  \hyperlink{sr:b:a:polys:2}{Solution}
-\end{result}
+\begin{problem}\label{p:b:a:sums:1}
+  Prove that for any positive integers $n$ and $a$, the sum
+  \[n+(n+1)+(n+2)+\cdots+(n+a)\] is never a power of 2.
+  \hyperlink{sp:b:a:sums:1}{Solution}
+\end{problem}
 \subsection{Combinatorics}
 \subsubsection{Addition and Multiplication Principles}
-\begin{problem}
-  \hypertarget{p:b:c:am:1}
-  A hockey game between two teams is `relatively close' if the number of goals
+This is the most basic idea in combinatorics. If you can make one from $a$
+choices and then one from $b$ choices, the total number of ways you can do this
+is $ab$. If you can make either one from $a$ choices or one from $b$ choices,
+the total number of ways you can do this is $a+b$.
+
+Many easier combinatorics problems boil down to splitting them into cases, and
+then applying addition and multiplication principles to count each case.
+\begin{result}\label{r:b:c:am:1}
+  The number of ways of choosing $k$ things from $n$, where order matters, is
+  \[n(n-1)\cdots(n-k+1)=\frac{n!}{k!}.\]
+  \hyperlink{sr:b:c:am:1}{Solution}
+\end{result}
+\begin{problem}\label{p:b:c:am:1}
+  A hockey game between two teams is `relatively close' if the numbers of goals
   scored by the two teams never differ by more than two. In how many ways can
   the first 12 goals of a game be scored if the game is `relatively close'?
-  \hyperlink{s:b:c:am:1}{Solution}
+  \hyperlink{sp:b:c:am:1}{Solution}
 \end{problem}
-\subsubsection{Permutations and Combinations}
-\subsubsection{Double Counting and Combinatorial Identities}
-\subsubsection{Venn Diagrams and PIE}
-\subsubsection{Supermarket Principle}
-\subsubsection{Recurrences}
+\subsubsection{Combinations}
+\begin{result}\label{r:b:c:c:1}
+  The number of ways of choosing $k$ things from $n$, where order doesn't
+  matter, is \[\frac{n!}{(n-k)!(n-k)!}.\]
+  \hyperlink{sr:b:c:c:1}{Solution}
+\end{result}
+\begin{problem}{\label{p:b:c:c:1}}
+  How many pairs $(a,b)$ of 3-digit palindromes are there with $a>b$ and
+  $a-b$ also a 3-digit palindrome?
+  \hyperlink{sp:b:c:c:1}{Solution}
+\end{problem}
+\subsubsection{Inclusion-Exclusion}
+So you try to count something using the addition principle, but you realise
+you've counted some things twice. Obviously, the way you fix it is you subtract
+the stuff you doubled up. For more tedious problems this could also be
+overcounted, but this can be continued and hopefully the stuff you've
+overcounted gets easier to count each time.
+\begin{problem}{\label{p:b:c:pie:1}}
+  How many integers between 1 and 1000 inclusive are divisible by at least one
+  of 4, 6 and 10?
+\end{problem}
+\subsubsection{Bijections}
+A bijection is simply a way of counting one set of stuff by identifying each
+element in the set with an element from another set that's easier to count.
+We've already used a bijection in our solution to Problem~\ref{p:b:c:c:1}.
+
+To come up with a bijection, it's often useful to list out the elements of each
+set for some small cases, and pair them up in what looks like a natural way.
+Often that natural way will generalise.
+
+\begin{result}{\label{r:b:c:b:1}}
+  The number of ways of putting $n$ identical things into $k$ boxes is
+  \[\binom{n+k-1}{k-1}.\]
+\end{result}
+\begin{problem}{\label{p:b:c:b:1}}
+  How many paths are there from the bottom left to the top right of a $4\times
+  7$ grid, if you can only go up or right?
+\end{problem}
 \subsection{Geometry}
+\subsubsection{Parallels}
+You should know what parallel lines are: they point in the same direction and
+never meet.
+
+Let $ABC$ and $DEF$ be points in that order along two parallel lines, and let
+$X$ and $Y$ be points on $BE$ such that $XBEY$ is in that order.
+Then
+\[\angle ABX=\angle CBE=\angle DEX=\angle FEY,\] the other four angles are
+equal, and the angles in these two sets are supplementary (add up to 
+$180^\circ$).
+\begin{result}{\label{r:b:g:p:1}}
+  For any three points $A, B, C$, \[\angle ABC+\angle
+  BCA+\angle CAB=180^\circ.\]
+\end{result}
 \subsubsection{Congruence}
-\subsubsection{Basic angle chasing}
+Two triangles $ABC$ and $XYZ$ are called \emph{congruent} if \[AB=XY,\ AC=XZ,\
+BC=YZ,\]
+\[\angle BAC=\angle YXZ,\ \angle ABC=\angle XYZ,\ \angle ACB=\angle
+XZY.\]
+We write ``$ABC$ is congruent to $XYZ$'' as $\triangle ABC\cong\triangle XYZ$,
+and in this case we also know that the areas of $ABC$ and $XYZ$ are equal.
+
+There are congruence tests which enable us to determine when two triangles are
+congruent, so that knowing some of these equalities we can deduce the others.
+
+Triangles $ABC$ and $XYZ$ are congruent if any of the following hold:
+\begin{itemize}
+  \item $AB=XY$, $AC=XZ$ and $BC=YZ$. (SSS)
+  \item $AB=XY$, $AC=XZ$ and $\angle BAC=\angle YXZ$. (SAS)
+  \item $AB=XY$ and $\angle BAC=\angle YXZ$ and $\angle ABC=\angle XYZ$. (AAS)
+\end{itemize}
+Note: SSA (two sides and an unincluded angle) on its own isn't enough, but we
+can fix it:
+\begin{itemize}
+  \item $AB=XY$ and $AC=XZ$ and $\angle ABC=\angle XYZ$ and $AB<AC$. (Fixed SSA)
+\end{itemize}
+In the special case where $\angle ABC=\angle XYZ$, this is known as RHS.\@
+\begin{result}{\label{r:b:g:c:1}}
+  Let $ABC$ be a triangle, and let $M$ be the midpoint of $BC$.
+  The following statements are equivalent:
+  \begin{itemize}
+    \item $AB=AC$
+    \item $\angle ABC=\angle ACB$
+    \item $AM\perp BC$.
+  \end{itemize}
+\end{result}
+\begin{result}{\label{r:b:g:c:2}}
+  Let $ABCD$ be a parallelogram (that is, $AB||CD$ and $BC||DA$). If $AC$
+  intersect $BD$ at $P$, then $P$ is the midpoint of $AC$ and of $BD$.
+\end{result}
+\subsubsection{Circles}
+A \emph{circle} is the set of points equidistant from a given point.
+\begin{result}{\label{r:b:g:ci:1}}
+  If $A,\ B,\ C$ are points on a circle centred at $O$ with $A$ on the same side
+  of $BC$ as $O$, then $\angle BOC=2\angle BAC$.
+\end{result}
+\begin{result}{\label{r:b:g:ci:2}}
+  If $A,\ B,\ C$ are points on a circle centred at $O$ with $A$ and $O$ on
+  opposite sides of $BC$, then $\angle BOC=360^\circ-2\angle BAC$.
+\end{result}
+\begin{result}{\label{r:b:g:ci:3}}
+  If $B$ and $C$ lie on the same side of $AD$ then there is a circle passing
+  through all of $A,\ B,\ C,\ D$ if and only if $\angle ABD=\angle ACD$.
+\end{result}
+\begin{result}{\label{r:b:g:ci:4}}
+  If $B$ and $D$ lie on opposite sides of $AC$, then there is a circle passing
+  through all of $A,\ B,\ C,\ D$ if and only if $\angle ABC+\angle
+  ADC=180^\circ$.
+\end{result}
 \subsubsection{Similarity}
 \subsubsection{Pythagoras}
 \subsubsection{Common right-angled triangles}
@@ -315,21 +436,44 @@ $P(x)=0$ is also a polynomial, and it's defined to have degree $-\infty$.
 \subsubsection{Primes and FTOA}
 \subsubsection{SFFT}
 \subsubsection{Divisibility}
-\subsubsection{Number bases}
-\hypertarget{b:n:bases}
+\subsubsection{Modular Arithmetic}
+\subsubsection{Number bases}\label{b:n:bases}
 hi
 \section{Not-so-basics}
 \subsection{Algebra}
-\subsubsection{Systems of equations}
-\hypertarget{n:a:systems}
+\subsubsection{Systems of equations}\label{n:a:systems}
 hi
+\subsubsection{Polynomials}
+A polynomial is just an expression of the form
+\[P(x)=a_n x^n+a_{n-1}x^{n-1}+\cdots+a_0x^0,\] where each of the $a_i$s is a
+constant and $a_n\ne 0$.
+The number $n$ is called the \emph{degree} of the polynomial. The expression
+$P(x)=0$ is also a polynomial, and it's defined to have degree $-\infty$.
+
+\begin{result}\label{r:n:a:polys:1}
+  If a polynomial $P(x)$ of degree $n$ has a root $r$, then there is a
+  polynomial $Q(x)$ of degree $n-1$ such that \[P(x)=(x-r)Q(x).\]
+  \hyperlink{sr:n:a:polys:1}{Solution}
+\end{result}
+\begin{result}\label{r:n:a:polys:2}
+  If a polynomial \[P(x)=a_n x^n+a_{n-1}x^{n-1}+\cdots+a_0x^0\] has roots
+  $r_1,\ldots,r_n$ then for each $i$, \[a_{n-i}=(-1)^i a_n
+  \sum_{j_1<\cdots<j_i} \prod_{k=1}^i r_{j_k}.\]
+  \hyperlink{sr:n:a:polys:2}{Solution}
+\end{result}
 \subsection{Combinatorics}
+\subsubsection{Recurrences}
 \subsection{Geometry}
 \subsection{Number Theory}
+\newpage
 \part{Practice}
 \newpage
 \part{Solutions}
-\hyperlink{r:m:1:1}{Result 1}
+\setcounter{section}{0}
+\renewcommand*{\theHsection}{sols.\the\value{section}}
+\section{Basics}
+\subsection{Methods of Proof}
+\subsubsection*{Result~\ref{r:m:1:1}}
 \hypertarget{s:m:1:1}
 If you start trying some small cases, what you'll eventually find is that if $n$
 is an even integer, then $n^2$ leaves a remainder of 0 when divided by 4, and
@@ -349,7 +493,7 @@ a number to be even or odd, and then the proof falls out quite naturally:
   In either case, the remainder left when dividing $n^2$ by 4 is either 0 or 1,
   which is what we wanted to prove.
 \end{proof}
-\hyperlink{r:m:2:1}{Result 2}
+\subsubsection*{Result~\ref{r:m:2:1}}
 \hypertarget{s:m:2:1}
 The key here is to assume, for contradiction, that there are
 only finitely many primes. Then we want to prove a suitable contradiction --- a
@@ -363,7 +507,7 @@ multiplying everything and adding 1 is surprisingly common in Olympiad maths.
   $p_i\mid A$. But $p_i\mid A-1$, so $p_i\mid A-(A-1)=1$, which is our
   contradiction.
 \end{proof}
-\hyperlink{p:m:3:1}{Problem 1}
+\subsubsection*{Problem~\ref{p:m:3:1}}
 \hypertarget{s:m:3:1}
 This is more an exercise in logic than in maths.
 You could be stuck for ages trying to prove the problem directly, but as soon as
@@ -378,7 +522,7 @@ particular case uses the contrapositive.
   Let $a=\frac wx,\ b=\frac yz$. Then \[a+b=\frac wx+\frac
   yz=\frac{wz+xy}{xz},\] which is clearly rational.
 \end{proof}
-\hyperlink{r:m:4:1}{Result 3}
+\subsubsection*{Result~\ref{r:m:4:1}}
 \hypertarget{s:m:4:1}
 This is a classic induction problem. Apart from being instructive because it
 isolates the idea of induction, it does highlight a minor point. In the
@@ -387,7 +531,7 @@ and prove it for $k+1$ as to assume the problem is true for $k-1$ and prove it
 for $k$. In this particular case, the latter is somewhat easier.
 \begin{proof}
   We prove this by induction on $n$.
-  
+
   Base case $n=1$: We have $\LHS=1=\frac{1\times 2}2=\RHS$.
 
   Inductive step: Assume the problem is true for $n=k-1$. Then,
@@ -399,7 +543,7 @@ for $k$. In this particular case, the latter is somewhat easier.
   \end{align*}
   so the problem is true for $n=k$.
 \end{proof}
-\hyperlink{r:m:4:2}{Result 4}
+\subsubsection*{Result~\ref{r:m:4:2}}
 \hypertarget{s:m:4:2}
 Since this is an ``if and only if'' problem, we will probably need to find
 separate proofs in each direction. 
@@ -462,7 +606,8 @@ Let's write it up.
   $a-1\not\in\Nn\setminus S\implies a-1\in S$. So since $a-1\in S,\ a\in S$
   which contradicts the assumption that $a\not\in S$.
 \end{proof}
-\hyperlink{p:b:a:systems:1}{Problem 2}
+\subsection{Algebra}
+\subsubsection*{Problem~\ref{p:b:a:systems:1}}
 \hypertarget{s:b:a:systems:1}
 Not much to say here --- interpret as a system of linear equations and solve
 however you like. 
@@ -474,14 +619,14 @@ Answer: 26.
     a+4&=3(a-20+4) \\
        &=3a-48 \\
     2a&=52 \\
-     a&=26,
- \end{align*}
- so the larger of the two numbers is 26.
+    a&=26,
+  \end{align*}
+  so the larger of the two numbers is 26.
 
- To prove that this actually works, note that if $a=26$ and $b=6$, then $a-b=20$
- and $a+4=30=3\times 10=3(b+4)$ as needed.
+  To prove that this actually works, note that if $a=26$ and $b=6$, then $a-b=20$
+  and $a+4=30=3\times 10=3(b+4)$ as needed.
 \end{proof}
-\hyperlink{p:b:a:systems:2}{Problem 3}
+\subsubsection*{Problem~\ref{p:b:a:systems:2}}
 \hypertarget{s:b:a:systems:2}
 Since we don't like the 1s in our equations, we subtract two equations to get
 rid of them. Alternatively, we subtract two equations because that's one of the
@@ -510,7 +655,7 @@ Answer: $(x,y,z)=(1,1,1),\left(-2,-2,\frac52\right),\left(-2,\frac52,-2\right),
   So the only solutions are what we claim they are. It is easy to check that
   these solutions all satisfy the original equations.
 \end{proof}
-\hyperlink{r:b:a:quad:1}{Result 5}
+\subsubsection*{Result~\ref{r:b:a:quad:1}}
 \hypertarget{sr:b:a:quad:1}
 First, there are a few ways of seeing that this is the answer.
 
@@ -535,7 +680,7 @@ $x^2-2mx+m^2=(x-m)^2$. I'll do the rest in the proof.
   \end{align*}
   so it equals 0 if and only if $x=m\pm\sqrt{m^2-p}$.
 \end{proof}
-\hyperlink{r:b:a:quad:2}{Result 6}
+\subsubsection*{Result~\ref{r:b:a:quad:2}}
 \hypertarget{sr:b:a:quad:2}
 The key here is to get this equation into a form such that we can apply the
 previous result.
@@ -555,7 +700,7 @@ previous result.
   $\Delta=0$ the unique solution is $x=\frac{-b}{2a}$. If $\Delta>0$ there are
   two solutions given by our equation.
 \end{proof}
-\hyperlink{p:b:a:quad:1}{Problem 4}
+\subsubsection*{Problem~\ref{p:b:a:quad:1}}
 \hypertarget{sp:b:a:quad:1}
 Once again not much to say here --- interpret the number bases  in the usual way
 and solve the resulting quadratic.
@@ -567,36 +712,36 @@ Answer: 57.
     111_b&=212_{b-2} \\
     b^2+b+1&=2(b-2)^2+(b-2)+2 \\
            &=2b^2-7b+8 \\
-          0&=b^2-8b+7 \\
-          b&=4\pm\sqrt{4^2-7} \\
-           &=4\pm3
+    0&=b^2-8b+7 \\
+    b&=4\pm\sqrt{4^2-7} \\
+     &=4\pm3
   \end{align*}
-  But since $b>2$ we get $b=7\implies x=7^2+7+1=57$.
+  Therefore, since $b>2$ we get $b=7\implies x=7^2+7+1=57$.
 
   Finally, 57 is indeed 111 in base 7 and 212 in base 5.
 \end{proof}
-\hyperlink{p:b:a:quad:2}{Problem 5}
+\subsubsection*{Problem~\ref{p:b:a:quad:2}}
 \hypertarget{sp:b:a:quad:2}
 The key here is to use the discriminant ($\Delta$ in
-\hyperlink{r:b:a:quad:2}{Result 6}). In particular,
+Result~\ref{r:b:a:quad:2}). In particular,
 it's enough to prove that at least one of the two $\Delta$s is nonnegative. The
 easiest way of doing this is to assume that the first is negative and prove that
 the second isn't.
 \begin{proof}
   Assume that there is no real number $x$ such that $x^2+(r+1)x+s=0$. Then the
   discriminant $(r+1)^2-4s$ is negative, so $4s>(r+1)^2$.
- 
+
   Since $(r+1)^2\ge 0$, we know that $s>0$.
   Also, $4(s-r)>(r+1)^2-4r=(r-1)^2\ge 0$.
   So since $s>0$ and $4(s-r)>0$, their product $4s^2-4sr$ is also positive so
   the discriminant of the second quadratic is positive, meaning that it has at
   least one real solution.
 \end{proof}
-\hyperlink{p:b:a:quad:3}{Problem 6}
+\subsubsection*{Problem~\ref{p:b:a:quad:3}}
 \hypertarget{sp:b:a:quad:3}
 At first glance, this looks like our methods can't help since we have a cubic
-not a quadratic. However, the same trick used in \hyperlink{r:b:a:quad:1}{Result
-5} of recognising a common factorisation does in fact work.
+not a quadratic. However, the same trick used in Result~\ref{r:b:a:quad:1}
+of recognising a common factorisation does in fact work.
 
 Answer: $x=-1-\sqrt[3]{4}$.
 \begin{proof}
@@ -612,7 +757,7 @@ Answer: $x=-1-\sqrt[3]{4}$.
   implications run backwards as well.
 \end{proof}
 
-\hyperlink{r:b:a:ineq:1}{Result 7}
+\subsubsection*{Result~\ref{r:b:a:ineq:1}}
 \hypertarget{sr:b:a:ineq:1}
 Since we want to use the fact that squares are nonnegative, we collect all the
 terms on one side. The rest is recognition, which can be helped by noticing that
@@ -622,13 +767,13 @@ we want equality to occur when $a=b$.
   b)^2}2\ge 0,\] as needed.
 \end{proof}
 
-\hyperlink{p:b:a:ineq:1}{Problem 7}
+\subsubsection*{Problem~\ref{p:b:a:ineq:1}}
 \hypertarget{sp:b:a:ineq:1}
 We have to have a 0 and a 2015 in the set, but apart from them the rest of the
 terms should be as small as possible. This means that we can apply
-\hyperlink{r:m:4:1}{Result 3} to get a function we want to minimise. A little
+{Result 3} to get a function we want to minimise. A little
 algebraic trickery means it's enough to minimise \[n+\frac{4032}n.\] Then, by
-\hyperlink{r:b:a:ineq:1}{Result 7}, the  minimum of this over $\Rr$ is
+{Result 7}, the  minimum of this over $\Rr$ is
 $2\sqrt{4032}$ at $n=\sqrt{4032}\approx 63.5$, which means either 63 or 64
 should minimise the expression over $\Nn$. In fact both do, so we should
 try to force the expression into something that looks like $(n-63)(n-64)$, and
@@ -642,21 +787,21 @@ Answer: 62.
   least
   \begin{align*}
     \frac{0+1+\cdots+n-2+2015}n&=\frac{\frac{(n-2)(n-1)}2+2015}n \\
-                              &=\frac{n^2-3n+4032}{2n}\\
-                              &=\frac{n^2-127n+4032}{2n}+62 \\
-                              &=\frac{(n-63)(n-64)}{2n}+62.
+                               &=\frac{n^2-3n+4032}{2n}\\
+                               &=\frac{n^2-127n+4032}{2n}+62 \\
+                               &=\frac{(n-63)(n-64)}{2n}+62.
   \end{align*}
   Since $n$ is an integer, the first term is 0 if $n$ is either 63 or 64 and
   positive otherwise, which means that the minimum value is 62, achieved when
   $S$ is either $\{0,1,\ldots,61,2015\}$ or $\{0,1,\ldots,61,62,2015\}$.
 \end{proof}
-\hyperlink{r:b:a:sums:1}{Result 8}
+\subsubsection*{Result~\ref{r:b:a:sums:1}}
 \hypertarget{sr:b:a:sums:1}
 There are three ways I know of doing this. One of them is a standard induction,
 but the other two are more interesting.
 
 For the first way, we notice that we already know the special case (see
-\hyperlink{r:m:4:1}{Result 3}) where $a=0$ and $b=1$. A little algebra allows us
+Result~\ref{r:m:4:1}) where $a=0$ and $b=1$. A little algebra allows us
 to reduce the whole problem to this particular case.
 \begin{proof}
   We have
@@ -668,21 +813,22 @@ to reduce the whole problem to this particular case.
   \end{align*}
   as needed.
 \end{proof}
-For the second way, we use a trick called \emph{Gaussian pairing} --- we pair the
-first term with the last term and so on --- so that each pair has the same
+For the second way, we use a trick called \emph{Gaussian pairing} --- we pair
+the first term with the last term and so on --- so that each pair has the same
 sum.
 \begin{proof}
   We have
   \begin{align*}
     \sum_{i=0}^n(a+bi)&=\sum_{i=0}^n(a+b(n-i)) \\
-                      &=\frac12\left(\sum_{i=0}^n(a+bi)+\sum_{i=0}^n(a+b(n-i))\right)
+                      &=\frac12\left(\sum_{i=0}^n(a+bi)+
+                      \sum_{i=0}^n(a+b(n-i))\right)
                       \\
                       &=\frac12\left(\sum_{i=0}^n(2a+bn)\right) \\
                       &=\frac{(n+1)(2a+bn)}2,
   \end{align*}
   as needed.
 \end{proof}
-\hyperlink{r:b:a:sums:2}{Result 9}
+\subsubsection*{Result~\ref{r:b:a:sums:2}}
 \hypertarget{sr:b:a:sums:2}
 The main idea here comes from extending a couple of the common factorisations:
 \begin{itemize}
@@ -694,16 +840,109 @@ Let's write it up.
   We have \[1-r^{n+1}=(1-r)(1+r+r^2+\cdots+r^n),\] since all the middle terms
   cancel. Dividing both sides by $1-r$ yields the desired result.
 \end{proof}
-\hyperlink{r:b:a:polys:1}{Result 10}
-\hypertarget{sr:b:a:polys:1}
+\subsubsection*{Problem~\ref{p:b:a:sums:1}}
+\hypertarget{sp:b:a:sums:1}
+So you sum your sequence using Result~\ref{r:b:a:sums:1}, which gets you a
+closed form. 
+
+Then you're left having to prove that $a+1$ and $2n+a$ cannot both be powers of
+2. Playing around with special cases tells you at least one is odd, and from
+there it's easy to finish.
+\begin{proof}
+  From Result~\ref{r:b:a:sums:1}, we have that the given sum is equal to
+  \[\frac{(a+1)(2n+a)}2.\] So assume, for contradiction, that this is a power
+  of 2. Then we have that twice the sum is also a power of 2, so $(a+1)(2n+a)$
+  is a power of 2. Since $a+1$ and $2n+a$ both divide powers of 2, they must
+  each be a power of 2. Since $a$ and $n$ are positive integers, both $a+1$ and
+  $2n+a$ are at least 2 so they're even. So their difference, $2n-1$, must also
+  be even, which is a contradiction.
+\end{proof}
+\subsection{Combinatorics}
+\subsubsection*{Result~\ref{r:b:c:am:1}}
+\hypertarget{sr:b:c:am:1}
+Not much to say here: just apply the multiplication principle.
+\begin{proof}
+  There are $n$ ways to choose the first thing, $n-1$ ways to choose the second
+  (since the first has been chosen), $n-2$ to choose the third, and so on up to
+  $n-k+1$ for the $k$th. Thus the total number of ways is
+  \[n(n-1)\cdots(n-k+1),\] as claimed.
+\end{proof}
+\subsubsection*{Problem~\ref{p:b:c:am:1}}
+\hypertarget{sp:b:c:am:1}
+So you try some small cases because of course you do, and you notice that every
+2 goals apart from the first 2, the number of ways is multiplied by 3. With the
+help of like, a tree diagram, it's easy to see that after an odd number of goals
+there are 3 ways of scoring the next 2. The rest is easy:
+
+Answer: $972$.
+\begin{proof}
+  There are 2 ways for the first goal to be scored.
+
+  Assume an odd number of goals has been scored. Then the difference between the
+  two teams' goals is 1, so we can WLOG team A has one more goal than team B.
+  Then the next two goals can be AB, BA, BB so there are 3 ways for the next two
+  goals to be scored.
+
+  Finally, there are 2 ways for the last 2 goals to be scored.
+
+  Thus, the total number of ways for 12 goals to be scored is $2\times 3^5\times
+  2=972$.
+\end{proof}
+\subsubsection*{Result~\ref{r:b:c:c:1}}
+\hypertarget{sr:b:c:c:1}
+The key to proving this is to notice that we have already proven
+Result~\ref{r:b:c:am:1} where order does matter. To go from order mattering to
+order not mattering, we need to find out how much we've overcounted by: that is,
+how many permutations, where order matters, go to the same combination, where
+order doesn't.
+\begin{proof}
+  By Result~\ref{r:b:c:am:1}, there are $\frac{n!}{k!}$ ways of choosing $k$
+  things from $n$, where order matters.
+
+  Let there be $x$ ways of choosing $k$ things from $n$, where order doesn't
+  matter. Then for each such way, each permutation of those $k$ things is
+  counted in our $\frac{n!}{(n-k)!}$ from above. Applying
+  Result~\ref{r:b:c:am:1} again, we have that $k!\times x=\frac{n!}{(n-k)!}$,
+  which rearranges to the claimed formula.
+\end{proof}
+\subsubsection{Problem~\ref{p:b:c:c:1}}
+\hypertarget{sp:b:c:c:1}
+So upon reading the problem we can let our palindromes be $\overline{xyx}$ and
+$\overline{ztz}$. Clearly, $x>z$, after which it's clear why $y\ge t$.
+
+So by the multiplication principle, it suffices to count two things:
+\begin{itemize}
+  \item The number of ways of choosing digits $x$ and $z$ with $x>z>0$
+  \item The number of ways of choosing digits $y$ and $t$ with $y\ge t$.
+\end{itemize}
+Both these things are quite easy to count using this section's formula.
+
+Answer: 1980.
+\begin{proof}
+  Let the palindromes be $\overline{xyx}$ and $\overline{ztz}$. Since their
+  difference is 3 digits and $a>b$, we have $x>z$. 
+
+  Since the second digit of our subtraction can't carry, we must have $y\ge t$.
+  So it's enough to count the number of ways we can choose $x$ and $z$, and
+  separately the number of ways we can choose $y$ and $t$.
+
+  Since $x$ and $z$ are distinct digits from 1 to 9, the number of choosing them
+  is $\binom92=36$. Since $y$ and $t$ are not-necessarily-distinct digits from
+  0 to 9, the number of ways of choosing them is $\binom{10}2+10=55$. Thus, the
+  answer is $36\times 55=1980$.
+\end{proof}
+\section{Not-so-basics}
+\subsection{Algebra}
+\subsubsection*{Result~\ref{r:n:a:polys:1}}
+\hypertarget{sr:n:a:polys:1}
 For those of you who have seen polynomial long division, this should seem very
 familiar, and indeed the same idea of dividing from highest to lowest degree
 works. The neatest and most rigorous way to write it up uses induction.
 \begin{proof}
   By strong induction on the degree.
 
-  Base case $n=1$: if $ar-b=0$ then $\frac ba=r$ so $ax-b=a(x-\frac ba)=a(x-r)$,
-  as needed. Clearly $Q(x)=a$ has degree 0.
+  Base case $n=1$: if $ar-b=0$ then $\frac ba=r$ so $ax-b=a\left(x-\frac
+  ba\right)=a(x-r)$, as needed. Clearly $Q(x)=a$ has degree 0.
 
   Inductive step: Write \[P(x)=a_n x^{n-1}(x-r)+P_1(x),\] so that $P_1(x)$ is a
   polynomial of degree less than $n$ and $P_1(r)=P(r)-0=0$.
@@ -714,8 +953,8 @@ works. The neatest and most rigorous way to write it up uses induction.
   degree $n-1$ since $Q_1(x)$ has degree less than $n-1$ and $a_n x^{n-1}$ has
   degree $n-1$.
 \end{proof}
-\hyperlink{r:b:a:polys:2}{Result 11}
-\hypertarget{sr:b:a:polys:2}
+\subsubsection*{Result~\ref{r:n:a:polys:2}}
+\hypertarget{sr:n:a:polys:2}
 First we need to understand what the problem is saying. Try special cases:
 $i=0,\ i=n,\ n=1,\ n=2$ and so on, until you know what it's saying.
 
@@ -749,31 +988,105 @@ The neatest way of writing this up is to use induction.
   complete.
 \end{proof}
 \newpage
-\part{TLDR}
-\hypertarget{tldr}
-This part contains some ideas about how to approach problems; basically,
-I've taken what I think are the most important bits and condensed them together
-here.
-
-(With apologies to P\'olya)
+\part{Other resources}
+\section{Basics}
 \begin{itemize}
-  \item How are the objects referred to in the problem defined? What properties
-    do you know them to have?
-  \item Try small or special cases. Can you spot patterns in their structure? In
-    how you solve them? Can you prove any of these patterns in general? Do any
-    of these patterns help?
-  \item Look at stuff that is extremal in some way: biggest, smallest, most
-    connected, most disconnected, most composite, prime, whatever
-  \item Think about what happens if the problem, or the conclusion, is wrong.
-  \item Can you reduce any instance of the problem to a smaller instance? 
-    Can you reduce a counterexample to a smaller counterexample?
-  \item Have you seen something similar before? Can you use the result or the
-    method? Can you introduce some auxiliary element to make its use possible?
-  \item Can you draw a diagram to help you understand the problem?
+  \item \href{https://artofproblemsolving.com/resources}{AOPS Resources}
+  \item
+    \href{https://www.its.caltech.edu/~kpilch/olympiad/MethodsOfProof-Complete.pdf}
+    {Methods of Proof}
+  \item \href{https://artofproblemsolving.com/news/articles/how-to-write-a-solution}
+    {How to write a solution}
+  \item OTIS Excerpts, chapter 1
 \end{itemize}
-\part{Wishlist}
-  \begin{itemize}
-    \item Master listing of named and unnamed results
-    \item Livesolves
-  \end{itemize}
+
+\section{NT}
+\begin{itemize}
+  \item
+    \href{https://numbertheoryguydotcom.files.wordpress.com/2018/10/main1.pdf}
+    {Intermediate Number Theory}
+  \item
+    \href{http://s3.amazonaws.com/aops-cdn.artofproblemsolving.com/resources/articles/olympiad-number-theory.pdf}
+      {Olympiad Number Theory through Challenging Problems}
+  \item \href{https://drive.google.com/file/d/1BcJTLjQaelZ4w_70oHKyImC2I8zLfyrt/view?usp=sharing}
+    {Modern Olympiad Number Theory}
+\end{itemize}
+
+\section{Algebra}
+\begin{itemize}
+  \item OTIS Excerpts, chapters 2 to 5
+  \item
+    \href{https://alexanderrem.weebly.com/uploads/7/2/5/6/72566533/polynomials.pdf}
+    {Polynomials}
+  \item
+    \href{https://alexanderrem.weebly.com/uploads/7/2/5/6/72566533/sequences.pdf}
+    {Sequences}
+\end{itemize}
+
+\section{Combi}
+\begin{itemize}
+  \item \href{http://math.sun.ac.za/swagner/Combinatorics.pdf}{Combinatorics}
+  \item
+    \href{https://drive.google.com/file/d/1sQtirXxkEfWYuGSKDZ-d7VGYkR_idebY/view}
+    {Olympiad Combinatorics}
+  \item
+    \href{https://drive.google.com/file/d/1pkgUjWs4ArL9Huq712NO1RtuAvXjr3d9/view?usp=sharing}
+    {Combinatorics and Combinatorial Geometry}
+\end{itemize}
+
+\section{Geo}
+\begin{itemize}
+  \item
+    \href{https://books.google.com/books?id=47UaDAAAQBAJ&lpg=PP1&pg=PP1#v=onepage&q&f=false}
+    {EGMO Chapters 1 to 3}
+  \item
+    \href{https://www.maa.org/sites/default/files/pdf/ebooks/pdf/EGMO_chapter8.pdf}
+    {EGMO Chapter 8}
+  \item \href{https://www.olympiadgeometry.com/the-book.html} {A Beautiful
+      Journey through Olympiad Geometry}
+  \item \href{https://yufeizhao.com/olympiad/geolemmas.pdf} {Lemmas in Olympiad
+      Geometry}
+\end{itemize}
+
+\section{Problems}
+\begin{itemize}
+  \item \href{https://mathscomp.ms.unimelb.edu.au/past-papers/} {Melbourne Uni
+      Maths Comp past papers}
+  \item \href{https://www.bmoc.maths.org/home/bmolot.pdf} {BMO past papers}
+  \item 
+    \href{https://artofproblemsolving.com/community/c14_international_contests}
+    {International contest collection}
+    (see especially EGMO, IMO,  IMO Shortlist, RMM)
+\end{itemize}
+
+\section{Assorted}
+\begin{itemize}
+  \item \href{https://web.evanchen.cc/textbooks/OTIS-Excerpts.pdf}{OTIS
+      Excerpts}
+  \item \href{https://how-did-i-get-here.com/olympiad/}{HDIGH Olympiad page}
+  \item \href{https://how-did-i-get-here.com/olympiad-resources/}{HDIGH Olympiad
+      resources}
+  \item \href{https://web.evanchen.cc/olympiad.html}{Evan Chen's page}
+  \item \href{https://www.math.cmu.edu/~ploh/olympiad.shtml}{Po-Shen Loh's page}
+  \item \href{https://cjquines.com/math/competition-handouts}{CJ Quines' page}
+  \item \href{https://yufeizhao.com/olympiad/}{Yufei Zhao's page}
+  \item \href{https://alexanderrem.weebly.com/math-competitions.html}{Alexander
+      Remonov's page}
+  \item \href{https://www.its.caltech.edu/~kpilch/olympiad.html}{Konrad Pilch's
+      page}
+  \item
+    \href{https://archive.org/download/ProblemSolvingStrategies/Problem\%20Solving\%20Strategies.pdf}
+    {Problem Solving Strategies}
+\end{itemize}
+
+\part*{Todos}
+\begin{itemize}
+  \item Master listing of results
+  \item Observations to add:
+    \begin{itemize}
+      \item Angles to similarity to lengths to similarity to conclusion
+      \item Induct on the degree for polynomials
+    \end{itemize}
+  \item Asymptote figures
+\end{itemize}
 \end{document}
