@@ -8,6 +8,7 @@
 \newcommand{\RHS}{\text{RHS}}
 \newcommand{\Rr}{\mathbb{R}}
 \newcommand{\Nn}{\mathbb{N}}
+\newcommand\lcm{\text{lcm}}
 \title{Some Madman's Ravings}
 \author{gispisquared}
 \begin{document}
@@ -41,13 +42,14 @@ problems seem as trivial as possible. I've also chosen both to include proofs to
 the known results (since their proofs are within Olympiad students' grasp and
 are often the source of canonical techniques), and to separate these proofs from
 the theorem statements in the same way as with problems (so that
-students can try to prove the theorems themselves).
+students can try to prove the theorems themselves). 
 
 There will be two main types of questions:
 \begin{itemize}
   \item \emph{Results}, which are considered important and well-known, and come
     up sporadically (or in some cases consistently) as steps in the harder
-    problems.
+    problems. Every result comes with an implied ``Prove that'' attached, unless
+    otherwise noted.
   \item \emph{Problems}, which will be questions taken from contests (mostly AMC
     and AIMO in Part 2, and AMO, EGMO and IMO in Part 3).
 \end{itemize}
@@ -63,6 +65,13 @@ couple of resources about how to write proofs properly:
 \end{itemize}
 Cool, hopefully now you know how to write proofs. Guess that means every time 
 you solve a problem you'll get a 7, right?
+
+Of course, to learn you'll need to put the required effort into maths --- you're
+unlikely to learn too much just from reading problems and solutions. I've
+tried to make sure that all problems are accessible using only prior knowledge
+(something like high school maths up to y9 or so) and prior exposition;
+therefore, you should at least try to solve problems before reading the
+solutions.
 \newpage
 \part{General Recommendations}
 This part contains some general ideas about how to approach problems, or what to
@@ -104,7 +113,7 @@ try when stuck.
 \subsubsection{Direct Proof}
 This is perhaps the simplest type of proof. The idea is to start with the stuff
 you're given, do some logical deduction, and finish with what you want to prove.
-\begin{result}\label{r:m:1:1}
+\begin{result}\label{r:b:m:1:1}
   The remainder when a perfect square is divided by 4 is either 0 or 1.
   \hyperlink{s:m:1:1}{Solution}
 \end{result}
@@ -113,18 +122,18 @@ This is where you assume that what you're trying to prove is wrong and try to
 derive some kind of logical impossibility. Then the only place where the logic
 could have gone wrong was in the assumption so the statement you were trying to
 prove must be true.
-\begin{result}\label{r:m:2:1}
+\begin{result}\label{r:b:m:2:1}
   There are infinitely many primes.
   \hyperlink{s:m:2:1}{Solution}
 \end{result}
 \subsubsection{Contrapositive}
 It turns out that the statement $A\implies B$ is logically equivalent to the
 statement $\neg B\implies\neg A$. This is probably easiest to see intuitively
-with an result: ``If $x$ is an integer, then $x$ is rational'' is
+with an example: ``If $x$ is an integer, then $x$ is rational'' is
 logically equivalent to ``If $x$ is not rational, then $x$ is not an integer''.
 Therefore, if we're asked to prove $A\implies B$, it's enough to
 prove $\neg B\implies\neg A$, which is sometimes easier.
-\begin{problem}\label{p:m:3:1}
+\begin{problem}\label{p:b:m:3:1}
   Let $a,b\in\Rr$ such that $a+b$ is irrational. Prove that at least one of $a$
   and $b$ is irrational.
   \hyperlink{s:m:3:1}{Solution}
@@ -155,7 +164,7 @@ both equivalent to the usual form of induction:
   \item Say we want to prove a statement for all integers larger than $n$, for
     some $n$. Then it's enough to prove:
     \begin{itemize}
-      \item The statement is true for $n$.
+      \item The statement is true for $n+1$.
       \item If the statement is true for some integer $k>n$, then it's true for
         $k+1$.
     \end{itemize}
@@ -170,6 +179,9 @@ both equivalent to the usual form of induction:
       \item $P(1)$.
       \item If $P(1),\ldots,P(k)$ are all true, then $P(k+1)$ is also true.
     \end{itemize}
+    Once again this is equivalent to the normal PMI\@: let $S$ be the set of all
+    integers $m$ for which $P(a)$ is true for all $a\le m$.
+
     This form of proof by induction is called \emph{strong induction}, and
     although most proofs by induction only explicitly use $P(k)$, there's no
     reason to try to make your proof inductive over strong inductive since
@@ -177,23 +189,42 @@ both equivalent to the usual form of induction:
 \end{itemize}
 The key idea in both of these reductions to PMI is to somehow encapsulate the
 extra information you're trying to assume into the framework of standard PMI\@.
-\begin{result}\label{r:m:4:1}
+\begin{result}\label{r:b:m:4:1}
   For all positive integers $n$, \[1+2+\cdots+n=\frac{n(n+1)}2.\]
   \hyperlink{s:m:4:1}{Solution}
 \end{result}
-To conclude the Methods of Proof section, I'll include one final result that
-combines most of what we've covered so far.
-\begin{result}\label{r:m:4:2}
-  The \emph{Well-Ordering Principle} states that any set of positive integers
-  has a least element. It's equivalent to PMI --- that is,
-  PMI is true if and only if well-ordering is true.
+
+There's also an equivalent statement to PMI --- the Well-Ordering Principle.
+\begin{tcolorbox}
+  Let $S$ be a nonempty set of postiive integers. Then there exists some $x\in
+  S$ such that for all $y\in S$ we have $y\ge x$.
+\end{tcolorbox}
+The Well-Ordering Principle is often used in conjunction with contradiction or
+contrapositive, since it is mainly ``about'' the existence of some element
+rather than the properties of the rest of the elements.
+
+We can think of PMI as enabling us to prove something is true by building up
+larger cases from smaller cases, while well-ordering allows us to prove
+something is true by assuming there's a counterexample and finding a smaller
+one. It's nontrivial and instructive to prove they're actually
+equivalent.
+
+First, we'll need a lemma (auxiliary result) so basic this is probably the only
+time we'll ever need to justify it:
+\begin{result}\label{r:b:m:4:2}
+  Both PMI and well-ordering imply that if $n$ is a positive integer then $n\ge
+  1$.
   \hyperlink{s:m:4:2}{Solution}
+\end{result}
+\begin{result}\label{r:b:m:4:3}
+  PMI and well-ordering imply each other.
+  \hyperlink{s:m:4:3}{Solution}
 \end{result}
 I find it intriguing that induction and minimality are really just two sides of
 the same coin. Often you will find that a solution is much more natural to think
 about and write up in terms of one than the other.
 \subsection{Algebra}
-\subsubsection{Factorisations}
+\subsubsection{Factorisations}\label{b:a:factor}
 I won't have any problems attached to these, but they tend to pop up everywhere
 so keep an eye out. Here are some common factorisations:
 \begin{itemize}
@@ -205,6 +236,9 @@ so keep an eye out. Here are some common factorisations:
   \item $x^3+3x^2a+3xa^2+a^3=(x+a)^3$
   \item $x^3-3x^2a+3xa^2-a^3=(x-a)^3$
 \end{itemize}
+Many of these are special cases of the formula
+\[x^n-a^n=(x-a)(x^{n-1}+ax^{n-2}+a^2x^{n-3}+\cdots+a^{n-1}).\]
+
 The cases $a=1$ are especially common.
 \subsubsection{Systems of equations}
 There are a couple of ways of solving these systems --- either you can
@@ -302,13 +336,18 @@ terms of stuff that's 0 there and obviously nonnegative elsewhere.
   \hyperlink{sp:b:a:sums:1}{Solution}
 \end{problem}
 \subsection{Combinatorics}
+Combinatorics (the branch of maths that deals with, among other things, finding
+smart ways to count stuff) is a field with relatively few standard techniques.
+Often, these are the problems that require the least technical skill and the
+most ingenuity. With every field, but especially with combinatorics, there is no
+substitute for practice.
 \subsubsection{Addition and Multiplication Principles}
 This is the most basic idea in combinatorics. If you can make one from $a$
 choices and then one from $b$ choices, the total number of ways you can do this
 is $ab$. If you can make either one from $a$ choices or one from $b$ choices,
 the total number of ways you can do this is $a+b$.
 
-Many easier combinatorics problems boil down to splitting them into cases, and
+Many combinatorics problems boil down to splitting them into cases, and
 then applying addition and multiplication principles to count each case.
 \begin{result}\label{r:b:c:am:1}
   The number of ways of choosing $k$ things from $n$, where order matters, is
@@ -321,10 +360,15 @@ then applying addition and multiplication principles to count each case.
   the first 12 goals of a game be scored if the game is `relatively close'?
   \hyperlink{sp:b:c:am:1}{Solution}
 \end{problem}
+\begin{problem}\label{p:b:c:am:2}
+  An ant's walk starts at the apex of a regular octahedron. It walks along five
+  edges, never retracing its path. It visits each of the other five vertices
+  exactly once. In how many ways can it do this?
+\end{problem}
 \subsubsection{Combinations}
 \begin{result}\label{r:b:c:c:1}
   The number of ways of choosing $k$ things from $n$, where order doesn't
-  matter, is \[\frac{n!}{(n-k)!(n-k)!}.\]
+  matter, is \[\frac{n!}{(n-k)!k!}.\]
   \hyperlink{sr:b:c:c:1}{Solution}
 \end{result}
 \begin{problem}{\label{p:b:c:c:1}}
@@ -359,12 +403,38 @@ Often that natural way will generalise.
   How many paths are there from the bottom left to the top right of a $4\times
   7$ grid, if you can only go up or right?
 \end{problem}
+\subsubsection{Recurrences}
+Recurrences are a useful way to solve problems where you're asked for the number
+of ways of doing something that depends on $n$. To set up a recurrence, we make
+a sequence where the $i$th term is the answer for $n=i$. Then, we find a way of
+relating each terms to previous terms.
+
+Perhaps an example or two will serve to clarify things:
+\begin{problem}{\label{p:b:c:r:1}}
+  How many ways are there of tiling a $2\times n$ grid with dominoes?
+\end{problem}
+\begin{problem}{\label{p:b:c:r:2}}
+  How many sequences of 10 traffic lights (each green, yellow or red) are there
+  such that a green light is always followed by a yellow light, while a red light
+  is never followed by a red light?
+\end{problem}
 \subsection{Geometry}
+Whenever you see a geometrical statement or problem (including everywhere in the
+geometry sections of this book), your first instinct should
+always be to draw a diagram to understand it. Diagrams should be
+\begin{itemize}
+  \item Accurate --- use ruler and compass
+  \item Large --- they should take up the whole page. Go landscape if it gives
+    you more space.
+\end{itemize}
+This is important because your chances of solving, or even understanding, a
+problem are proportional to how easily you can see things in your diagram.
 \subsubsection{Parallels}
 You should know what parallel lines are: they point in the same direction and
 never meet.
 
-Let $ABC$ and $DEF$ be points in that order along two parallel lines, and let
+Let $ABC$ and $DEF$ be points on two parallel lines (in that order, and in the
+same direction along each line), and let
 $X$ and $Y$ be points on $BE$ such that $XBEY$ is in that order.
 Then
 \[\angle ABX=\angle CBE=\angle DEX=\angle FEY,\] the other four angles are
@@ -379,8 +449,7 @@ Two triangles $ABC$ and $XYZ$ are called \emph{congruent} if \[AB=XY,\ AC=XZ,\
 BC=YZ,\]
 \[\angle BAC=\angle YXZ,\ \angle ABC=\angle XYZ,\ \angle ACB=\angle
 XZY.\]
-We write ``$ABC$ is congruent to $XYZ$'' as $\triangle ABC\cong\triangle XYZ$,
-and in this case we also know that the areas of $ABC$ and $XYZ$ are equal.
+We write ``$ABC$ is congruent to $XYZ$'' as $\triangle ABC\cong\triangle XYZ$.
 
 There are congruence tests which enable us to determine when two triangles are
 congruent, so that knowing some of these equalities we can deduce the others.
@@ -396,7 +465,7 @@ can fix it:
 \begin{itemize}
   \item $AB=XY$ and $AC=XZ$ and $\angle ABC=\angle XYZ$ and $AB<AC$. (Fixed SSA)
 \end{itemize}
-In the special case where $\angle ABC=\angle XYZ$, this is known as RHS.\@
+In the special case where $\angle ABC=\angle XYZ=90^\circ$, this is known as RHS.\@
 \begin{result}{\label{r:b:g:c:1}}
   Let $ABC$ be a triangle, and let $M$ be the midpoint of $BC$.
   The following statements are equivalent:
@@ -406,65 +475,338 @@ In the special case where $\angle ABC=\angle XYZ$, this is known as RHS.\@
     \item $AM\perp BC$.
   \end{itemize}
 \end{result}
+If any of those statements are true the triangle is called \emph{isosceles}.
+\begin{problem}
+  Let $ABC$ be an isosceles triangle with $AB=BC$. Let $D$ be a point on $BC$
+  such that $\angle DBC=20^\circ$. Let $E$ be a point on $AB$ with $AE=AD$. What
+  is $\angle BDE$?
+\end{problem}
 \begin{result}{\label{r:b:g:c:2}}
   Let $ABCD$ be a parallelogram (that is, $AB||CD$ and $BC||DA$). If $AC$
-  intersect $BD$ at $P$, then $P$ is the midpoint of $AC$ and of $BD$.
+  intersects $BD$ at $P$, then $P$ is the midpoint of $AC$ and of $BD$.
 \end{result}
 \subsubsection{Circles}
-A \emph{circle} is the set of points equidistant from a given point.
+A \emph{circle} is the set of points a distance $r$ from a central point $O$.
+Thus, any two points on the circle form an isosceles triangle with $O$.
+
+The circumference (perimeter) of the circle is $2\pi r$, while the area is $\pi
+r^2$.
 \begin{result}{\label{r:b:g:ci:1}}
+  Let $A,\ B,\ C,\ M$ be points in the plane such that $M$ is the midpoint of
+  $AB$. Then $C$ lies on the circle centred at $M$ passing through $A$ and $B$
+  if and only if $\angle ACB=90^\circ$.
+\end{result}
+
+The next few results are generalisations of this. The proofs are linked in
+Section~\ref{n:g:directed}.
+\begin{result}{\label{r:b:g:ci:2}}
   If $A,\ B,\ C$ are points on a circle centred at $O$ with $A$ on the same side
   of $BC$ as $O$, then $\angle BOC=2\angle BAC$.
 \end{result}
-\begin{result}{\label{r:b:g:ci:2}}
+\begin{result}{\label{r:b:g:ci:3}}
   If $A,\ B,\ C$ are points on a circle centred at $O$ with $A$ and $O$ on
   opposite sides of $BC$, then $\angle BOC=360^\circ-2\angle BAC$.
 \end{result}
-\begin{result}{\label{r:b:g:ci:3}}
+\begin{result}{\label{r:b:g:ci:4}}
   If $B$ and $C$ lie on the same side of $AD$ then there is a circle passing
   through all of $A,\ B,\ C,\ D$ if and only if $\angle ABD=\angle ACD$.
 \end{result}
-\begin{result}{\label{r:b:g:ci:4}}
+\begin{result}{\label{r:b:g:ci:5}}
   If $B$ and $D$ lie on opposite sides of $AC$, then there is a circle passing
   through all of $A,\ B,\ C,\ D$ if and only if $\angle ABC+\angle
   ADC=180^\circ$.
 \end{result}
+\begin{problem}{\label{p:b:g:ci:1}}
+  For $n\ge 3$, a pattern can be made by overlapping $n$ circles, each of
+  circumference 1 unit, so that each circle passes through a central point and
+  the resulting pattern has order-$n$ rotational symmetry. For instance, the
+  diagram shows the pattern where $n=7$.
+
+  If the total length of visible arcs is 60 units, what is $n$?
+\end{problem}
 \subsubsection{Similarity}
+  We say that triangles $ABC$ and $XYZ$ are \emph{similar} if for some real $r$
+  (called the ratio of similitude),
+      \[\frac{BC}{YZ}=\frac{CA}{ZX}=\frac{AB}{XY}=r,\]
+      \[\angle ABC=\angle XYZ,\
+      \angle BCA=\angle YZX,\ \angle CAB=\angle ZXY.\]
+
+    We write ``$ABC$ is similar to $XYZ$'' as $\triangle ABC\sim\triangle XYZ$.
+
+    Triangles $ABC$ and $XYZ$ are similar if any of the following hold:
+  \begin{itemize}
+    \item $\frac{BC}{YZ}=\frac{CA}{ZX}=\frac{AB}{XY}$ (PPP)
+    \item $\frac{AB}{XY}=\frac{BC}{YZ},\ \angle ABC=\angle XYZ$ (PAP)
+    \item $\angle ABC=\angle XYZ,\ \angle BCA=\angle YZX$ (AA)
+  \end{itemize}
+  Once again, PPA (two sides and an unincluded angle) doesn't work. However, we
+  can fix it in the same way:
+  \begin{itemize}
+    \item $\frac{AB}{XY}=\frac{AC}{XZ},\ \angle ABC=\angle XYZ$ and $AB<AC$.
+      (Fixed PPA)
+  \end{itemize}
+  In the special case where $\angle ABC=\angle XYZ=90^\circ$, this is
+  known as RHS\@.
+\begin{result}{\label{r:b:g:s:1}}
+  Let $ABC$ and $ADE$ be similar triangles with the same orientation (that is,
+  $\triangle ABC\sim\triangle ADE$ and both triangles are labelled either
+  clockwise or anticlockwise). Then $ABD$ and $ACE$ are also similar and
+  similarly oriented.
+\end{result}
+\begin{problem}{\label{p:b:g:s:1}}
+  Let $A,B,C,D$ be points on a circle such that $\triangle ABC$ is equilateral,
+  and $D$ lies on minor arc $BC$. Prove that $AD=BD+CD$.
+\end{problem}
+\subsubsection{Areas}
+We assign a positive real number, known as an \emph{area}, to each polygon in
+the plane such that
+\begin{itemize}
+  \item the area of a rectangle with sidelengths $a$ and $b$ is $ab$;
+  \item the areas of two congruent triangles are equal; and
+  \item if two polygons have disjoint interiors then the area of their union
+    equals the sum of their areas.
+\end{itemize}
+The area of a polygon $P_1,P_2,\ldots,P_n$ is denoted $|P_1P_2\cdots P_n|$. We
+may use these properties to deduce some well-known facts about areas.
+\begin{result}{\label{r:b:g:a:1}}
+  Let $ABC$ be a triangle such that $\angle ABC=90^\circ$. Then,
+  \[|ABC|=\frac 12\times AB\times BC.\]
+\end{result}
+\begin{result}{\label{r:b:g:a:2}}
+  Let $ABC$ be a triangle, and let $D$ be a point on line $BC$ such that
+  $AD\perp BC$. Then,
+  \[|ABC|=\frac 12\times AD\times BC.\]
+\end{result}
+An important special case of this is that two triangles with the same height
+have areas in the same ratio as their bases, and two triangles with the same
+base have areas in the same ratio as their heights.
+\begin{result}{\label{r:b:g:a:3}}
+  Let $ABC$ and $XYZ$ be similar triangles with ratio of similitude $r$. Then,
+  \[\frac{|ABC|}{|XYZ|}=r^2.\]
+\end{result}
+\begin{problem}{\label{p:b:g:a:1}}
+  A triangle $ABC$ is divided into four regions by three lines parallel to $BC$.
+  The lines divide $AB$ into four equal segments. If the second largest region
+  has area 225, what is the area of $ABC$?
+\end{problem}
+\begin{problem}{\label{p:b:g:a:2}}
+  Let $ABCD$ be a parallelogram. Point $P$ is on $AB$ produced such that $DP$
+  bisects $BC$ at $X$. Point $Q$ is on $BA$ produced such that $CQ$ bisects $AD$
+  at $M$. Lines $DP$ and $CQ$ meet at $O$. If the area of parallelogram $ABCD$
+  is 192, find the area of triangle $POQ$.
+\end{problem}
+\begin{problem}{\label{p:b:g:a:3}}
+  The area of triangle $ABC$ is 300. In triangle $ABC$, $Q$ is the midpoint of
+  $BC$, $P$ is a point on $AC$ between $C$ and $A$ such that $CP=3PA$, $R$ is a
+  point on side $AB$ such that the area of $\triangle PQR$ is twice the area of
+  $\triangle RBQ$. Find the area of $\triangle PQR$.
+\end{problem}
+\begin{result}{\label{r:b:g:a:4}}
+  In triangle $ABC$, point $P$ is on $AB$ such that $AP$ bisects $\angle BPC$.
+  Then, $\frac{BP}{PC}=\frac{BA}{AC}$.
+\end{result}
 \subsubsection{Pythagoras}
-\subsubsection{Common right-angled triangles}
+Pythagoras' Theorem is arguably the most famous theorem in mathematics. You
+should aim to find multiple proofs of it, to cement your understanding of the
+techniques developed in this section on geometry.
+
+Four proofs are given in the linked solutions, with a fifth in
+Section~\ref{n:g:incircle}.
+\begin{result}{\label{r:b:g:py:1}}
+    If $\angle ABC=90^\circ$, then $AB^2+BC^2=AC^2$.
+\end{result}
+\begin{problem}{\label{p:b:g:py:1}}
+  Let $ABCD$ be a square and let $E$ and $F$ be points on $BC$ and $CD$,
+  respectively, such that $AEF$ is an equilateral triangle.
+
+  Find the length $BE$.
+\end{problem}
+\subsubsection{Trigonometry}
+These concepts are easiest to define working on the coordinate plane. Let $O$ be
+the origin, and let $A$ be the point $(1,0)$. See the diagram.
+Let $P=(x,y)$ be a point on the unit circle (that is, $x^2+y^2=1$) such that
+the counterclockwise angle $\angle AOP$ is $\theta$. We define
+\[\cos(\theta)=x,\ \sin(\theta)=y,\ \tan(\theta)=\frac yx.\]
+\begin{result}{\label{r:b:g:t:1}}
+  For all $\theta$ we have
+  $\cos(-\theta)=\cos(\theta)=\sin(90-\theta)=-\cos(180-\theta)$.
+\end{result}
+\begin{result}{\label{r:b:g:t:2}}
+  Let $ABC$ be a triangle with $\angle ABC=90^\circ$. Then,
+  \[\sin(\angle ACB)=\frac{AB}{AC},\ \cos(\angle ACB)=\frac{BC}{AC},\
+    \tan(\angle ACB)=\frac{AB}{BC}.\]
+\end{result}
+\begin{result}{\label{r:b:g:t:3}}
+  We have
+  \[\sin(0)=0,\ \sin(30)=\frac 12,\ \sin(45)=\frac{\sqrt2}2,\
+    \sin(60)=\frac{\sqrt3}2,\ \sin(90)=1.\]
+\end{result}
+For the next two results we define $ABC$ to be a triangle with sidelengths
+$a=BC,\ b=CA,\ c=AB$. We use the shorthand $\angle A=\angle BAC$ and similarly
+for $\angle B$ and $\angle C$.
+\begin{result}{\label{r:b:g:t:4}}
+  \[\frac a{\sin \angle A}=\frac b{\sin\angle B}=\frac c{\sin\angle C}.\]
+  Further, if $A,B,C$ lie on a circle with radius $R$ then these quantities are
+  all equal to $2R$.
+\end{result}
+\begin{result}{\label{r:b:g:t:5}}
+  \[\cos\angle A=\frac{b^2+c^2-a^2}{2bc}.\]
+\end{result}
+\begin{problem}{\label{p:b:g:t:1}}
+ In quadrilateral $PQRS$ we have $PS=5,\ SR=6,\ RQ=4$, and $\angle P=\angle
+ Q=60^\circ$. Find the length of $PQ$.
+\end{problem}
+\begin{problem}{\label{p:b:g:t:2}}
+  Let $ABCD$ be a trapezium with $AB\|CD$ such that its vertices $A,B,C,D$ lie
+  on a circle with centre $O$. Let the diagonals $AC$ and $BD$ intersect at a
+  point $M$. Assume that $\angle AMD=60^\circ$ and $MO=1$.
+
+  What is the difference between the lengths $AB$ and $CD$?
+\end{problem}
 \subsection{Number Theory}
-\subsubsection{Primes and FTOA}
-\subsubsection{SFFT}
 \subsubsection{Divisibility}
-\subsubsection{Modular Arithmetic}
+  For integers $a$ and $b$, we say $a\mid b$ (read ``$a$ divides
+  $b$'') if there is some integer $c$ with $b=a\times c$.
+\begin{result}{\label{r:b:n:d:1}}
+    If $a$ and $b$ are positive integers with $a\mid b$ then
+      $a\le b$.
+\end{result}
+\begin{result}{\label{r:b:n:d:2}}
+    If $a\mid b$ and $a\mid c$ then $a\mid bx+cy$ for all
+      integers $x$ and $y$.
+\end{result}
+\begin{problem}{\label{p:b:n:d:1}}
+    Find all integers $n$ such that $n^2+1\mid n^3+n^2-n-15$.
+\end{problem}
+\subsubsection{Primes}
+  We define a \emph{prime} as a positive integer larger than 1 which is not
+  divisible by any positive integer other than 1 and itself.
+\begin{result}{\label{r:b:n:p:1}}
+  Every positive integer larger than 1 has a prime factor.
+\end{result}
+This was what allowed us to prove Result~\ref{r:b:m:2:1}.
+
+  The Fundamental Theorem of Arithmetic (proved in Section~\ref{n:n:ftoa})
+  states that each positive integer has a unique prime factorisation; that is,
+  we can write a positive integer $n$ uniquely as
+  \[n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k},\]
+  where $p_i$ are all prime and $e_i$ are all positive integers.
+
+  Prime factorisations allow us to view statements about divisibility and
+  multiplication in terms of the exponents $e_i$.
+
+  In what follows, let 
+  \[a=p_1^{e_1}p_2^{e_2}\cdots p_m^{e_m},\
+        b=q_1^{f_1}q_2^{f_2}\cdots q_k^{e_k}.\]
+\begin{result}{\label{r:b:n:p:2}}
+    $a\mid b$ if and only if for each $i$ we have that $p_i=q_j$
+      for some $j$, and that $e_i\le f_j$.
+\end{result}
+\begin{result}{\label{r:b:n:p:3}}
+    $a$ is a perfect $k$th power if and only if $k\mid e_i$ for all $i$.
+\end{result}
+\begin{result}{\label{r:b:n:p:4}}
+    The lcm is found by taking the maximum power of each prime that
+      divides either $a$ or $b$; the gcd is found by taking the minimum power of
+      each prime that divides both $a$ and $b$. Therefore, 
+    $\gcd(a,b)\times\lcm(a,b)=ab$.
+\end{result}
+\begin{result}{\label{r:b:n:p:5}}
+    If $a\mid c$ and $b\mid c$ then $\lcm(a,b)\mid c$.
+\end{result}
+\subsubsection{Factorisations}
+Factorisations allow us to make equations nicer to work with. For example,
+solving the equation $xy+x+y=3$ over the integers becomes much easier when we
+express it as $(x+1)(y+1)=4$.
+
+Here are the most useful factorisations:
+\begin{align*}
+  axy+bx+cy=d\iff (ax+c)(ay+b)=ad+bc \\
+  a^k-b^k=(a-b)\left(a^{k-1}+a^{k-2}b+\cdots+b^{k-1}\right)
+\end{align*}
+\begin{problem}{\label{p:b:n:f:1}}
+     Find all right-angled triangles with positive integer sides 
+      such that their area and perimeter are equal.
+\end{problem}
+\begin{problem}{\label{p:b:n:f:2}}
+     Prove that $1^k+2^k+\cdots+n^k$ is divisible by $1+2+\cdots+n$ for
+      all positive integers $n$ and odd positive integers $k$.
+\end{problem}
+\begin{problem}{\label{p:b:n:f:3}}
+    Prove that if $2^n+1$ is prime for a positive integer $n$, then $n$ is
+      a power of 2.
+\end{problem}
 \subsubsection{Number bases}\label{b:n:bases}
-hi
+\begin{result}{\label{r:b:n:b:1}}
+    Given positive integers $n>1$ and $k$, prove that there are unique
+      nonnegative integers $m,a_0,a_1,\ldots,a_m$ such that $a_m>0,\ 0\le
+      a_i<n$ for all $i$, and
+      \[k=a_0 n^0+a_1 n^1+\cdots+a_m n^m.\]
+\end{result}
+This is called the \emph{base-$n$ representation} of $k$, and is often written
+as
+\[(\overline{a_m a_{m-1}\cdots a_0})_n.\]
+When the $a_i$s are specific digits, the parentheses and the bar over the $a_i$s
+are often dropped. So for example, the decimal number 16 can be expressed as
+$10000_2$.
+\begin{problem}{\label{p:b:n:b:1}}
+   If $234_{b+1}-234_{b-1}=70_{10}$, what is $234_b$ in base 10?
+\end{problem}
+\begin{problem}{\label{p:b:n:b:2}}
+  A sequence $\{a_i\}$ begins with $a_1=0$, and for each $i$ the number
+    $a_{i+1}$ is the smallest integer larger than $a_i$ which is not
+    equal to $2a_k-a_j$ for any $j,k$ with $1\le j<k\le i$. So the sequence begins
+    0,1,3,4,9,\ldots
+
+    Find the 2000th term of this sequence.
+\end{problem}
 \section{Not-so-basics}
 \subsection{Algebra}
 \subsubsection{Systems of equations}\label{n:a:systems}
-hi
 \subsubsection{Polynomials}
 A polynomial is just an expression of the form
 \[P(x)=a_n x^n+a_{n-1}x^{n-1}+\cdots+a_0x^0,\] where each of the $a_i$s is a
 constant and $a_n\ne 0$.
-The number $n$ is called the \emph{degree} of the polynomial. The expression
+The number $n$ is called the \emph{degree} of the polynomial. The term $a_n x^n$
+is called the \emph{leading term}. The expression
 $P(x)=0$ is also a polynomial, and it's defined to have degree $-\infty$.
 
 \begin{result}\label{r:n:a:polys:1}
-  If a polynomial $P(x)$ of degree $n$ has a root $r$, then there is a
-  polynomial $Q(x)$ of degree $n-1$ such that \[P(x)=(x-r)Q(x).\]
-  \hyperlink{sr:n:a:polys:1}{Solution}
+  Let $A(x)$ and $B(x)$ be polynomials. Then,
+  \begin{itemize}
+    \item $\deg(A\pm B)\le\max(\deg A,\deg B)$. Equality occurs unless the
+      leading terms of $A$ and $B$ cancel.
+    \item $\deg(A\times B)=\deg(A)+\deg(B)$.
+  \end{itemize}
 \end{result}
+
+Many proofs in polynomial questions proceed by (strong) induction on the degree. The
+following few examples illustrate a few of the ways in which we can reduce a
+polynomial to a smaller-degree polynomial.
+
 \begin{result}\label{r:n:a:polys:2}
+  Let $A(x)$ and $B(x)$ be polynomials with $B(x)\ne 0$. There exist unique
+  polynomials $Q(x)$ and $R(x)$ such that $\deg R<\deg B$ and
+  \[A(x)=Q(x)B(x)+R(x).\]
+  \hyperlink{sr:n:a:polys:2}{Solution}
+\end{result}
+We say that a polynomial $P(x)$ divides another polynomial $Q(x)$ if there is a
+polynomial $R(x)$ such that $P(x)=Q(x)R(x)$.
+With this terminology, an important corollary is that for any real number $r$ and any polynomial
+$A(x)$, the polynomial $x-r$ divides the polynomial $A(x)-A(r)$.
+\begin{result}\label{r:n:a:polys:3}
   If a polynomial \[P(x)=a_n x^n+a_{n-1}x^{n-1}+\cdots+a_0x^0\] has roots
   $r_1,\ldots,r_n$ then for each $i$, \[a_{n-i}=(-1)^i a_n
   \sum_{j_1<\cdots<j_i} \prod_{k=1}^i r_{j_k}.\]
-  \hyperlink{sr:n:a:polys:2}{Solution}
+  \hyperlink{sr:n:a:polys:3}{Solution}
 \end{result}
 \subsection{Combinatorics}
-\subsubsection{Recurrences}
 \subsection{Geometry}
+\subsubsection{Directed Angles}\label{n:g:directed}
+\subsubsection{The Incircle}\label{n:g:incircle}
 \subsection{Number Theory}
+\subsubsection{Fundamental Theorem of Arithmetic}\label{n:n:ftoa}
+\subsubsection{Modular Arithmetic}
 \newpage
 \part{Practice}
 \newpage
@@ -473,7 +815,7 @@ $P(x)=0$ is also a polynomial, and it's defined to have degree $-\infty$.
 \renewcommand*{\theHsection}{sols.\the\value{section}}
 \section{Basics}
 \subsection{Methods of Proof}
-\subsubsection*{Result~\ref{r:m:1:1}}
+\subsubsection*{Result~\ref{r:b:m:1:1}}
 \hypertarget{s:m:1:1}
 If you start trying some small cases, what you'll eventually find is that if $n$
 is an even integer, then $n^2$ leaves a remainder of 0 when divided by 4, and
@@ -493,7 +835,7 @@ a number to be even or odd, and then the proof falls out quite naturally:
   In either case, the remainder left when dividing $n^2$ by 4 is either 0 or 1,
   which is what we wanted to prove.
 \end{proof}
-\subsubsection*{Result~\ref{r:m:2:1}}
+\subsubsection*{Result~\ref{r:b:m:2:1}}
 \hypertarget{s:m:2:1}
 The key here is to assume, for contradiction, that there are
 only finitely many primes. Then we want to prove a suitable contradiction --- a
@@ -507,7 +849,7 @@ multiplying everything and adding 1 is surprisingly common in Olympiad maths.
   $p_i\mid A$. But $p_i\mid A-1$, so $p_i\mid A-(A-1)=1$, which is our
   contradiction.
 \end{proof}
-\subsubsection*{Problem~\ref{p:m:3:1}}
+\subsubsection*{Problem~\ref{p:b:m:3:1}}
 \hypertarget{s:m:3:1}
 This is more an exercise in logic than in maths.
 You could be stuck for ages trying to prove the problem directly, but as soon as
@@ -522,7 +864,7 @@ particular case uses the contrapositive.
   Let $a=\frac wx,\ b=\frac yz$. Then \[a+b=\frac wx+\frac
   yz=\frac{wz+xy}{xz},\] which is clearly rational.
 \end{proof}
-\subsubsection*{Result~\ref{r:m:4:1}}
+\subsubsection*{Result~\ref{r:b:m:4:1}}
 \hypertarget{s:m:4:1}
 This is a classic induction problem. Apart from being instructive because it
 isolates the idea of induction, it does highlight a minor point. In the
@@ -543,19 +885,53 @@ for $k$. In this particular case, the latter is somewhat easier.
   \end{align*}
   so the problem is true for $n=k$.
 \end{proof}
-\subsubsection*{Result~\ref{r:m:4:2}}
+\subsubsection*{Result~\ref{r:b:m:4:2}}
 \hypertarget{s:m:4:2}
+This is a good example of how solutions to the same problem can look quite
+different when written up with PMI or with well-ordering.
+
+First assume PMI\@. A direct induction will prove the statement quite easily.
+
+Now we can try assuming well-ordering. Looking for a contradiction, assume there
+is some positive integer $a<1$. A contradiction is easiest to find by applying
+well-ordering to the set of all positive integers.
+
+Let's write this up.
+\begin{proof}
+  First, assume PMI\@.
+
+  Base case $n=1$: clearly $1\ge 1$.
+
+  Inductive step: assume that $k\ge 1$.
+  Then $k+1>k\ge 1$, completing the induction.
+
+  Now, assume well-ordering. Assume there's some $a\in\mathbb N$ with $a<1$.
+  Since $\mathbb N$ is nonempty, we may let $b$ be its smallest element.
+  Since $ab$ is a positive integer, we have $b\le ab$.
+  On the other hand, since $a<1$ we get that $ab<b$.
+  This contradiction concludes the proof.
+\end{proof}
+\subsubsection*{Result~\ref{r:b:m:4:3}}
+\hypertarget{s:m:4:3}
 Since this is an ``if and only if'' problem, we will probably need to find
 separate proofs in each direction. 
 
 First, let's use induction to prove well-ordering. Our desired conclusion is
 that any nonempty set of positive integers has a smallest element. Intuitively,
 what we would like to do is to check if 1 is in it, then if 2 is in it, and so
-on until we find an element that's in it. But this quickly becomes circular
-and it's difficult to make airtight. The trick is to utilise proof by
-contrapositive --- start with a set of positive integers that has no smallest
-element, and prove it's empty using our sequential checking process. Make sure
-you actually use PMI somewhere, otherwise it's probably a fakesolve.
+on until we find an element that's in it. Once we've found that element, we wish
+to prove that it's the smallest element. However, this is hard to write up
+because we'd like our process to ``finish'' after a finite number of steps,
+while induction only talks about things that are true for all positive integers.
+To make our lives easier, we instead try to prove the contrapositive of
+well-ordering: that if $S$ is a set of positive integers with no smallest
+element then $S$ is empty.
+
+Now, our argument looks similar: we claim that 1 is not in $S$, that 2 is not in
+$S$, and so on forever. To make sure that we can actually keep repeating this
+argument, we need to show that if we found an element in $S$ it must be the
+smallest element. Proving this requires tweaking our inductive
+assumption.
 
 Now, let's use well-ordering to prove PMI\@. You'll probably get nowhere if you
 aren't completely clear about what you're trying to prove (you may as well
@@ -579,20 +955,22 @@ Let's write it up.
   we'll prove the contrapositive of well-ordering: that if $S$ is a set of
   positive integers with no smallest element, then it is empty.
 
-  I prove by strong induction that for each positive integer $n$, $n\not\in S$.
-  Clearly this is sufficient.
+  I prove by strong induction that for each positive integer $n$, if $m\in S$
+  then $m\ge n+1$.
 
-  Base case $n=1$: if $1\in S$, then 1 would be the smallest element in $S$.
+  Base case $n=1$: if $1\in S$, then 1 would be the smallest element in $S$
+  (since if $m\in S$ then $m$ is a positive integer so $m\ge 1$).
   So since $S$ has no smallest element, 1 is not the smallest element in $S$ so
-  1 is not in $S$. (Notice where I used the contrapositive here?)
+  taking the contrapositive we get that 1 is not in $S$.
 
-  Strong inductive step: Assume that for all $i=1,2,\ldots,k,\ i\not\in S$. I
+  Inductive step: Assume that for any $m\in S$ we know that $m\ge k+1$. I
   claim that $k+1\not\in S$. Indeed, if $k+1$ were in $S$, then it would be the
   smallest element of $S$. But since $S$ has no smallest element, $k+1$ can't be
-  in $S$.
+  in $S$. Therefore, if $m\in S$ we know $m-(k+1)$ is a positive integer so
+  $m-(k+1)\ge 1$, so $m\ge k+2$, as required for the inductive step.
 
-  This completes the induction, so no integer is in $S$ meaning that $S$ is
-  empty as needed.
+  This completes the induction. Now if $n\in S$ we've proven that $n\ge n+1$, a
+  contradiction so $S$ must be empty.
 
   Now I prove that if well-ordering is true, then so is PMI\@. Assume for
   contradiction that well-ordering is true but PMI is not. Then, there is a set
@@ -601,9 +979,10 @@ Let's write it up.
   $\Nn\setminus S$ is nonempty so by well-ordering it contains a smallest
   element $a$.
 
-  Since we know that $1\in S$, we know that $a\ne 1$. So $a-1$ is a positive
+  Since we know that $1\in S$, we know that $a\ne 1$. So since $a\ge 1$,
+  $a-1$ is a positive
   integer. Since $a-1<a$ and $a$ is the smallest member of $\Nn\setminus S$,
-  $a-1\not\in\Nn\setminus S\implies a-1\in S$. So since $a-1\in S,\ a\in S$
+  $a-1$ is not in $\Nn\setminus S$ so $a-1\in S$. So $(a-1)+1=a\in S$,
   which contradicts the assumption that $a\not\in S$.
 \end{proof}
 \subsection{Algebra}
@@ -801,7 +1180,7 @@ There are three ways I know of doing this. One of them is a standard induction,
 but the other two are more interesting.
 
 For the first way, we notice that we already know the special case (see
-Result~\ref{r:m:4:1}) where $a=0$ and $b=1$. A little algebra allows us
+Result~\ref{r:b:m:4:1}) where $a=0$ and $b=1$. A little algebra allows us
 to reduce the whole problem to this particular case.
 \begin{proof}
   We have
@@ -835,6 +1214,7 @@ The main idea here comes from extending a couple of the common factorisations:
   \item $1-r^2=(1-r)(1+r)$
   \item $1-r^3=(1-r)(1+r+r^2)$
 \end{itemize}
+We get the $a=1$ case of the general formula given in~\ref{b:a:factor}.
 Let's write it up.
 \begin{proof}
   We have \[1-r^{n+1}=(1-r)(1+r+r^2+\cdots+r^n),\] since all the middle terms
@@ -933,32 +1313,46 @@ Answer: 1980.
 \end{proof}
 \section{Not-so-basics}
 \subsection{Algebra}
-\subsubsection*{Result~\ref{r:n:a:polys:1}}
-\hypertarget{sr:n:a:polys:1}
-For those of you who have seen polynomial long division, this should seem very
-familiar, and indeed the same idea of dividing from highest to lowest degree
-works. The neatest and most rigorous way to write it up uses induction.
-\begin{proof}
-  By strong induction on the degree.
-
-  Base case $n=1$: if $ar-b=0$ then $\frac ba=r$ so $ax-b=a\left(x-\frac
-  ba\right)=a(x-r)$, as needed. Clearly $Q(x)=a$ has degree 0.
-
-  Inductive step: Write \[P(x)=a_n x^{n-1}(x-r)+P_1(x),\] so that $P_1(x)$ is a
-  polynomial of degree less than $n$ and $P_1(r)=P(r)-0=0$.
-  By the strong inductive hypothesis there
-  is a polynomial $Q_1(x)$ of degree less than $n-1$ such that
-  $P_1(x)=(x-r)Q_1(x)$. Then, \[P(x)=(x-r)\left(a_n x^{n-1}+Q_1(x)\right),\] so
-  if we let $Q(x)=x^{n-1}+Q_1(x)$ we have $P(x)=(x-r)Q(x)$. Finally, $Q(x)$ has
-  degree $n-1$ since $Q_1(x)$ has degree less than $n-1$ and $a_n x^{n-1}$ has
-  degree $n-1$.
-\end{proof}
 \subsubsection*{Result~\ref{r:n:a:polys:2}}
 \hypertarget{sr:n:a:polys:2}
+It is natural to split the proof into two parts: existence and uniqueness. 
+Uniqueness is the easier part: it can be proven by the usual method of assuming
+two representations exist, and proving they are in fact the same.
+
+The proof of existence proceeds by induction on the degree.
+The key is to reduce $A(x)$ to a polynomial with smaller
+degree by cancelling the leading term. If we do this in a way that lets us
+control $Q(x)$ and $R(x)$, the induction will work.
+\begin{proof}
+  First we prove such a representation exists, by strong induction on the degree
+  of $A$. Let $d=\deg B$.
+
+  Base cases $\deg A<d$: clearly $Q(x)=0,\ R(x)=B(x)$ satisfies all the
+  conditions.
+
+  Inductive step: let $a_n x^n$ be the leading term of $A$, and let $b_d x^d$ be
+  the leading term of $B$.
+  We may write \[A(x)=\frac{a_n}{b_d}x^{n-d} B(x)+A_1(x)\] for some polynomial
+  $A_1$. Since the first term on the RHS cancels the $a_n x^n$, this polynomial
+  $A_1(x)$ can be represented as $Q_1(x)B(x)+R_1(x)$. But then choosing
+  $Q(x)=Q_1(x)+\frac{a_n}{b_3}x^{n-d}B(x),\ R(x)=R_1(x)$ provides a
+  representation for $A$.
+
+  Now we prove the representation is unique. Assume there are polynomials
+  $Q_1,R_1,Q_2,R_2$ such that \[A(x)=B(x)Q_1(x)+R_1(x)=B(x)Q_2(x)+R_2(x).\]
+  Then, $B(x)(Q_1(x)-Q_2(x))=R_2(x)-R_1(x)$. The degree of the RHS is less
+  than $d$; therefore, so is the degree of the LHS.\@
+  But since the degree of the
+  LHS is at least $D$ unless $Q_1=Q_2$, we get $Q_1=Q_2$ and therefore
+  $R_1=R_2$.
+\end{proof}
+\subsubsection*{Result~\ref{r:n:a:polys:3}}
+\hypertarget{sr:n:a:polys:3}
 First we need to understand what the problem is saying. Try special cases:
 $i=0,\ i=n,\ n=1,\ n=2$ and so on, until you know what it's saying.
 
-The idea here is to use the previous result multiple times to factorise our
+The idea here is to use the corollary from the 
+previous result multiple times to factorise our
 polynomial fully, then expand it again. Then when we extract the $x^{n-i}$
 coefficient, each term that contributes to it is a product where $x$ appears
 $n-i$ times, and the rest is a product of $i$ $(r_i)$s and a constant term.
@@ -989,6 +1383,7 @@ The neatest way of writing this up is to use induction.
 \end{proof}
 \newpage
 \part{Other resources}
+\setcounter{section}{0}
 \section{Basics}
 \begin{itemize}
   \item \href{https://artofproblemsolving.com/resources}{AOPS Resources}
@@ -1085,8 +1480,7 @@ The neatest way of writing this up is to use induction.
   \item Observations to add:
     \begin{itemize}
       \item Angles to similarity to lengths to similarity to conclusion
-      \item Induct on the degree for polynomials
     \end{itemize}
-  \item Asymptote figures
+  \item Diagram for problem~\ref{p:b:g:ci:1} and for trigonometry definition
 \end{itemize}
 \end{document}
