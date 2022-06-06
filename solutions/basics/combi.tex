@@ -1,0 +1,74 @@
+\subsection{Combinatorics}
+\subsubsection*{Result~\ref{r:b:c:am:1}}
+\hypertarget{sr:b:c:am:1}
+Not much to say here: just apply the multiplication principle.
+\begin{proof}
+  There are $n$ ways to choose the first thing, $n-1$ ways to choose the second
+  (since the first has been chosen), $n-2$ to choose the third, and so on up to
+  $n-k+1$ for the $k$th. Thus the total number of ways is
+  \[n(n-1)\cdots(n-k+1),\] as claimed.
+\end{proof}
+\subsubsection*{Problem~\ref{p:b:c:am:1}}
+\hypertarget{sp:b:c:am:1}
+So you try some small cases because of course you do, and you notice that every
+2 goals apart from the first 2, the number of ways is multiplied by 3. With the
+help of like, a tree diagram, it's easy to see that after an odd number of goals
+there are 3 ways of scoring the next 2. The rest is easy:
+
+Answer: $972$.
+\begin{proof}
+  There are 2 ways for the first goal to be scored.
+
+  Assume an odd number of goals has been scored. Then the difference between the
+  two teams' goals is 1, so we can WLOG team A has one more goal than team B.
+  Then the next two goals can be AB, BA, BB so there are 3 ways for the next two
+  goals to be scored.
+
+  Finally, there are 2 ways for the last 2 goals to be scored.
+
+  Thus, the total number of ways for 12 goals to be scored is $2\times 3^5\times
+  2=972$.
+\end{proof}
+\subsubsection*{Result~\ref{r:b:c:c:1}}
+\hypertarget{sr:b:c:c:1}
+The key to proving this is to notice that we have already proven
+Result~\ref{r:b:c:am:1} where order does matter. To go from order mattering to
+order not mattering, we need to find out how much we've overcounted by: that is,
+how many permutations, where order matters, go to the same combination, where
+order doesn't.
+\begin{proof}
+  By Result~\ref{r:b:c:am:1}, there are $\frac{n!}{k!}$ ways of choosing $k$
+  things from $n$, where order matters.
+
+  Let there be $x$ ways of choosing $k$ things from $n$, where order doesn't
+  matter. Then for each such way, each permutation of those $k$ things is
+  counted in our $\frac{n!}{(n-k)!}$ from above. Applying
+  Result~\ref{r:b:c:am:1} again, we have that $k!\times x=\frac{n!}{(n-k)!}$,
+  which rearranges to the claimed formula.
+\end{proof}
+\subsubsection*{Problem~\ref{p:b:c:c:1}}
+\hypertarget{sp:b:c:c:1}
+So upon reading the problem we can let our palindromes be $\overline{xyx}$ and
+$\overline{ztz}$. Clearly, $x>z$, after which it's clear why $y\ge t$.
+
+So by the multiplication principle, it suffices to count two things:
+\begin{itemize}
+  \item The number of ways of choosing digits $x$ and $z$ with $x>z>0$
+  \item The number of ways of choosing digits $y$ and $t$ with $y\ge t$.
+\end{itemize}
+Both these things are quite easy to count using this section's formula.
+
+Answer: 1980.
+\begin{proof}
+  Let the palindromes be $\overline{xyx}$ and $\overline{ztz}$. Since their
+  difference is 3 digits and $a>b$, we have $x>z$. 
+
+  Since the second digit of our subtraction can't carry, we must have $y\ge t$.
+  So it's enough to count the number of ways we can choose $x$ and $z$, and
+  separately the number of ways we can choose $y$ and $t$.
+
+  Since $x$ and $z$ are distinct digits from 1 to 9, the number of choosing them
+  is $\binom92=36$. Since $y$ and $t$ are not-necessarily-distinct digits from
+  0 to 9, the number of ways of choosing them is $\binom{10}2+10=55$. Thus, the
+  answer is $36\times 55=1980$.
+\end{proof}

@@ -1,0 +1,96 @@
+\section{Number Theory}
+\subsection{Divisibility}
+  For integers $a$ and $b$, we say $a\mid b$ (read ``$a$ divides
+  $b$'') if there is some integer $c$ with $b=a\times c$.
+\begin{result}{\label{r:b:n:d:1}}
+    If $a$ and $b$ are positive integers with $a\mid b$ then
+      $a\le b$.
+\end{result}
+\begin{result}{\label{r:b:n:d:2}}
+    If $a\mid b$ and $a\mid c$ then $a\mid bx+cy$ for all
+      integers $x$ and $y$.
+\end{result}
+\begin{problem}{\label{p:b:n:d:1}}
+    Find all integers $n$ such that $n^2+1\mid n^3+n^2-n-15$.
+\end{problem}
+\subsection{Primes}
+  We define a \emph{prime} as a positive integer larger than 1 which is not
+  divisible by any positive integer other than 1 and itself.
+\begin{result}{\label{r:b:n:p:1}}
+  Every positive integer larger than 1 has a prime factor.
+\end{result}
+This was what allowed us to prove Result~\ref{r:b:m:2:1}.
+
+  The Fundamental Theorem of Arithmetic (proved in Section~\ref{n:n:ftoa})
+  states that each positive integer has a unique prime factorisation; that is,
+  we can write a positive integer $n$ uniquely (up to permuting the $p_i$s) as
+  \[n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k},\]
+  where $p_i$ are all prime and $e_i$ are all positive integers.
+
+  Prime factorisations allow us to view statements about divisibility and
+  multiplication in terms of the exponents $e_i$.
+
+  In what follows, let 
+  \[a=p_1^{e_1}p_2^{e_2}\cdots p_m^{e_m},\
+        b=q_1^{f_1}q_2^{f_2}\cdots q_k^{e_k}.\]
+\begin{result}{\label{r:b:n:p:2}}
+    $a\mid b$ if and only if for each $i$ we have that $p_i=q_j$
+      for some $j$, and that $e_i\le f_j$.
+\end{result}
+\begin{result}{\label{r:b:n:p:3}}
+    $a$ is a perfect $k$th power if and only if $k\mid e_i$ for all $i$.
+\end{result}
+\begin{result}{\label{r:b:n:p:4}}
+    The lcm is found by taking the maximum power of each prime that
+      divides either $a$ or $b$; the gcd is found by taking the minimum power of
+      each prime that divides both $a$ and $b$.
+\end{result}
+\begin{result}{\label{r:b:n:p:5}}
+    $\gcd(a,b)\times\lcm(a,b)=ab$.
+\end{result}
+\subsection{Factorisations}
+Factorisations allow us to make equations nicer to work with. For example,
+solving the equation $xy+x+y=3$ over the integers becomes much easier when we
+express it as $(x+1)(y+1)=4$.
+
+Here are the most useful factorisations:
+\begin{align*}
+  axy+bx+cy=d\iff (ax+c)(ay+b)=ad+bc \\
+  a^k-b^k=(a-b)\left(a^{k-1}+a^{k-2}b+\cdots+b^{k-1}\right)
+\end{align*}
+\begin{problem}{\label{p:b:n:f:1}}
+     Find all right-angled triangles with positive integer sides 
+      such that their area and perimeter are equal.
+\end{problem}
+\begin{problem}{\label{p:b:n:f:2}}
+     Prove that $1^k+2^k+\cdots+n^k$ is divisible by $1+2+\cdots+n$ for
+      all positive integers $n$ and odd positive integers $k$.
+\end{problem}
+\begin{problem}{\label{p:b:n:f:3}}
+    Prove that if $2^n+1$ is prime for a positive integer $n$, then $n$ is
+      a power of 2.
+\end{problem}
+\subsection{Number bases}\label{b:n:bases}
+\begin{result}{\label{r:b:n:b:1}}
+    Given positive integers $n>1$ and $k$, prove that there are unique
+      nonnegative integers $m,a_0,a_1,\ldots,a_m$ such that $a_m>0,\ 0\le
+      a_i<n$ for all $i$, and
+      \[k=a_0 n^0+a_1 n^1+\cdots+a_m n^m.\]
+\end{result}
+This is called the \emph{base-$n$ representation} of $k$, and is often written
+as
+\[(\overline{a_m a_{m-1}\cdots a_0})_n.\]
+When the $a_i$s are specific digits, the parentheses and the bar over the $a_i$s
+are often dropped. So for example, the decimal number 16 can be expressed as
+$10000_2$.
+\begin{problem}{\label{p:b:n:b:1}}
+   If $234_{b+1}-234_{b-1}=70_{10}$, what is $234_b$ in base 10?
+\end{problem}
+\begin{problem}{\label{p:b:n:b:2}}
+  A sequence $\{a_i\}$ begins with $a_1=0$, and for each $i$ the number
+    $a_{i+1}$ is the smallest integer larger than $a_i$ which is not
+    equal to $2a_k-a_j$ for any $j,k$ with $1\le j<k\le i$. So the sequence begins
+    0,1,3,4,9,\ldots
+
+    Find the 2000th term of this sequence.
+\end{problem}

@@ -1,0 +1,112 @@
+\section{Algebra}
+\subsection{Factorisations}\label{b:a:factor}
+I won't have any problems attached to these, but they tend to pop up everywhere
+so keep an eye out. Here are some common factorisations:
+\begin{itemize}
+  \item $x^2-a^2=(x+a)(x-a)$
+  \item $x^2-2ax+a^2=(x-a)^2$
+  \item $x^2+2ax+a^2=(x+a)^2$
+  \item $x^3-a^3=(x-a)(x^2+ax+a^2)$
+  \item $x^3+a^3=(x+a)(x^2-ax+a^2)$
+  \item $x^3+3x^2a+3xa^2+a^3=(x+a)^3$
+  \item $x^3-3x^2a+3xa^2-a^3=(x-a)^3$
+\end{itemize}
+Many of these are special cases of the formula
+\[x^n-a^n=(x-a)(x^{n-1}+ax^{n-2}+a^2x^{n-3}+\cdots+a^{n-1}).\]
+
+The cases $a=1$ are especially common.
+\subsection{Systems of equations}
+There are a couple of ways of solving these systems --- either you can
+isolate one variable, substitute into the rest of the equations, and repeat, or
+you can try and combine the equations in such a way that stuff cancels. The
+first method is usually fine in school maths and the AMC, but the second is more
+likely to be useful in harder Olympiad questions.
+
+Sometimes these techniques won't be enough --- see Section~\ref{n:a:systems}.
+\begin{problem}\label{p:b:a:systems:1}
+  The difference between two numbers is 20. When 4 is added to each number the
+  larger is three times the smaller. What is the larger of the two original
+  numbers?
+  \hyperlink{s:b:a:systems:1}{Solution}
+\end{problem}
+\begin{problem}\label{p:b:a:systems:2}
+  Find all triples $(x,y,z)$ of real numbers that simultaneously satisfy the
+  equations
+  \begin{align*}
+    xy+1&=2z \\
+    yz+1&=2x \\
+    zx+1&=2y \\
+  \end{align*}
+  \hyperlink{s:b:a:systems:2}{Solution}
+\end{problem}
+\subsection{Quadratics}
+\begin{result}\label{r:b:a:quad:1}
+  Let $m$ and $p$ be given real numbers. All real numbers $x$ such that
+  \[x^2-2mx+p=0\] are given by $x=m\pm\sqrt{m^2-p}$.
+  \hyperlink{sr:b:a:quad:1}{Solution}
+\end{result}
+\begin{result}\label{r:b:a:quad:2}
+  Let $a,\ b,\ c$ be given real numbers. All real numbers $x$ such that
+  \[ax^2+bx+c=0\] are given by \[x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.\]
+  In particular, if we let $\Delta=b^2-4ac$, then the equation has no real roots
+  if $\Delta<0$, exactly one real root if $\Delta=0$, and two real roots if
+  $\Delta>0$.
+  \hyperlink{sr:b:a:quad:2}{Solution}
+\end{result}
+This number $\Delta$ is called the \emph{discriminant} of the quadratic.
+
+Now, a couple of problems which show how useful both the results and the method
+are.
+\begin{problem}\label{p:b:a:quad:1}
+  [See Section~\ref{b:n:bases} if you don't know what number bases are.]
+
+  The number $x$ is 111 when written in base $b$, but it is 212 when written in
+  base $b-2$. What is $x$ is base 10?
+  \hyperlink{sp:b:a:quad:1}{Solution}
+\end{problem}
+\begin{problem}\label{p:b:a:quad:2}
+  For each pair of real numbers $(r,s)$, prove that there exists a real numer
+  $x$ that satisfies at least one of the following two equations.
+  \begin{align*}
+    x^2+(r+1)x+s&=0 \\
+    rx^2+2sx+s&=0
+  \end{align*}
+  \hyperlink{sp:b:a:quad:2}{Solution}
+\end{problem}
+\begin{problem}\label{p:b:a:quad:3}
+  Find all real numbers $x$ for which $x^3+3x^2+3x+5=0$.
+  \hyperlink{sp:b:a:quad:3}{Solution}
+\end{problem}
+\subsection{Inequalities}
+At this level, inequalities are mostly about making stuff into squares or, well,
+``mostly squares''. The guiding principle is to try and find an expression which
+you want to be always nonnegative, figure out where it's 0, and write it in
+terms of stuff that's 0 there and obviously nonnegative elsewhere.
+
+\begin{result}\label{r:b:a:ineq:1}
+  If $a$ and $b$ are real numbers, then \[\frac{a+b}2\ge\sqrt{ab}.\]
+  \hyperlink{sr:b:a:ineq:1}{Solution}
+\end{result}
+
+\begin{problem}\label{p:b:a:ineq:1}
+  The set $S$ consists of distinct integers such that the smallest is 0 and the
+  largest is 2015. What is the minimum possible average value of the numbers in
+  $S$?
+  \hyperlink{sp:b:a:ineq:1}{Solution}
+\end{problem}
+\subsection{Sums of sequences}
+\begin{result}\label{r:b:a:sums:1}
+  If $n$ is a positive integer and $a$ and $b$ are real numbers, then
+  \[\sum_{i=0}^n(a+bi)=\frac{(n+1)(2a+bn)}2.\]
+  \hyperlink{sr:b:a:sums:1}{Solution}
+\end{result}
+\begin{result}\label{r:b:a:sums:2}
+  If $n$ is a positive integer and $r$ is a real number distinct from 1, then
+  \[\sum_{i=0}^n r^i=\frac{1-r^{n+1}}{1-r}.\]
+  \hyperlink{sr:b:a:sums:2}{Solution}
+\end{result}
+\begin{problem}\label{p:b:a:sums:1}
+  Prove that for any positive integers $n$ and $a$, the sum
+  \[n+(n+1)+(n+2)+\cdots+(n+a)\] is never a power of 2.
+  \hyperlink{sp:b:a:sums:1}{Solution}
+\end{problem}

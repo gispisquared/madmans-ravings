@@ -1,0 +1,252 @@
+\subsection{Algebra}
+\subsubsection*{Problem~\ref{p:b:a:systems:1}}
+\hypertarget{s:b:a:systems:1}
+Not much to say here --- interpret as a system of linear equations and solve
+however you like. 
+
+Answer: 26.
+\begin{proof}
+  Let the two numbers be $a$ and $b$, with $a>b$. Then, $b=a-20$ so
+  \begin{align*}
+    a+4&=3(a-20+4) \\
+       &=3a-48 \\
+    2a&=52 \\
+    a&=26,
+  \end{align*}
+  so the larger of the two numbers is 26.
+
+  To prove that this actually works, note that if $a=26$ and $b=6$, then $a-b=20$
+  and $a+4=30=3\times 10=3(b+4)$ as needed.
+\end{proof}
+\subsubsection*{Problem~\ref{p:b:a:systems:2}}
+\hypertarget{s:b:a:systems:2}
+Since we don't like the 1s in our equations, we subtract two equations to get
+rid of them. Alternatively, we subtract two equations because that's one of the
+most obvious things to do with a system of equations. Either way, once we've
+done that the rest of the problem is pretty routine.
+
+Answer: $(x,y,z)=(1,1,1),\left(-2,-2,\frac52\right),\left(-2,\frac52,-2\right),
+\left(\frac52,-2,-2\right)$.
+\begin{proof}
+  Subtract the third equation fron the first:
+  \begin{align*}
+    xy-xz&=2z-2y \\
+    x(y-z)+2(y-z)&=0 \\
+    (x+2)(y-z)&=0 \\
+  \end{align*}
+  So either $x=-2$ or $y=z$. Similarly we can deduce that either $z=-2$ or
+  $x=y$. Now we split into four cases:
+
+  \begin{itemize}
+    \item $x=-2,\ z=-2$. Then $2y=zx+1=5\implies y=\frac 52$.
+    \item $x=-2,\ x=y$. Then similar to the above we get $z=\frac 52$.
+    \item $y=z\ z=-2$. In the same way we get $x=\frac 52$.
+    \item $y=z,\ x=y$. Then $x^2+1=2x\implies (x-1)^2=0\implies x=1$, so
+      $x=y=z=1$.
+  \end{itemize}
+  So the only solutions are what we claim they are. It is easy to check that
+  these solutions all satisfy the original equations.
+\end{proof}
+\subsubsection*{Result~\ref{r:b:a:quad:1}}
+\hypertarget{sr:b:a:quad:1}
+First, there are a few ways of seeing that this is the answer.
+
+One way is to try to factorise $x^2-2mx+p$ as $(x-a)(x-b)$. Then $a+b=2m$ and
+$ab=p$, and $a$ and $b$ are the values of $x$ we want. Then the key idea is that
+the way of using the $a+b=2m$ condition is to let $a=m+c,\ b=m-c$ so that
+\[p=ab=(m+c)(m-c)=m^2-c^2,\] so that $c=\sqrt{m^2-p}$.
+
+Another way is to notice that $x^2-2mx+p$ looks a lot like
+$x^2-2mx+m^2=(x-m)^2$. I'll do the rest in the proof.
+
+\begin{proof}
+  We have
+  \begin{align*}
+    x^2-2mx+p&=x^2-2mx+m^2+p-m^2 \\
+             &=(x-m)^2-\left(m^2-p\right)
+  \end{align*}
+  If $m^2-p<0$ then clearly there are no solutions. Otherwise, we have
+  \begin{align*}
+    x^2-2mx+p&=(x-m)^2-\left(\sqrt{m^2-p}\right)^2\\
+             &=\left(x-m-\sqrt{m^2-p}\right)\left(x-m+\sqrt{m^2-p}\right),
+  \end{align*}
+  so it equals 0 if and only if $x=m\pm\sqrt{m^2-p}$.
+\end{proof}
+\subsubsection*{Result~\ref{r:b:a:quad:2}}
+\hypertarget{sr:b:a:quad:2}
+The key here is to get this equation into a form such that we can apply the
+previous result.
+\begin{proof}
+  We have
+  \begin{align*}
+    0&=ax^2+bx+c \\
+    0&=x^2+\frac bax+\frac ca \\
+     &=x^2-2\frac{-b}{2a}x+\frac ca \\
+    x&=\frac{-b}{2a}\pm\sqrt{\frac{b^2}{4a^2}-\frac ca} \\
+     &=\frac{-b\pm \sqrt{4a^2\left(\frac{b^2}{4a^2}-\frac ca\right)}}{2a} \\
+     &=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+  \end{align*}
+  as needed.
+
+  If $\Delta<0$ there are clearly no solutions. If
+  $\Delta=0$ the unique solution is $x=\frac{-b}{2a}$. If $\Delta>0$ there are
+  two solutions given by our equation.
+\end{proof}
+\subsubsection*{Problem~\ref{p:b:a:quad:1}}
+\hypertarget{sp:b:a:quad:1}
+Once again not much to say here --- interpret the number bases  in the usual way
+and solve the resulting quadratic.
+
+Answer: 57.
+\begin{proof}
+  We have
+  \begin{align*}
+    111_b&=212_{b-2} \\
+    b^2+b+1&=2(b-2)^2+(b-2)+2 \\
+           &=2b^2-7b+8 \\
+    0&=b^2-8b+7 \\
+    b&=4\pm\sqrt{4^2-7} \\
+     &=4\pm3
+  \end{align*}
+  Therefore, since $b>2$ we get $b=7\implies x=7^2+7+1=57$.
+
+  Finally, 57 is indeed 111 in base 7 and 212 in base 5.
+\end{proof}
+\subsubsection*{Problem~\ref{p:b:a:quad:2}}
+\hypertarget{sp:b:a:quad:2}
+The key here is to use the discriminant ($\Delta$ in
+Result~\ref{r:b:a:quad:2}). In particular,
+it's enough to prove that at least one of the two $\Delta$s is nonnegative. The
+easiest way of doing this is to assume that the first is negative and prove that
+the second isn't.
+\begin{proof}
+  Assume that there is no real number $x$ such that $x^2+(r+1)x+s=0$. Then the
+  discriminant $(r+1)^2-4s$ is negative, so $4s>(r+1)^2$.
+
+  Since $(r+1)^2\ge 0$, we know that $s>0$.
+  Also, $4(s-r)>(r+1)^2-4r=(r-1)^2\ge 0$.
+  So since $s>0$ and $4(s-r)>0$, their product $4s^2-4sr$ is also positive so
+  the discriminant of the second quadratic is positive, meaning that it has at
+  least one real solution.
+\end{proof}
+\subsubsection*{Problem~\ref{p:b:a:quad:3}}
+\hypertarget{sp:b:a:quad:3}
+At first glance, this looks like our methods can't help since we have a cubic
+not a quadratic. However, the same trick used in Result~\ref{r:b:a:quad:1}
+of recognising a common factorisation does in fact work.
+
+Answer: $x=-1-\sqrt[3]{4}$.
+\begin{proof}
+  We subtract 4 from both sides to make the LHS into something we recognise:
+  \begin{align*}
+    x^3+3x^2+3x+1&=-4 \\
+    (x+1)^3&=-4 \\
+    x+1&=-\sqrt[3]{4} \\
+    x&=-1-\sqrt[3]{4}.
+  \end{align*}
+  To show that this number works, we can either substitute it in and do the
+  algebra, or notice that each step above was actually an equivalence so the
+  implications run backwards as well.
+\end{proof}
+
+\subsubsection*{Result~\ref{r:b:a:ineq:1}}
+\hypertarget{sr:b:a:ineq:1}
+Since we want to use the fact that squares are nonnegative, we collect all the
+terms on one side. The rest is recognition, which can be helped by noticing that
+we want equality to occur when $a=b$.
+\begin{proof}
+  \[\RHS-\LHS=\frac{a+b}2-\sqrt{ab}=\frac{a+b-2\sqrt{ab}}2=\frac{(\sqrt a-\sqrt
+  b)^2}2\ge 0,\] as needed.
+\end{proof}
+
+\subsubsection*{Problem~\ref{p:b:a:ineq:1}}
+\hypertarget{sp:b:a:ineq:1}
+We have to have a 0 and a 2015 in the set, but apart from them the rest of the
+terms should be as small as possible. This means that we can apply
+Result~\ref{r:b:m:4:1} to get a function we want to minimise. A little
+algebraic trickery means it's enough to minimise \[n+\frac{4032}n.\] Then, by
+Result~\ref{r:b:a:ineq:1}, the  minimum of this over $\Rr$ is
+$2\sqrt{4032}$ at $n=\sqrt{4032}\approx 63.5$, which means either 63 or 64
+should minimise the expression over $\Nn$. In fact both do, so we should
+try to force the expression into something that looks like $(n-63)(n-64)$, and
+indeed doing that solves the problem.
+
+Answer: 62.
+\begin{proof}
+  Let $n$ be the number of elements in $S$, and let $S=\{s_1,s_2,\ldots,s_n\}$,
+  where the $s_i$s are in increasing order.
+  Then \[s_i\ge i-1\, \forall\, i<n,\] and $s_n=2015$, so the average is at
+  least
+  \begin{align*}
+    \frac{0+1+\cdots+n-2+2015}n&=\frac{\frac{(n-2)(n-1)}2+2015}n \\
+                               &=\frac{n^2-3n+4032}{2n}\\
+                               &=\frac{n^2-127n+4032}{2n}+62 \\
+                               &=\frac{(n-63)(n-64)}{2n}+62.
+  \end{align*}
+  Since $n$ is an integer, the first term is 0 if $n$ is either 63 or 64 and
+  positive otherwise, which means that the minimum value is 62, achieved when
+  $S$ is either $\{0,1,\ldots,61,2015\}$ or $\{0,1,\ldots,61,62,2015\}$.
+\end{proof}
+\subsubsection*{Result~\ref{r:b:a:sums:1}}
+\hypertarget{sr:b:a:sums:1}
+There are three ways I know of doing this. One of them is a standard induction,
+but the other two are more interesting.
+
+For the first way, we notice that we already know the special case (see
+Result~\ref{r:b:m:4:1}) where $a=0$ and $b=1$. A little algebra allows us
+to reduce the whole problem to this particular case.
+\begin{proof}
+  We have
+  \begin{align*}
+    \sum_{i=0}^n(a+bi)&=\sum_{i=0}^n a+\sum_{i=0}^n bi \\
+                      &=a(n+1)+b\sum_{i=0}^n i \\
+                      &=a(n+1)+b\frac{n(n+1)}2 \\
+                      &=\frac{(2a+bn)(n+1)}2,
+  \end{align*}
+  as needed.
+\end{proof}
+For the second way, we use a trick called \emph{Gaussian pairing} --- we pair
+the first term with the last term and so on --- so that each pair has the same
+sum.
+\begin{proof}
+  We have
+  \begin{align*}
+    \sum_{i=0}^n(a+bi)&=\sum_{i=0}^n(a+b(n-i)) \\
+                      &=\frac12\left(\sum_{i=0}^n(a+bi)+
+                      \sum_{i=0}^n(a+b(n-i))\right)
+                      \\
+                      &=\frac12\left(\sum_{i=0}^n(2a+bn)\right) \\
+                      &=\frac{(n+1)(2a+bn)}2,
+  \end{align*}
+  as needed.
+\end{proof}
+\subsubsection*{Result~\ref{r:b:a:sums:2}}
+\hypertarget{sr:b:a:sums:2}
+The main idea here comes from extending a couple of the common factorisations:
+\begin{itemize}
+  \item $1-r^2=(1-r)(1+r)$
+  \item $1-r^3=(1-r)(1+r+r^2)$
+\end{itemize}
+We get the $a=1$ case of the general formula given in~\ref{b:a:factor}.
+Let's write it up.
+\begin{proof}
+  We have \[1-r^{n+1}=(1-r)(1+r+r^2+\cdots+r^n),\] since all the middle terms
+  cancel. Dividing both sides by $1-r$ yields the desired result.
+\end{proof}
+\subsubsection*{Problem~\ref{p:b:a:sums:1}}
+\hypertarget{sp:b:a:sums:1}
+So you sum your sequence using Result~\ref{r:b:a:sums:1}, which gets you a
+closed form. 
+
+Then you're left having to prove that $a+1$ and $2n+a$ cannot both be powers of
+2. Playing around with special cases tells you at least one is odd, and from
+there it's easy to finish.
+\begin{proof}
+  From Result~\ref{r:b:a:sums:1}, we have that the given sum is equal to
+  \[\frac{(a+1)(2n+a)}2.\] So assume, for contradiction, that this is a power
+  of 2. Then we have that twice the sum is also a power of 2, so $(a+1)(2n+a)$
+  is a power of 2. Since $a+1$ and $2n+a$ both divide powers of 2, they must
+  each be a power of 2. Since $a$ and $n$ are positive integers, both $a+1$ and
+  $2n+a$ are at least 2 so they're even. So their difference, $2n-1$, must also
+  be even, which is a contradiction.
+\end{proof}

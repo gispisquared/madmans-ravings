@@ -1,0 +1,171 @@
+\subsection{Methods of Proof}
+\subsubsection*{Result~\ref{r:b:m:1:1}}
+\hypertarget{s:m:1:1}
+If you start trying some small cases, what you'll eventually find is that if $n$
+is an even integer, then $n^2$ leaves a remainder of 0 when divided by 4, and
+if $n$ is an odd integer, then $n^2$ leaves a remainder of 1 when divided by
+4. Once you've conjectured this, all that's left is to recall what it means for
+a number to be even or odd, and then the proof falls out quite naturally:
+\begin{proof}
+  Let the perfect square be $n^2$. We split into cases depending on the parity
+  of $n$.
+  \begin{itemize}
+    \item If $n$ is even, let $n=2m$ for some integer $m$. Then
+      \[n^2=(2m)^2=4m^2,\] which leaves a remainder of 0 when divided by 4.
+    \item If $n$ is odd, let $n=2m+1$ for some integer $m$. Then
+      \[n^2=(2m+1)^2=4m^2+4m+1=4(m^2+m)+1,\] which leaves a remainder of 1 when
+      divided by 4.
+  \end{itemize}
+  In either case, the remainder left when dividing $n^2$ by 4 is either 0 or 1,
+  which is what we wanted to prove.
+\end{proof}
+\subsubsection*{Result~\ref{r:b:m:2:1}}
+\hypertarget{s:m:2:1}
+The key here is to assume, for contradiction, that there are
+only finitely many primes. Then we want to prove a suitable contradiction --- a
+nice way of doing this is to find a number that isn't 1 but isn't divisible by
+any of our finitely many primes. The idea of constructing such a number by
+multiplying everything and adding 1 is surprisingly common in Olympiad maths.
+\begin{proof}
+  Assume that there are only finitely many primes $p_1,p_2,\ldots,p_n$. Then,
+  consider the number $A=p_1p_2\cdots p_n+1$. Clearly $A$ is a positive integer
+  larger than 1, so it must have a prime factor, which means that for some $i$,
+  $p_i\mid A$. But $p_i\mid A-1$, so $p_i\mid A-(A-1)=1$, which is our
+  contradiction.
+\end{proof}
+\subsubsection*{Problem~\ref{p:b:m:3:1}}
+\hypertarget{s:m:3:1}
+This is more an exercise in logic than in maths.
+You could be stuck for ages trying to prove the problem directly, but as soon as
+you try to use some indirect approach (like contrapositive, contradiction, or
+assuming one part of the conclusion is false and proving the other is true) the
+problem pretty much solves itself. I think the cleanest solution in this
+particular case uses the contrapositive.
+\begin{proof}
+  We prove the contrapositive: that if $a$ and $b$ are both rational, then so is
+  $a+b$.
+
+  Let $a=\frac wx,\ b=\frac yz$. Then \[a+b=\frac wx+\frac
+  yz=\frac{wz+xy}{xz},\] which is clearly rational.
+\end{proof}
+\subsubsection*{Result~\ref{r:b:m:4:1}}
+\hypertarget{s:m:4:1}
+This is a classic induction problem. Apart from being instructive because it
+isolates the idea of induction, it does highlight a minor point. In the
+inductive step, it's just as acceptable to assume the problem is true for $k$
+and prove it for $k+1$ as to assume the problem is true for $k-1$ and prove it
+for $k$. In this particular case, the latter is somewhat easier.
+\begin{proof}
+  We prove this by induction on $n$.
+
+  Base case $n=1$: We have $\LHS=1=\frac{1\times 2}2=\RHS$.
+
+  Inductive step: Assume the problem is true for $n=k-1$. Then,
+  \begin{align*}
+    1+2+\cdots+k&=(1+2+\cdots+k-1)+k \\
+                &=\frac{k(k-1)}2+k \\
+                &=\frac{k(k-1)+2k}2 \\
+                &=\frac{k(k+1)}2,
+  \end{align*}
+  so the problem is true for $n=k$.
+\end{proof}
+\subsubsection*{Result~\ref{r:b:m:4:2}}
+\hypertarget{s:m:4:2}
+This is a good example of how solutions to the same problem can look quite
+different when written up with PMI or with well-ordering.
+
+First assume PMI\@. A direct induction will prove the statement quite easily.
+
+Now we can try assuming well-ordering. Looking for a contradiction, assume there
+is some positive integer $a<1$. A contradiction is easiest to find by applying
+well-ordering to the set of all positive integers.
+
+Let's write this up.
+\begin{proof}
+  First, assume PMI\@.
+
+  Base case $n=1$: clearly $1\ge 1$.
+
+  Inductive step: assume that $k\ge 1$.
+  Then $k+1>k\ge 1$, completing the induction.
+
+  Now, assume well-ordering. Assume there's some $a\in\mathbb N$ with $a<1$.
+  Since $\mathbb N$ is nonempty, we may let $b$ be its smallest element.
+  Since $ab$ is a positive integer, we have $b\le ab$.
+  On the other hand, since $a<1$ we get that $ab<b$.
+  This contradiction concludes the proof.
+\end{proof}
+\subsubsection*{Result~\ref{r:b:m:4:3}}
+\hypertarget{s:m:4:3}
+Since this is an ``if and only if'' problem, we will probably need to find
+separate proofs in each direction. 
+
+First, let's use induction to prove well-ordering. Our desired conclusion is
+that any nonempty set of positive integers has a smallest element. Intuitively,
+what we would like to do is to check if 1 is in it, then if 2 is in it, and so
+on until we find an element that's in it. Once we've found that element, we wish
+to prove that it's the smallest element. However, this is hard to write up
+because we'd like our process to ``finish'' after a finite number of steps,
+while induction only talks about things that are true for all positive integers.
+To make our lives easier, we instead try to prove the contrapositive of
+well-ordering: that if $S$ is a set of positive integers with no smallest
+element then $S$ is empty.
+
+Now, our argument looks similar: we claim that 1 is not in $S$, that 2 is not in
+$S$, and so on forever. To make sure that we can actually keep repeating this
+argument, we need to show that if we found an element in $S$ it must be the
+smallest element. Proving this requires tweaking our inductive
+assumption.
+
+Now, let's use well-ordering to prove PMI\@. You'll probably get nowhere if you
+aren't completely clear about what you're trying to prove (you may as well
+replace PMI by gibberish), so let's write out PMI in full:
+
+Let $S$ be a set of positive integers. If $1\in S$, and if the statement
+$\forall a\in S,\ a+1\in S$ is true, then $S$ contains all positive integers.
+
+Once again we use indirect proof --- this time it's proof by contradiction
+(contrapositive also works). Let's assume that there is a set $S$ that satisfies
+both conditions but doesn't contain all positive integers. We hope to use
+well-ordering to find a contradiction.
+
+The key idea is to consider the smallest integer that isn't in $S$, which is
+possible by well-ordering. Then the condition implies that either it's not the
+smallest, or $1\not\in S$ --- a contradiction either way.
+
+Let's write it up.
+\begin{proof}
+  First we prove that if PMI is true, then so is well-ordering. Assume PMI, and
+  we'll prove the contrapositive of well-ordering: that if $S$ is a set of
+  positive integers with no smallest element, then it is empty.
+
+  I prove by strong induction that for each positive integer $n$, if $m\in S$
+  then $m\ge n+1$.
+
+  Base case $n=1$: if $1\in S$, then 1 would be the smallest element in $S$
+  (since if $m\in S$ then $m$ is a positive integer so $m\ge 1$).
+  So since $S$ has no smallest element, 1 is not the smallest element in $S$ so
+  taking the contrapositive we get that 1 is not in $S$.
+
+  Inductive step: Assume that for any $m\in S$ we know that $m\ge k+1$. I
+  claim that $k+1\not\in S$. Indeed, if $k+1$ were in $S$, then it would be the
+  smallest element of $S$. But since $S$ has no smallest element, $k+1$ can't be
+  in $S$. Therefore, if $m\in S$ we know $m-(k+1)$ is a positive integer so
+  $m-(k+1)\ge 1$, so $m\ge k+2$, as required for the inductive step.
+
+  This completes the induction. Now if $n\in S$ we've proven that $n\ge n+1$, a
+  contradiction so $S$ must be empty.
+
+  Now I prove that if well-ordering is true, then so is PMI\@. Assume for
+  contradiction that well-ordering is true but PMI is not. Then, there is a set
+  $S$ of positive integers that contains 1 and such that for each $a\in S,\
+  a+1\in S$ but that does not contain all positive integers. Then, the set
+  $\Nn\setminus S$ is nonempty so by well-ordering it contains a smallest
+  element $a$.
+
+  Since we know that $1\in S$, we know that $a\ne 1$. So since $a\ge 1$,
+  $a-1$ is a positive
+  integer. Since $a-1<a$ and $a$ is the smallest member of $\Nn\setminus S$,
+  $a-1$ is not in $\Nn\setminus S$ so $a-1\in S$. So $(a-1)+1=a\in S$,
+  which contradicts the assumption that $a\not\in S$.
+\end{proof}

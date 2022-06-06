@@ -1,0 +1,245 @@
+\section{Geometry}
+Whenever you see a geometrical statement or problem (including everywhere in the
+geometry sections of this book), your first instinct should
+always be to draw a diagram to understand it. Diagrams should be
+\begin{itemize}
+  \item Accurate --- use ruler and compass
+  \item Large --- they should take up the whole page. Go landscape if it gives
+    you more space.
+\end{itemize}
+This is important because your chances of solving, or even understanding, a
+problem are proportional to how easily you can see things in your diagram.
+\subsection{Parallels}
+You should know what parallel lines are: they point in the same direction and
+never meet.
+
+Let $ABC$ and $DEF$ be points on two parallel lines (in that order, and in the
+same direction along each line), and let
+$X$ and $Y$ be points on $BE$ such that $XBEY$ is in that order.
+Then
+\[\angle ABX=\angle CBE=\angle DEX=\angle FEY,\] the other four angles are
+equal, and the angles in these two sets are supplementary (add up to 
+$180^\circ$).
+\begin{result}{\label{r:b:g:p:1}}
+  For any three points $A, B, C$, \[\angle ABC+\angle
+  BCA+\angle CAB=180^\circ.\]
+\end{result}
+\subsection{Congruence}
+Two triangles $ABC$ and $XYZ$ are called \emph{congruent} if \[AB=XY,\ AC=XZ,\
+BC=YZ,\]
+\[\angle BAC=\angle YXZ,\ \angle ABC=\angle XYZ,\ \angle ACB=\angle
+XZY.\]
+We write ``$ABC$ is congruent to $XYZ$'' as $\triangle ABC\cong\triangle XYZ$.
+
+There are congruence tests which enable us to determine when two triangles are
+congruent, so that knowing some of these equalities we can deduce the others.
+
+Triangles $ABC$ and $XYZ$ are congruent if any of the following hold:
+\begin{itemize}
+  \item $AB=XY$, $AC=XZ$ and $BC=YZ$. (SSS)
+  \item $AB=XY$, $AC=XZ$ and $\angle BAC=\angle YXZ$. (SAS)
+  \item $AB=XY$ and $\angle BAC=\angle YXZ$ and $\angle ABC=\angle XYZ$. (AAS)
+\end{itemize}
+Note: SSA (two sides and an unincluded angle) on its own isn't enough, but we
+can fix it:
+\begin{itemize}
+  \item $AB=XY$ and $AC=XZ$ and $\angle ABC=\angle XYZ$ and $AB<AC$. (Fixed SSA)
+\end{itemize}
+In the special case where $\angle ABC=\angle XYZ=90^\circ$, this is known as RHS.\@
+\begin{result}{\label{r:b:g:c:1}}
+  Let $ABC$ be a triangle, and let $M$ be the midpoint of $BC$.
+  The following statements are equivalent:
+  \begin{itemize}
+    \item $AB=AC$
+    \item $\angle ABC=\angle ACB$
+    \item $AM\perp BC$.
+  \end{itemize}
+\end{result}
+If any of those statements are true the triangle is called \emph{isosceles}.
+\begin{problem}
+  Let $ABC$ be an isosceles triangle with $AB=BC$. Let $D$ be a point on $BC$
+  such that $\angle DBC=20^\circ$. Let $E$ be a point on $AB$ with $AE=AD$. What
+  is $\angle BDE$?
+\end{problem}
+\begin{result}{\label{r:b:g:c:2}}
+  Let $ABCD$ be a parallelogram (that is, $AB||CD$ and $BC||DA$). If $AC$
+  intersects $BD$ at $P$, then $P$ is the midpoint of $AC$ and of $BD$.
+\end{result}
+\subsection{Circles}
+A \emph{circle} is the set of points a distance $r$ from a central point $O$.
+Thus, any two points on the circle form an isosceles triangle with $O$.
+
+The circumference (perimeter) of the circle is $2\pi r$, while the area is $\pi
+r^2$.
+\begin{result}{\label{r:b:g:ci:1}}
+  Let $A,\ B,\ C,\ M$ be points in the plane such that $M$ is the midpoint of
+  $AB$. Then $C$ lies on the circle centred at $M$ passing through $A$ and $B$
+  if and only if $\angle ACB=90^\circ$.
+\end{result}
+
+The next few results are generalisations of this. The proofs are linked in
+Section~\ref{n:g:directed}.
+\begin{result}{\label{r:b:g:ci:2}}
+  If $A,\ B,\ C$ are points on a circle centred at $O$ with $A$ on the same side
+  of $BC$ as $O$, then $\angle BOC=2\angle BAC$.
+\end{result}
+\begin{result}{\label{r:b:g:ci:3}}
+  If $A,\ B,\ C$ are points on a circle centred at $O$ with $A$ and $O$ on
+  opposite sides of $BC$, then $\angle BOC=360^\circ-2\angle BAC$.
+\end{result}
+\begin{result}{\label{r:b:g:ci:4}}
+  If $B$ and $C$ lie on the same side of $AD$ then there is a circle passing
+  through all of $A,\ B,\ C,\ D$ if and only if $\angle ABD=\angle ACD$.
+\end{result}
+\begin{result}{\label{r:b:g:ci:5}}
+  If $B$ and $D$ lie on opposite sides of $AC$, then there is a circle passing
+  through all of $A,\ B,\ C,\ D$ if and only if $\angle ABC+\angle
+  ADC=180^\circ$.
+\end{result}
+\begin{problem}{\label{p:b:g:ci:1}}
+  For $n\ge 3$, a pattern can be made by overlapping $n$ circles, each of
+  circumference 1 unit, so that each circle passes through a central point and
+  the resulting pattern has order-$n$ rotational symmetry. For instance, the
+  diagram shows the pattern where $n=7$.
+
+  If the total length of visible arcs is 60 units, what is $n$?
+\end{problem}
+\subsection{Similarity}
+  We say that triangles $ABC$ and $XYZ$ are \emph{similar} if for some real $r$
+  (called the ratio of similitude),
+      \[\frac{BC}{YZ}=\frac{CA}{ZX}=\frac{AB}{XY}=r,\]
+      \[\angle ABC=\angle XYZ,\
+      \angle BCA=\angle YZX,\ \angle CAB=\angle ZXY.\]
+
+    We write ``$ABC$ is similar to $XYZ$'' as $\triangle ABC\sim\triangle XYZ$.
+
+    Triangles $ABC$ and $XYZ$ are similar if any of the following hold:
+  \begin{itemize}
+    \item $\frac{BC}{YZ}=\frac{CA}{ZX}=\frac{AB}{XY}$ (PPP)
+    \item $\frac{AB}{XY}=\frac{BC}{YZ},\ \angle ABC=\angle XYZ$ (PAP)
+    \item $\angle ABC=\angle XYZ,\ \angle BCA=\angle YZX$ (AA)
+  \end{itemize}
+  Once again, PPA (two sides and an unincluded angle) doesn't work. However, we
+  can fix it in the same way:
+  \begin{itemize}
+    \item $\frac{AB}{XY}=\frac{AC}{XZ},\ \angle ABC=\angle XYZ$ and $AB<AC$.
+      (Fixed PPA)
+  \end{itemize}
+  In the special case where $\angle ABC=\angle XYZ=90^\circ$, this is
+  known as RHS\@.
+\begin{result}{\label{r:b:g:s:1}}
+  Let $ABC$ and $ADE$ be similar triangles with the same orientation (that is,
+  $\triangle ABC\sim\triangle ADE$ and both triangles are labelled either
+  clockwise or anticlockwise). Then $ABD$ and $ACE$ are also similar and
+  similarly oriented.
+\end{result}
+\begin{problem}{\label{p:b:g:s:1}}
+  Let $A,B,C,D$ be points on a circle such that $\triangle ABC$ is equilateral,
+  and $D$ lies on minor arc $BC$. Prove that $AD=BD+CD$.
+\end{problem}
+\subsection{Areas}
+We assign a positive real number, known as an \emph{area}, to each polygon in
+the plane such that
+\begin{itemize}
+  \item the area of a rectangle with sidelengths $a$ and $b$ is $ab$;
+  \item the areas of two congruent triangles are equal; and
+  \item if two polygons have disjoint interiors then the area of their union
+    equals the sum of their areas.
+\end{itemize}
+The area of a polygon $P_1,P_2,\ldots,P_n$ is denoted $|P_1P_2\cdots P_n|$. We
+may use these properties to deduce some well-known facts about areas.
+\begin{result}{\label{r:b:g:a:1}}
+  Let $ABC$ be a triangle such that $\angle ABC=90^\circ$. Then,
+  \[|ABC|=\frac 12\times AB\times BC.\]
+\end{result}
+\begin{result}{\label{r:b:g:a:2}}
+  Let $ABC$ be a triangle, and let $D$ be a point on line $BC$ such that
+  $AD\perp BC$. Then,
+  \[|ABC|=\frac 12\times AD\times BC.\]
+\end{result}
+An important special case of this is that two triangles with the same height
+have areas in the same ratio as their bases, and two triangles with the same
+base have areas in the same ratio as their heights.
+\begin{result}{\label{r:b:g:a:3}}
+  Let $ABC$ and $XYZ$ be similar triangles with ratio of similitude $r$. Then,
+  \[\frac{|ABC|}{|XYZ|}=r^2.\]
+\end{result}
+\begin{problem}{\label{p:b:g:a:1}}
+  A triangle $ABC$ is divided into four regions by three lines parallel to $BC$.
+  The lines divide $AB$ into four equal segments. If the second largest region
+  has area 225, what is the area of $ABC$?
+\end{problem}
+\begin{problem}{\label{p:b:g:a:2}}
+  Let $ABCD$ be a parallelogram. Point $P$ is on $AB$ produced such that $DP$
+  bisects $BC$ at $X$. Point $Q$ is on $BA$ produced such that $CQ$ bisects $AD$
+  at $M$. Lines $DP$ and $CQ$ meet at $O$. If the area of parallelogram $ABCD$
+  is 192, find the area of triangle $POQ$.
+\end{problem}
+\begin{problem}{\label{p:b:g:a:3}}
+  The area of triangle $ABC$ is 300. In triangle $ABC$, $Q$ is the midpoint of
+  $BC$, $P$ is a point on $AC$ between $C$ and $A$ such that $CP=3PA$, $R$ is a
+  point on side $AB$ such that the area of $\triangle PQR$ is twice the area of
+  $\triangle RBQ$. Find the area of $\triangle PQR$.
+\end{problem}
+\begin{result}{\label{r:b:g:a:4}}
+  In triangle $ABC$, point $P$ is on $AB$ such that $AP$ bisects $\angle BPC$.
+  Then, $\frac{BP}{PC}=\frac{BA}{AC}$.
+\end{result}
+\subsection{Pythagoras}
+Pythagoras' Theorem is arguably the most famous theorem in mathematics. You
+should aim to find multiple proofs of it, to cement your understanding of the
+techniques developed in this section on geometry.
+
+Four proofs are given in the linked solutions, with a fifth in
+Section~\ref{n:g:incircle}.
+\begin{result}{\label{r:b:g:py:1}}
+    If $\angle ABC=90^\circ$, then $AB^2+BC^2=AC^2$.
+\end{result}
+\begin{problem}{\label{p:b:g:py:1}}
+  Let $ABCD$ be a square and let $E$ and $F$ be points on $BC$ and $CD$,
+  respectively, such that $AEF$ is an equilateral triangle.
+
+  Find the length $BE$.
+\end{problem}
+\subsection{Trigonometry}
+These concepts are easiest to define working on the coordinate plane. Let $O$ be
+the origin, and let $A$ be the point $(1,0)$. 
+Let $P=(x,y)$ be a point on the unit circle (that is, $x^2+y^2=1$) such that
+the counterclockwise angle $\angle AOP$ is $\theta$ (see the diagram). We define
+\[\cos(\theta)=x,\ \sin(\theta)=y,\ \tan(\theta)=\frac yx.\]
+\begin{result}{\label{r:b:g:t:1}}
+  For all $\theta$ we have
+  $\cos(-\theta)=\cos(\theta)=\sin(90-\theta)=-\cos(180-\theta)$.
+\end{result}
+\begin{result}{\label{r:b:g:t:2}}
+  Let $ABC$ be a triangle with $\angle ABC=90^\circ$. Then,
+  \[\sin(\angle ACB)=\frac{AB}{AC},\ \cos(\angle ACB)=\frac{BC}{AC},\
+    \tan(\angle ACB)=\frac{AB}{BC}.\]
+\end{result}
+\begin{result}{\label{r:b:g:t:3}}
+  We have
+  \[\sin(0)=0,\ \sin(30)=\frac 12,\ \sin(45)=\frac{\sqrt2}2,\
+    \sin(60)=\frac{\sqrt3}2,\ \sin(90)=1.\]
+\end{result}
+For the next two results we define $ABC$ to be a triangle with sidelengths
+$a=BC,\ b=CA,\ c=AB$. We use the shorthand $\angle A=\angle BAC$ and similarly
+for $\angle B$ and $\angle C$.
+\begin{result}{\label{r:b:g:t:4}}
+  \[\frac a{\sin \angle A}=\frac b{\sin\angle B}=\frac c{\sin\angle C}.\]
+  Further, if $A,B,C$ lie on a circle with radius $R$ then these quantities are
+  all equal to $2R$.
+\end{result}
+\begin{result}{\label{r:b:g:t:5}}
+  \[\cos\angle A=\frac{b^2+c^2-a^2}{2bc}.\]
+\end{result}
+\begin{problem}{\label{p:b:g:t:1}}
+ In quadrilateral $PQRS$ we have $PS=5,\ SR=6,\ RQ=4$, and $\angle P=\angle
+ Q=60^\circ$. Find the length of $PQ$.
+\end{problem}
+\begin{problem}{\label{p:b:g:t:2}}
+  Let $ABCD$ be a trapezium with $AB\|CD$ such that its vertices $A,B,C,D$ lie
+  on a circle with centre $O$. Let the diagonals $AC$ and $BD$ intersect at a
+  point $M$. Assume that $\angle AMD=60^\circ$ and $MO=1$.
+
+  What is the difference between the lengths $AB$ and $CD$?
+\end{problem}

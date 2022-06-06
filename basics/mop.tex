@@ -1,0 +1,117 @@
+\section{Methods of Proof}
+If you haven't seen proofs before, chapters 4, 5, 6, and 10 of
+\href{https://www.people.vcu.edu/~rhammack/BookOfProof/Main.pdf}{The Book of
+  Proof} provide a gentler and more complete introduction.
+\subsection{Direct Proof}
+This is perhaps the simplest type of proof. The idea is to start with the stuff
+you're given, do some logical deduction, and finish with what you want to prove.
+\begin{result}\label{r:b:m:1:1}
+  The remainder when a perfect square is divided by 4 is either 0 or 1.
+  \hyperlink{s:m:1:1}{Solution}
+\end{result}
+\subsection{Contradiction}
+This is where you assume that what you're trying to prove is wrong and try to
+derive some kind of logical impossibility. Then the only place where the logic
+could have gone wrong was in the assumption so the statement you were trying to
+prove must be true.
+\begin{result}\label{r:b:m:2:1}
+  There are infinitely many primes.
+  \hyperlink{s:m:2:1}{Solution}
+\end{result}
+\subsection{Contrapositive}
+It turns out that the statement $A\implies B$ is logically equivalent to the
+statement $\neg B\implies\neg A$. This is probably easiest to see intuitively
+with an example: ``If $x$ is an integer, then $x$ is rational'' is
+logically equivalent to ``If $x$ is not rational, then $x$ is not an integer''.
+Therefore, if we're asked to prove $A\implies B$, it's enough to
+prove $\neg B\implies\neg A$, which is sometimes easier.
+\begin{problem}\label{p:b:m:3:1}
+  Let $a,b\in\Rr$ such that $a+b$ is irrational. Prove that at least one of $a$
+  and $b$ is irrational.
+  \hyperlink{s:m:3:1}{Solution}
+\end{problem}
+\subsection{Induction}
+Perhaps the hardest to understand of the basic proof techniques, this can be
+used to prove properties of positive integers where the property for each
+integer can be related to those of previous integers.
+
+Here is the Principle of Mathematical Induction (PMI):
+\begin{tcolorbox}
+  Let $S$ be a set of positive integers such that $1\in S$ and for each $k\in S$,
+  $k+1\in S$. Then $S$ contains all positive integers.
+\end{tcolorbox}
+
+To prove a statement for all positive integers, we let $S$ be the set of all
+positive integers for which the statement is true. Then it's enough to prove:
+\begin{itemize}
+  \item $1\in S$. This is called the \emph{base case}.
+  \item If $k\in S$ (the \emph{inductive hypothesis}), then $k+1\in S$. This is
+    called the \emph{inductive case}.
+\end{itemize}
+Then by PMI, $S$ will contain all positive integers.
+
+There are two ways to make induction superficially more powerful, though they're
+both equivalent to the usual form of induction:
+\begin{itemize}
+  \item Say we want to prove a statement for all integers larger than $n$, for
+    some $n$. Then it's enough to prove:
+    \begin{itemize}
+      \item The statement is true for $n+1$.
+      \item If the statement is true for some integer $k>n$, then it's true for
+        $k+1$.
+    \end{itemize}
+    This is equivalent to the normal PMI\@: to see this, let $S$ be the set of
+    all integers $m$ for which the statement is true for all $m+n$.
+  \item Say we want to use not just the inductive assumption not just for $k$,
+    but for smaller integers as well. Intuitively this should be fine, since
+    we've in some sense ``proved this already'' by the time we get to $k+1$.
+    Formally, to prove a statement $P(n)$ for all positive integers $n$, it's
+    enough to prove:
+    \begin{itemize}
+      \item $P(1)$.
+      \item If $P(1),\ldots,P(k)$ are all true, then $P(k+1)$ is also true.
+    \end{itemize}
+    Once again this is equivalent to the normal PMI\@: let $S$ be the set of all
+    integers $m$ for which $P(a)$ is true for all $a\le m$.
+
+    This form of proof by induction is called \emph{strong induction}, and
+    although most proofs by induction only explicitly use $P(k)$, there's no
+    reason to try to make your proof inductive over strong inductive since
+    strong induction gives you more assumptions to work with ``for free''.
+\end{itemize}
+The key idea in both of these reductions to PMI is to somehow encapsulate the
+extra information you're trying to assume into the framework of standard PMI\@.
+\begin{result}\label{r:b:m:4:1}
+  For all positive integers $n$, \[1+2+\cdots+n=\frac{n(n+1)}2.\]
+  \hyperlink{s:m:4:1}{Solution}
+\end{result}
+
+There's also an equivalent statement to PMI --- the Well-Ordering Principle.
+\begin{tcolorbox}
+  Let $S$ be a nonempty set of postiive integers. Then there exists some $x\in
+  S$ such that for all $y\in S$ we have $y\ge x$.
+\end{tcolorbox}
+The Well-Ordering Principle is often used in conjunction with contradiction or
+contrapositive, since it is mainly ``about'' the existence of some element
+rather than the properties of the rest of the elements.
+
+We can think of PMI as enabling us to prove something is true by building up
+larger cases from smaller cases, while well-ordering allows us to prove
+something is true by assuming there's a counterexample and finding a smaller
+one. It's nontrivial and instructive to prove they're actually
+equivalent.
+
+First, we'll need a lemma (auxiliary result) so basic this is probably the only
+time we'll ever need to justify it:
+\begin{result}\label{r:b:m:4:2}
+  Both PMI and well-ordering imply that if $n$ is a positive integer then $n\ge
+  1$.
+  \hyperlink{s:m:4:2}{Solution}
+\end{result}
+\begin{result}\label{r:b:m:4:3}
+  PMI and well-ordering imply each other.
+  \hyperlink{s:m:4:3}{Solution}
+\end{result}
+I find it intriguing that induction and minimality are really just two sides of
+the same coin. Often you will find that a solution is much more natural to think
+about and write up in terms of one than the other.

@@ -1,0 +1,69 @@
+\subsection{Polynomials}
+\subsubsection*{Result~\ref{r:n:a:polys:2}}
+\hypertarget{sr:n:a:polys:2}
+It is natural to split the proof into two parts: existence and uniqueness. 
+Uniqueness is the easier part: it can be proven by the usual method of assuming
+two representations exist, and proving they are in fact the same.
+
+The proof of existence proceeds by induction on the degree.
+The key is to reduce $A(x)$ to a polynomial with smaller
+degree by cancelling the leading term. If we do this in a way that lets us
+control $Q(x)$ and $R(x)$, the induction will work.
+\begin{proof}
+  First we prove such a representation exists, by strong induction on the degree
+  of $A$. Let $d=\deg B$.
+
+  Base cases $\deg A<d$: clearly $Q(x)=0,\ R(x)=B(x)$ satisfies all the
+  conditions.
+
+  Inductive step: let $a_n x^n$ be the leading term of $A$, and let $b_d x^d$ be
+  the leading term of $B$.
+  We may write \[A(x)=\frac{a_n}{b_d}x^{n-d} B(x)+A_1(x)\] for some polynomial
+  $A_1$. Since the first term on the RHS cancels the $a_n x^n$, this polynomial
+  $A_1(x)$ can be represented as $Q_1(x)B(x)+R_1(x)$. But then choosing
+  $Q(x)=Q_1(x)+\frac{a_n}{b_3}x^{n-d}B(x),\ R(x)=R_1(x)$ provides a
+  representation for $A$.
+
+  Now we prove the representation is unique. Assume there are polynomials
+  $Q_1,R_1,Q_2,R_2$ such that \[A(x)=B(x)Q_1(x)+R_1(x)=B(x)Q_2(x)+R_2(x).\]
+  Then, $B(x)(Q_1(x)-Q_2(x))=R_2(x)-R_1(x)$. The degree of the RHS is less
+  than $d$; therefore, so is the degree of the LHS.\@
+  But since the degree of the
+  LHS is at least $D$ unless $Q_1=Q_2$, we get $Q_1=Q_2$ and therefore
+  $R_1=R_2$.
+\end{proof}
+\subsubsection*{Result~\ref{r:n:a:polys:3}}
+\hypertarget{sr:n:a:polys:3}
+First we need to understand what the problem is saying. Try special cases:
+$i=0,\ i=n,\ n=1,\ n=2$ and so on, until you know what it's saying.
+
+The idea here is to use the corollary from the 
+previous result multiple times to factorise our
+polynomial fully, then expand it again. Then when we extract the $x^{n-i}$
+coefficient, each term that contributes to it is a product where $x$ appears
+$n-i$ times, and the rest is a product of $i$ $(r_i)$s and a constant term.
+Since each combination of $i$ $(-r_i)$s appears exactly once in the expansion,
+we get the claimed formula.
+
+The neatest way of writing this up is to use induction.
+\begin{proof}
+  By induction on the degree.
+
+  Base case $n=0$: there are no $r_i$s so all that
+  we have to prove is $a_0=a_0$, which is obvious.
+
+  Inductive step: Since $r_n$ is a root of $P(x)$, we can write
+  $P(x)=(x-r_n)Q(x)$ for some polynomial $Q(x)$ of degree $n-1$. Then we know
+  that $Q(x)$ has roots $r_1,\ldots,r_{n-1}$ so by the inductive hypothesis, we
+  know that in $Q(x)$:
+  \begin{itemize}
+    \item The coefficient of $x^{n-i}$ is
+      \[(-1)^{i-1}a_n\sum_{j_1<\cdots<j_{i-1}}\prod_{k=1}^{i-1}r_{j_k}.\]
+    \item The coefficient of $x^{n-i-1}$ is
+      \[(-1)^{i}a_n\sum_{j_1<\cdots<j_i}\prod_{k=1}^i r_{j_k}.\]
+  \end{itemize}
+  Since the coefficient of $x^{n-i}$ in $P(x)$ is the coefficient of $x^{n-i-1}$
+  in $Q(x)$ minus $r_n$ times the coefficient of $x^{n-i}$ in $Q(x)$, it's what
+  we claim it is. Since this argument works for each $i$, the induction is
+  complete.
+\end{proof}
