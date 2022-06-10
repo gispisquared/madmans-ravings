@@ -12,7 +12,7 @@ the total number of ways you can do this is $a+b$.
 
 Many combinatorics problems boil down to splitting them into cases, and
 then applying addition and multiplication principles to count each case.
-\begin{result}\label{r:b:c:am:1}
+\begin{result}[Permutations]\label{r:b:c:am:1}
   The number of ways of choosing $k$ things from $n$, where order matters, is
   \[n(n-1)\cdots(n-k+1)=\frac{n!}{k!}.\]
   \hyperlink{sr:b:c:am:1}{Solution}
@@ -29,7 +29,7 @@ then applying addition and multiplication principles to count each case.
   exactly once. In how many ways can it do this?
 \end{problem}
 \subsection{Combinations}
-\begin{result}\label{r:b:c:c:1}
+\begin{result}[Combinations]\label{r:b:c:c:1}
   The number of ways of choosing $k$ things from $n$, where order doesn't
   matter, is \[\frac{n!}{(n-k)!k!}.\]
   \hyperlink{sr:b:c:c:1}{Solution}
@@ -58,7 +58,7 @@ To come up with a bijection, it's often useful to list out the elements of each
 set for some small cases, and pair them up in what looks like a natural way.
 Often that natural way will generalise.
 
-\begin{result}{\label{r:b:c:b:1}}
+\begin{result}[Multiset Coefficient]
   The number of ways of putting $n$ identical things into $k$ boxes is
   \[\binom{n+k-1}{k-1}.\]
 \end{result}
@@ -80,4 +80,30 @@ Perhaps an example or two will serve to clarify things:
   How many sequences of 10 traffic lights (each green, yellow or red) are there
   such that a green light is always followed by a yellow light, while a red light
   is never followed by a red light?
+\end{problem}
+\subsection{Pigeonhole Principle}
+The Pigeonhole Principle is a very simple but widely applicable idea. It is
+often useful in problems which ask you to prove the existence of one or more
+things from a set, but there's no obvious way to pick a ``special'' object from
+the set.
+\begin{result}[Pigeonhole Principle]{\label{r:b:c:p:1}}
+  If $A_1,A_2,\ldots,A_n$ are a collection of sets whose union is $A$, and $A$
+  has more than $nk$ elements, then some $A_i$ has more than $k$ elements.
+\end{result}
+An important special case is when $A$ has infinitely many elements; then some
+$A_i$ has infinitely many elements.
+\begin{problem}{\label{p:b:c:p:1}}
+  Let $M$ be a set of positive integers, none of which is larger than 100. Prove
+  that there are two disjoint subsets of $M$ with the same sum.
+\end{problem}
+\begin{problem}{\label{p:b:c:p:2}}
+  A class has $20$ students. Any two of them have a common grandfather. Prove
+  that there are $14$ students all of whom have a common grandfather.
+\end{problem}
+\begin{problem}{\label{p:b:c:p:3}}
+  There are $101$ chess players who participated in several tournaments. There
+  was no tournament in which all of them participated. Each pair of those
+  players met exactly once during these tournaments. Each pair of players in a
+  tournament meet exactly once in that tournament. Prove that one of them
+  participated in at least $11$ tournaments.
 \end{problem}
