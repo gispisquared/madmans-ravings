@@ -1,0 +1,35 @@
+\section{Modular Arithmetic}
+  Let $n$ be a nonzero integer. For integers $a$ and $b$, we say that
+  \[a\equiv b\pmod n\iff n\mid b-a.\]
+  Notice that for fixed values of $a$ and $n$, infinitely many values of $b$
+  satisfy $a\equiv b\pmod n$.
+
+  The numbers $0,1,\ldots,n-1$ are called the \emph{least residues mod $n$}. 
+  Every integer is congruent to a unique least residue mod $n$.
+  \begin{result}{\label{r:n:n:m:1}}
+  If $a\equiv b\pmod n$ and $c\equiv d\pmod n$ then
+  \begin{itemize}
+    \item $a+c\equiv b+d\pmod n$
+    \item $a-c\equiv b-d\pmod n$
+    \item $ac\equiv bd\pmod n$
+    \item $a^m\equiv b^m\pmod n$ for any nonnegative integer $m$.
+  \end{itemize}
+\end{result}
+Be careful: division does not work as expected. For example, $2\equiv 6\pmod 4$
+but $2/2\not\equiv 6/2\pmod 4$. Instead, we have the following:
+\begin{result}{\label{r:n:n:m:2}}
+    If $mx\equiv my\pmod n$ then \[x\equiv y\left(\bmod\;\frac n{\gcd(n,m)}\right).\]
+\end{result}
+\begin{problem}{\label{p:n:n:m:1}}
+  Let $n>6$ be an integer such that $n-1$ and $n+1$ are both prime. Prove
+    that $720\mid n^2(n^2+16)$.
+\end{problem}
+\begin{problem}{\label{p:n:n:m:2}}
+  Let $a_1=20,\ a_2=23$. For $n\ge 1$, let $a_{n+1}$ be the least residue
+    of $a_n+a_{n-1}$ mod $100$. Find the least residue of
+    $a_1^2+\cdots+a_{2023}^2\bmod 8$.
+\end{problem}
+\begin{problem}{\label{p:n:n:m:3}}
+  Let $n$ be a positive integer. All numbers $m$ which are coprime to $n$
+    satisfy $m^2\equiv 1\pmod n$. Find the maximum possible value of $n$.
+\end{problem}

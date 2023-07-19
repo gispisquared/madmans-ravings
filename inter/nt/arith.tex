@@ -1,0 +1,37 @@
+\section{Arithmetic Functions}
+We define:
+\begin{itemize}
+    \item The number of positive divisors function $d(n)$.
+    \item The sum of positive divisors function $\sigma(n)$.
+    \item The totient function $\varphi(n)$: the number of positive integers
+      which are at most $n$ and coprime to $n$.
+\end{itemize}
+\begin{problem}{\label{p:n:n:a:1}}
+  Prove that $d(n)\le 2\sqrt n$.
+\end{problem}
+\begin{problem}{\label{p:n:n:a:2}}
+  Prove that for all $n$,
+    \[\sigma(1)+\sigma(2)+\cdots+\sigma(n)\le n^2.\]
+\end{problem}
+\begin{problem}{\label{p:n:n:a:3}}
+  Prove that for all composite $n$,
+    \[\varphi(n)\le n-\sqrt n.\]
+\end{problem}
+\begin{result}{\label{r:n:n:a:1}}
+    If $n=\prod p_i^{e_i}$, then $d(n)=\prod(e_i+1)$.
+\end{result}
+\begin{result}{\label{r:n:n:a:2}}
+    If $n=\prod p_i^{e_i}$, then
+    \[\sigma(n)=\prod\left(\frac{p_i^{e_i+1}-1}{p_i-1}\right).\]
+\end{result}
+\begin{result}{\label{r:n:n:a:3}}
+  Let $n$ be an even positive integer such that $\sigma(n)=2n$. There is a prime
+  $p$ such that $n=2^{p-1}\left(2^p-1\right)$.
+\end{result}
+\begin{result}{\label{r:n:n:a:4}}
+    If $n=p^e$, then
+    \[\varphi(n)=n\left(1-\frac 1p\right).\]
+\end{result}
+Actually, it is true that if $n=\prod p_i^{e_i}$, then
+\[\varphi(n)=n\prod\left(1-\frac 1{p_i}\right).\]
+We prove this in Result~\ref{r:n:n:t:4}.

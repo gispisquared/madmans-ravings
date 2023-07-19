@@ -17,22 +17,23 @@
   We define a \emph{prime} as a positive integer larger than 1 which is not
   divisible by any positive integer other than 1 and itself.
 \begin{result}{\label{r:b:n:p:1}}
-  Every positive integer larger than 1 has a prime factor.
+  Every positive integer larger than 1 can be written as a product of primes.
 \end{result}
 This was what allowed us to prove Result~\ref{r:b:m:2:1}.
 
-  The Fundamental Theorem of Arithmetic (proved in Section~\ref{n:n:ftoa})
-  states that each positive integer has a unique prime factorisation; that is,
-  we can write a positive integer $n$ uniquely (up to permuting the $p_i$s) as
-  \[n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k},\]
-  where $p_i$ are all prime and $e_i$ are all positive integers.
+The Fundamental Theorem of Arithmetic (proved in Results~\ref{r:b:n:p:1}
+and~\ref{r:n:n:f:2})
+states that each positive integer has a unique prime factorisation; that is,
+we can write a positive integer $n$ uniquely (up to permuting the $p_i$s) as
+\[n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k},\]
+where $p_i$ are all prime and $e_i$ are all positive integers.
 
-  Prime factorisations allow us to view statements about divisibility and
-  multiplication in terms of the exponents $e_i$.
+Prime factorisations allow us to view statements about divisibility and
+multiplication in terms of the exponents $e_i$.
 
-  In what follows, let 
-  \[a=p_1^{e_1}p_2^{e_2}\cdots p_m^{e_m},\
-        b=q_1^{f_1}q_2^{f_2}\cdots q_k^{e_k}.\]
+In what follows, let 
+\[a=p_1^{e_1}p_2^{e_2}\cdots p_m^{e_m},\
+      b=q_1^{f_1}q_2^{f_2}\cdots q_k^{e_k}.\]
 \begin{result}{\label{r:b:n:p:2}}
     $a\mid b$ if and only if for each $i$ we have that $p_i=q_j$
       for some $j$, and that $e_i\le f_j$.
@@ -40,10 +41,14 @@ This was what allowed us to prove Result~\ref{r:b:m:2:1}.
 \begin{result}{\label{r:b:n:p:3}}
     $a$ is a perfect $k$th power if and only if $k\mid e_i$ for all $i$.
 \end{result}
+\begin{result}{\label{r:b:n:d:3}}
+    Let $m$ and $n$ be positive integers. Then, $\sqrt[m]n$ is an integer or
+    irrational.
+\end{result}
 \begin{result}{\label{r:b:n:p:4}}
     The lcm is found by taking the maximum power of each prime that
-      divides either $a$ or $b$; the gcd is found by taking the minimum power of
-      each prime that divides both $a$ and $b$.
+    divides either $a$ or $b$; the gcd is found by taking the minimum power of
+    each prime that divides both $a$ and $b$.
 \end{result}
 \begin{result}{\label{r:b:n:p:5}}
     $\gcd(a,b)\times\lcm(a,b)=ab$.
@@ -93,4 +98,27 @@ $10000_2$.
     0,1,3,4,9,\ldots
 
     Find the 2000th term of this sequence.
+\end{problem}
+\subsection{Euclid's Algorithm}\label{b:n:euclid}
+\begin{result}{\label{r:b:n:e:1}}
+    If $a$ is an integer and $b$ is a positive integer, there
+      is a unique pair $(q,r)$ of integers such that $0\le r<b$ and $a=qb+r$.
+\end{result}
+\begin{result}{\label{r:b:n:e:2}}
+    If $a=qb+r$, then $\gcd(a,b)=\gcd(b,r)$.
+\end{result}
+\begin{result}{\label{r:b:n:e:3}}
+    There are integers $c$ and $d$ such that $ac+bd=\gcd(a,b)$.
+\end{result}
+\begin{problem}{\label{p:b:n:e:1}}
+    The denominators of two irreducible fractions are $x$ and $y$. Find the
+    minimum possible value of the denominator of their sum.
+\end{problem}
+\begin{result}{\label{r:b:n:e:4}}
+    Prove that for all positive integers $a,b,m,n$ with $a>b$ and $\gcd(a,b)=1$ we have
+    \[\gcd(a^m-b^m,a^n-b^n)=a^{\gcd(m,n)}-b^{\gcd(m,n)}.\]
+\end{result}
+\begin{problem}{\label{p:b:n:e:2}}
+    Let $S$ be a nonempty set of integers such that if $a$ and $b$ are in $S$, then
+      so is $2a-b$. Prove that $S$ is an arithmetic progression.
 \end{problem}
