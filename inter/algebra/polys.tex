@@ -1,4 +1,4 @@
-\section{Polynomials}
+\subsection{Polynomials}
 A polynomial is just an expression of the form
 \[P(x)=a_n x^n+a_{n-1}x^{n-1}+\cdots+a_0x^0,\] where each of the $a_i$s is a
 constant and $a_n\ne 0$.
@@ -6,7 +6,7 @@ The number $n$ is called the \emph{degree} of the polynomial. The term $a_n x^n$
 is called the \emph{leading term}. The expression
 $P(x)=0$ is also a polynomial, and it's defined to have degree $-\infty$.
 
-\begin{result}\label{r:n:a:polys:1}
+\begin{result}\label{r:i:a:polys:1}
   Let $A(x)$ and $B(x)$ be polynomials. Then,
   \begin{itemize}
     \item $\deg(A\pm B)\le\max(\deg A,\deg B)$. Equality occurs unless the
@@ -19,19 +19,19 @@ Many proofs in polynomial questions proceed by (strong) induction on the degree.
 following few examples illustrate a few of the ways in which we can reduce a
 polynomial to a smaller-degree polynomial.
 
-\begin{result}\label{r:n:a:polys:2}
+\begin{result}[Division Algorithm]\label{r:i:a:polys:2}
   Let $A(x)$ and $B(x)$ be polynomials with $B(x)\ne 0$. There exist unique
   polynomials $Q(x)$ and $R(x)$ such that $\deg R<\deg B$ and
   \[A(x)=Q(x)B(x)+R(x).\]
-  \hyperlink{sr:n:a:polys:2}{Solution}
+  \hyperlink{sr:i:a:polys:2}{Solution}
 \end{result}
 We say that a polynomial $P(x)$ divides another polynomial $Q(x)$ if there is a
 polynomial $R(x)$ such that $P(x)=Q(x)R(x)$.
 With this terminology, an important corollary is that for any real number $r$ and any polynomial
 $A(x)$, the polynomial $x-r$ divides the polynomial $A(x)-A(r)$.
-\begin{result}\label{r:n:a:polys:3}
+\begin{result}[Vieta's Formulas]\label{r:i:a:polys:3}
   If a polynomial \[P(x)=a_n x^n+a_{n-1}x^{n-1}+\cdots+a_0x^0\] has roots
   $r_1,\ldots,r_n$ then for each $i$, \[a_{n-i}=(-1)^i a_n
   \sum_{j_1<\cdots<j_i} \prod_{k=1}^i r_{j_k}.\]
-  \hyperlink{sr:n:a:polys:3}{Solution}
+  \hyperlink{sr:i:a:polys:3}{Solution}
 \end{result}

@@ -1,0 +1,46 @@
+\subsection{Orders}
+  The \emph{order} of an invertible element $a$ of $\Zz_n$, denoted $\ord_n(a)$,
+  is the smallest positive integer $m$ such that $a^m\equiv 1\pmod n$.
+
+  If $\ord_n(a)=|Z_n^*|$, then $a$ is said to be a \emph{generator} mod $n$.
+
+\begin{itemize}
+  \item $a^k\equiv 1\pmod n \iff \ord_n(a)\mid k$.
+  \item $\ord_n(a)\mid\varphi(n)$.
+  \item If $p$ is prime and $q\mid 2^p-1$, then $q>p$.
+  \item Every prime factor of $2^{2^n}+1$ is congruent to $1$ mod $2^{n+1}$.
+  \item If $g$ is a generator mod $n$, then the least residues of
+    $\{g^1,g^2,\ldots,g^{\varphi(n)}\}$ are $\Zz_n^*$.
+  \item If $g$ is a generator mod $n$, and $\varphi(n)=2k$, then
+    \[g^k\equiv -1\pmod n.\]
+  \item There are either $0$ or $\varphi(\varphi(n))$ generators mod $n$.
+  \item If $a\mid\varphi(n)$ and there exists a generator mod $n$, then 
+    there are $\varphi(a)$ residues $x$ mod $n$ such that $\ord_n(x)=a$.
+  \item If there exists a generator mod $n$, then the product of the elements of
+    $\Zz_n^*$ is $-1$ mod $n$.
+  \item For any positive integer $n<p-1$,
+    \[\sum_{i=1}^{p-1} i^n\equiv 0\pmod p.\]
+  \item Assume there exists a generator mod $n$.
+    An element $x\in\Zz_n^*$ can be written as $y^k$ for $y\in\Zz_n^*$ iff
+    $\ord_p(x)\gcd(\varphi(n),k)\mid \varphi(n)$.
+\end{itemize}
+\begin{result}{\label{r:a:n:o:2}}
+Let $p$ be an odd prime.
+\begin{itemize}
+  \item There exists a generator mod $p$.
+  \item There exists a generator mod $p^k$ for any positive integer $k$.
+  \item There exists a generator mod $2p^k$ for any positive integer $k$.
+  \item There exists a generator mod $2^k$ iff $k\le 2$.
+  \item If $n=xy$, where $x$ and $y$ are coprime and larger than $2$, then there
+    does not exist a generator mod $n$.
+\end{itemize}
+\end{result}
+\begin{itemize}
+  \item Let $p>10$ be a prime. Prove that there are positive integers $m,n$ with
+    $m+n<p$ such that $p$ divides $5^m7^n-1$.
+  \item Find all positive integers $n$ such that $n\mid 2^n-1$.
+  \item Prove that if $\sigma(n)=2n+1$, then $n$ is a perfect square.
+  \item Let $p$ be a prime. Find all nonempty sets $S$ of residues mod $p$ such
+    that if the least residues of $a$ and $b$ are not in $S$, then \[\prod_{i\in S}(a-i)\equiv\prod_{i\in S}(b-i)\pmod
+    p.\]
+\end{itemize}

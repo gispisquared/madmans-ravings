@@ -1,0 +1,37 @@
+\subsection{Descent}
+The following is something of a Fundamental Theorem of Vieta Jumping.
+Unfortunately, it doesn't seem to be well-known enough that you can use it
+without proof, so you should know the proof well enough that you can reproduce
+it in contest if necessary.
+\begin{result}{\label{r:a:n:d:1}}
+  Let $a,b,k$ be nonnegative integers such that $\gcd(a,b)=1$,
+    and let $t=a^2+b^2-kab$. If $|t-2|<k$ then $t=1$.
+\end{result}
+Another important application of descent is the Pell equation:
+\begin{result}{\label{r:a:n:d:2}}
+      Let $d$ be a positive integer which is not a perfect square.
+      There exist positive integers $x_0,y_0$ such that $x_0^2-dy_0^2=1$ and 
+      for any pair $x,y$ of
+      positive integers satisfying $x^2-dy^2=1$, there is a positive integer $k$
+      satisfying
+      \[x+y\sqrt d=(x_0+y_0\sqrt d)^k.\]
+\end{result}
+There is an analogous version for $x^2-dy^2=-1$:
+\begin{result}{\label{r:a:n:d:3}}
+      Let $d$ be a positive integer which is not a perfect square.
+      There exist positive integers $x_0,y_0$ such that 
+      for any pair $x,y$ of
+      positive integers satisfying $x^2-dy^2=-1$, there is an odd positive integer $k$
+      satisfying
+      \[x+y\sqrt d=(x_0+y_0\sqrt d)^k.\]
+\end{result}
+Note that in this case solutions to the equation don't necessarily exist, e.g.
+by a mod 3 argument.
+\begin{itemize}
+  \item Prove that there are infinitely many triples $(a,b,c)$ of positive
+    integers in arithmetic progression
+    such that $ab+1$, $bc+1$ and $ca+1$ are all perfect squares.
+  \item Find all solutions in integers to $x^2+y^2+z^2=2xyz$.
+    \item Find all positive integers $n$ such that \[\sqrt{\frac{7^n+1}2}\] is
+      prime.
+\end{itemize}

@@ -1,0 +1,252 @@
+\subsection{Problems}
+Less than half of the problems here require the use of the theory developed in
+this chapter, which is testament to how rare it is that this theory shows up in
+contest.
+\begin{result}[Fermat's Christmas Theorem]{\label{r:a:n:pr:1}}
+    There are positive integers $a$ and $b$ such that $a^2+b^2=n$ iff all primes
+    which are $3\pmod 4$ have even exponents in the prime factorisation of $n$.
+    If $n$ is prime, then such a representation is unique.
+\end{result}
+\begin{itemize}
+  \item Let $p$ and $q$ be primes. Prove that there is an integer $x$ such that
+    $(x+1)^p\equiv x^p\pmod q$ if and only if $q\equiv 1\pmod p$.
+  \item Find all pairs of positive integers $x,y$ such that
+    $1+2^x+2^{2x}=y^2$.
+  \item Let $p$ be an odd prime. Prove that
+    \[p^2\mid 1^p+2^p+\cdots+p^p.\]
+  \item Four positive integers $x,y,z,t$ satisfy $xy-zt=x+y=z+t$. Is it possible
+    that $xy$ and $zt$ are both perfect squares?
+  \item Let $P(x)$ and $Q(x)$ be polynomials whose coefficients are all equal to
+    $1$ or $7$. If $P(x)$ divides $Q(x)$, prove that $1+\deg P(x)$ divides
+    $1+\deg Q(x)$.
+  \item Let $a$ and $b$ be positive integers such that $a^n+n\mid b^n+n$ for all
+    positive integers $n$. Prove that $a=b$.
+  \item Assume that $g$ is a generator mod $p$ such that $p\mid g^2-g-1$. Prove
+      that if $p\equiv 3\pmod 4$, then $g-1$ and $g-2$ are also generators mod
+      $p$.
+  \item Prove that for all positive integers $a>1$ and $n$ we have
+    $n\mid\varphi(a^n-1)$.
+\item Determine all positive integers $M$ such that the sequence $a_0, a_1,
+      a_2, \ldots$ defined by \[ a_0 = M + \frac{1}{2} \qquad \textrm{and}
+        \qquad a_{k+1} = a_k\lfloor a_k \rfloor \quad \textrm{for} \, k = 0, 1,
+      2, \ldots \]contains at least one integer term.
+  \item Let $r$ be an irrational root of a polynomial $P(x)$ of degree $d$ with
+    integer coefficients. Prove that there is a real number $C$ such that for
+    any integer $q$ we have $\{qr\}\ge \frac C{q^{d-1}}$.
+  \item Find all positive integers $k$ for which the following statement is
+    true: if $p$ is an integer polynomial such that $0\le p(i)\le k$ for each
+    integer $0\le i\le k+1$, then all of these $p(i)$s are equal.
+  \item Let $n$ and $z$ be integers greater than $1$ such that $\gcd(n,z)=1$.
+    Prove that there is some nonnegative integer $i<n$ such that
+    $1+z+z^2+\cdots+z^i$ is divisible by $n$.
+  \item Find the minimum possible value of $m+n$, where $m$ and $n$ are distinct
+    positive integers such that $1000\mid 1978^m-1978^n$.
+  \item Prove that for some constant $C>0$, the following statement holds:
+
+    Let $m\ge 2$ be an integer, $A$ a finite set of integers (not
+    necessarily positive), and $B_1,B_2,\ldots,B_m$ subsets of $A$. Suppose
+    that for every $k=1,2,\ldots,m$, the sum of the elements of $B_k$ is
+    $2^k$. Then $A$ contains at least $\frac {Cm}{\log_2 m}$ elements.
+  \item Find all functions $f:\Zz\to\Zz$ such that, for all integers $a,b,c$
+    satsfying $a+b+c=0$, we have
+    \[f(a)^2+f(b)^2+f(c)^2=2f(a)f(b)+2f(a)f(c)+2f(b)f(c).\]
+  \item Let $p$ be an integer polynomial and let $a$ be an integer such that
+      \[
+          p(p(\cdots(p(a))\cdots))=a.
+      \]
+      Prove that $p(p(a))=a$.
+  \item Does there exist an integer $n>1$ such that all powers of $n$ are
+    base-10 palindromes?
+    \item Given three distinct natural numbers $a,b,c$, show that
+      \[\gcd(ab+1,bc+1,ca+1)\le\frac{a+b+c}3.\]
+  \item Find all integers $x,y$ such that $(x^2+y)(x+y^2)=(x-y)^3$.
+  \item Prove that if $5\nmid a$, then $x^5-x+a$ is irreducible.
+    \item Find all integers $n$ such that $n^2+1$ divides $n^3+n^2-n-15$.
+  \item Find all functions $f:\Nn\to\Nn$ such that $f(f(m)f(n))=mn$ for all
+    positive integers $m$ and $n$.
+  \item Find all pairs $x,y$ of positive integers such that $3^x-8^y=2xy+1$.
+  \item An infinite arithmetic progression contains a perfect $a$th power and a
+    perfect $b$th power. Prove that it contains a perfect $\lcm(a,b)$th power.
+  \item Let $p$ be an odd prime and let $m$ and $n$ be natural numbers not
+    divisible by $p$. Prove that if there is some integer $s$ such that $p\mid
+    m^{2^s}+n^{2^s}$, then $p\equiv 1\pmod{2^{s+1}}$.
+  \item Let $P(n)$ be the product of the digits of a positive integer $n$.
+    Let $n_1$ be a positive integer, and define $n_{i+1}=n_i+P(n_i)$ for each
+    $i\ge 1$. Prove that this sequence is eventually constant.
+  \item Let $p$ be an odd prime and $r$ an odd natural number. Show that $pr+1$
+    does not divide $p^p-1$.
+  \item For which positive integers $r$ and $s$ does there exist a positive
+    integer $n$ such that $nr$ and $ns$ have the same number of divisors?
+  \item Let $a$ and $b$ be positive integers. Prove that there are infinitely
+    many positive integers $n$ such that $n^b-1\nmid a^n+1$.
+  \item Find all integer polynomials $p$ such that $n\mid p(2^n)$ for all
+    positive integers $n$.
+  \item Find all pairs of positive integers $x,y$ such that $x^3-y^3=xy+61$.
+  \item Find all functions $f:\mathbb N\to\mathbb N$ such that for each positive
+    integer $n$, $f(n)\mid n^3$ and $\displaystyle\sum_{i=1}^n f(i)$ is a perfect
+    square.
+  \item Does there exist a strictly increasing function $f:\Nn\to\Nn$ such that
+    $f(1)=2$ and $f(f(n))=f(n)+n$ for all positive integers $n$?
+  \item Prove that if there are two terms of an arithmetic progression which are
+    coprime integers, then there is an infinite subset of that
+    progression all of whose elements are coprime integers.
+    \item We call a 5-tuple of integers \emph{arrangeable} if its elements can be
+      labelled $a,b,c,d,e$ in some order such that $a-b+c-d+e=0$. Determine all
+      2022-tuples of integers such that if we place them in order around a
+      circle, then any 5-tuple of numbers in consecutive positions is
+      arrangeable.
+  \item Let $a,b,c$ be pairwise coprime positive integers. Prove that there
+    exist infinitely many triples $x,y,z$ of distinct positive integers such
+    that $x^a+y^b=z^c$.
+    \item Let $p$ be a prime with $p>3$. Prove that there are positive integers
+      $a<b<\sqrt p$ such that $p-b^2\mid p-a^2$.
+    \item
+        Do there exist distinct prime numbers $a,b,c$ such that
+          \[a\mid bc+b+c,\ b\mid ac+a+c,\ c\mid ab+a+b?\]
+  \item Let $x,y,z$ be rational numbers such that $xy,\ yz,\ zx,\ x+y+z$ are all
+    integers.
+
+    Prove that $x,\ y,\ z$ are all integers.
+  \item Find all primes $p,q,r$ such that $p\mid q^r+1,\ q\mid r^p+1,\ r\mid
+    p^q-1$.
+    \item Let $a$ and $b$ be positive integers. Show that if $4ab-1$ divides
+      $(4a^2-1)^2$, then $a=b$.
+  \item Let $p$ be a polynomial of dgree $d$. Find a linear
+    equation that the values $p(0),p(1),\ldots,p(d+1)$ always satisfy.
+  \item Let $k$ and $n$ be positive integers such that $n$ is odd. Prove that
+    there is an integer $a$ such that $a^{32}\equiv(n+1)^3\pmod{n^k}$.
+  \item Find all functions $f:\Zz_{\ge 0}\to \Zz_{\ge 0}$ such that
+    $f(f(f(n)))=f(n+1)+1$ for all $n\in\Zz_{\ge 0}$.
+  \item Find all functions $f:\mathbb N\to\mathbb N$ satisfying 
+    \[f(n)+f(n+1)=f(n+2)f(n+3)-2023\]
+    for all $n\in\mathbb N$.
+    \item Prove that for any nonnegative integer $n$, the number $7^{7^n}+1$ is
+      the product of at least $2n+3$ (not necessarily distinct) primes.
+\item Find all triples $a,b,c$ of positive integers such that
+      $a^3+b^3+c^3=(abc)^2$.
+  \item Find all positive integers $n$ such that $n\mid 2^{n-1}+1$.
+  \item Find all positive integer solutions to $3^x+4^y=5^z$.
+    \item Let $n$ and $k$ be positive integers. Assume that for each positive
+      integer $m$, there exists a positive integer $a$ such that $a^k\equiv
+      n\pmod m$. Prove that $n$ is a perfect $k$th power.
+  \item Let $a$ and $b$ be two positive integers. Prove that
+    \[a^2+\left\lceil\frac{4a^2}b\right\rceil\] is not a square.
+  \item Prove that there exist $2023$ distinct positive integers such that each of them
+    divides the sum of the rest.
+  \item Let $s(n)$ be the sum of the digits of $n$. Prove that for each positive
+    integer $k$ there exists a positive integer $n$ such that $n+s(n)$ equals
+    either $k$ or $k+1$.
+  \item Find all positive integers $n$ that satisfy the following property:
+    for all positive integers $m$, relatively prime to $n$, we have
+    $2n^2$ divides $m^n-1$.
+  \item Find all natural numbers $n$ such that $n^2\mid 2^n+1$.
+  \item What is the smallest positive integer $n$ for which there exist positive
+    integers $x_1,x_2,\ldots,x_n$ such that
+    \[x_1^3+x_2^3+\cdots+x_n^3=2002^{2002}?\]
+  \item Prove that there are infinitely many pairs $a$ and $b$ of perfect
+    squares such that they have the same number of digits in decimal, and their
+    concatenation is also a square.
+  \item Let $n>1$ be an odd positive integer and let $S$ be the set of integers
+    $x$, with $1\le x\le n$, such that both $x$ and $x+1$ are coprime to $n$.
+    Find the product of the elements of $S$ mod $n$.
+  \item Is there a sequence $a_1,\ldots$ of primes such that for each $i$ we
+    have $10 a_i\le a_{i+1}<10a_i+9$?
+  \item Let $a_1,a_2,a_3,\ldots$ be a sequence of integers, such that for any
+    positive integers $n$ and $k$, the quantity
+    \[\frac{a_n+a_{n+1}+\cdots+a_{n+k-1}}k\]
+    is always the square of an integer. Prove that all $a_i$s are equal.
+  \item Let $p>3$ be a prime and let $a,b,c$ be integers with $a\ne 0$. Suppose
+    that $ax^2+bx+c$ is a perfect square for $p$ consecutive integers $x$. Prove
+    that $p\mid b^2-4ac$.
+  \item Prove that all terms of the sequence $a_1=a_2=a_3=1,\
+    a_{n+1}=(1+a_{n-1}a_n)/a_{n+2}$ are integers.
+    \item Let $a$ be a positive integer such that $4(a^n+1)$ is a perfect
+      cube for all positive integers $n$. Prove that $a=1$.
+  \item Let $n>1$ be a positive integer and let $p$ be a prime. Given that
+    $n\mid p-1$ and $p\mid n^3-1$, prove that $4p-3$ is a perfect square.
+  \item Define
+    \[q(n)=\left\lfloor\frac n{\lfloor\sqrt n\rfloor}\right\rfloor.\]
+    Determine all positive integers $n$ for which $q(n)>q(n+1)$.
+    \item Find all pairs of positive integers $a,b$ such that \[b^2-a\mid
+        a^2+b\quad\text{and}\quad a^2-b\mid b^2+a.\]
+  \item Is there a function $f:\Nn\to\Nn$ of positive integers such that
+    $\gcd(a_m,a_n)=1\iff |m-n|=1$?
+  \item Show that for any fixed integers $n$ and $a$, the sequence
+    $a,a^a,a^{a^a},\ldots$ is eventually constant mod $n$.
+  \item Prove that there are infinitely many pairs of positive integers $a,b$
+    such that $a\mid b^2+1$ and $b\mid a^2+1$.
+  \item Let $k=2^{2^n}+1$ for some positive integer $n$. Prove that $k$ is prime
+    if and only if $k\mid 3^{(k-1)/2}+1$.
+  \item Let $P$ be a polynomial of degree larger than $1$ with integer
+    coefficients. Prove that there are infinitely many positive integers which cannot be
+    written in the form $P(x+1)+P(x+2)+\cdots+P(x+k)$ for positive integers $x$
+    and $k$.
+  \item Let $b\ge 5$ be a fixed positive integer. A positive integer is called a
+    base-$b$ palindrome if it reads the same forwards as backwards when written
+    in base $b$. 
+    
+    Prove that there are infinitely many pairs $(x,y)$ of distinct
+    perfect squares such that for any base-$b$ palindrome $p$, we have $(x-p)(y-p)>0$.
+  \item Prove that if a sequence $\{a_n\}_0^\infty$ of nonnegative integers satisfies
+    $a_0=0$ and $a_n=n-a_{a_n}$ for all $n$, then $a_{n+2}>a_n$ for all $n$.
+    \item Let $S$ be the set of ordered pairs of integers. We say that two
+      elements $(a,b)$ and $(c,d)$ of $S$ are $k$-friends if there is an element
+      $(e,f)$ of $S$ such that the area of the triangle formed by these three
+      points is $k$.
+      Find the smallest positive integer $k$ such that there exists a set of
+      $200$ elements of $S$ such that any pair of them are $k$-friends.
+  \item Given an integer $k\geq 2$, determine all functions $f:\Nn\to\Nn$
+    such that $f(x_1)!+f(x_2)!+\cdots f(x_k)!$
+    is divisible by $x_1!+x_2!+\cdots x_k!$ for all positive integers
+    $x_1,x_2,\cdots x_k$.
+  \item Find all functions $f:\Nn\to\Nn$ such that $f(n+1)>f(f(n))$ for all
+    positive integers $n$.
+  \item Find all positive integers $k$ such that for all positive integers $n$,
+    there exist a prime $p$ and positive integers $x$ and $y$ for which
+    $\gcd(x,y)=1$ and $p^n\mid \frac{x^k-y^k}{x-y}$.
+  \item Find all functions $f:\Nn\to\Nn$ such that $m^2+f(n)\mid
+    mf(m)+n$ for all positive integers $m$ and $n$.
+  \item Let $x$ be an irrational number. Prove that there are infinitely many
+    positive integers $n$ such that $\{nx\}<\frac 1n$.
+  \item Let $p$ be a prime number. Prove that there exists a prime number $q$
+    such that for every integer $n$, the number $n^p-p$ is not divisible by $q$.
+  \item Let $p\ge 7$ be prime. Prove that for any integer $n$ there are integers $a$ and
+    $b$, both not divisible by $p$, such that $p\mid a^2-b^2-n$.
+  \item Given a positive integer $k$, show that there exists a prime $p$ such
+    that one can choose distinct integers
+    $a_1,a_2,\ldots,a_{k+3}\in\{1,2,\ldots,p-1\}$ such that $p$ divides
+    $a_i a_{i+1}a_{i+2}a_{i+3}-i$ for all $i=1,2,\ldots,k$.
+  \item Find all completely multiplicative functions $f:\mathbb N\to\mathbb Z$
+    such that for all $a,b\in\mathbb N$, at least two of $f(a),f(b),f(a+b)$ are
+    equal.
+  \item Let $n$ be a positive integer, and let $S$ be a set of $n$ positive
+    integers all at most $n^2$. Prove that there is a set $T$ of $n$ positive
+    integers such that the set $\{s+t:s\in S,t\in T\}$ covers at least half of
+    the residues mod $n^2$.
+  \item Let $a,b,c$ be integers such that $a/b+b/c+c/a$ and $a/c+c/b+b/a$ are
+    both integers. Prove that $|a|=|b|=|c|$.
+  \item Let $a,b,n$ be positive integers such that $a>b>1$ and $b$ is odd. If
+    $b^n\mid a^n-1$, prove that $na^b>3^n$.
+  \item Let $x$ and $y$ be positive integers and let $p$ be prime. Assume there
+    are coprime positive integers $m$ and $n$ such that $x^m\equiv y^n\pmod p$.
+    Prove that there is a unique positive integer $z$ with $0\le z<p$ such that
+    \[x\equiv z^n\pmod p,\qquad y\equiv z^m\pmod p.\]
+  \item Find all positive integers $x,y,n$ such that $\gcd(x,n+1)=1$ and
+    $x^n+1=y^{n+1}$.
+    \item Prove that every positive integer can be uniquely represented as a sum
+      of one or more Fibonacci numbers such that the sum does not include two
+      consecutive Fibonacci numbers.
+  \item Let $n$ and $k$ be positive integers such that $\varphi^k(n)=1$ (that
+    is, $\varphi$ iterated $k$ times). Prove that
+    $n\le 3^k$.
+  \item Find all pairs of positive integers $x,y$ such that
+    $1+2^x+2^{2x+1}=y^2$.
+  \item Find all pairs of positive integers $x,p$ such that $p$ is prime, $x\le
+    2p$, and $x^{p-1}\mid (p-1)^x+1$.
+  \item Find all pairs of positive integers $x,y$ such that $xy^2+y+7\mid
+    x^2y+x+y$.
+  \item Let $p$ be an irreducible integer polynomial. Prove that $p$ does not
+    have multiple roots.
+  \item Prove that if $a$ and $b$ are positive integers, then $4ab-a-b$ is not a
+    perfect square.
+\end{itemize}

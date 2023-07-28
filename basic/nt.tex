@@ -22,7 +22,7 @@
 This was what allowed us to prove Result~\ref{r:b:m:2:1}.
 
 The Fundamental Theorem of Arithmetic (proved in Results~\ref{r:b:n:p:1}
-and~\ref{r:n:n:f:2})
+and~\ref{r:i:n:f:2})
 states that each positive integer has a unique prime factorisation; that is,
 we can write a positive integer $n$ uniquely (up to permuting the $p_i$s) as
 \[n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k},\]
@@ -76,14 +76,13 @@ Here are the most useful factorisations:
       a power of 2.
 \end{problem}
 \subsection{Number bases}\label{b:n:bases}
-\begin{result}{\label{r:b:n:b:1}}
+\begin{result}[Base $n$ representation]{\label{r:b:n:b:1}}
     Given positive integers $n>1$ and $k$, prove that there are unique
       nonnegative integers $m,a_0,a_1,\ldots,a_m$ such that $a_m>0,\ 0\le
       a_i<n$ for all $i$, and
       \[k=a_0 n^0+a_1 n^1+\cdots+a_m n^m.\]
 \end{result}
-This is called the \emph{base-$n$ representation} of $k$, and is often written
-as
+This representation is often written as
 \[(\overline{a_m a_{m-1}\cdots a_0})_n.\]
 When the $a_i$s are specific digits, the parentheses and the bar over the $a_i$s
 are often dropped. So for example, the decimal number 16 can be expressed as
@@ -100,21 +99,21 @@ $10000_2$.
     Find the 2000th term of this sequence.
 \end{problem}
 \subsection{Euclid's Algorithm}\label{b:n:euclid}
-\begin{result}{\label{r:b:n:e:1}}
+\begin{result}[Division Algorithm]{\label{r:b:n:e:1}}
     If $a$ is an integer and $b$ is a positive integer, there
       is a unique pair $(q,r)$ of integers such that $0\le r<b$ and $a=qb+r$.
 \end{result}
-\begin{result}{\label{r:b:n:e:2}}
+\begin{result}[Euclid's Algorithm]{\label{r:b:n:e:2}}
     If $a=qb+r$, then $\gcd(a,b)=\gcd(b,r)$.
 \end{result}
-\begin{result}{\label{r:b:n:e:3}}
+\begin{result}[Bezout's Identity]{\label{r:b:n:e:3}}
     There are integers $c$ and $d$ such that $ac+bd=\gcd(a,b)$.
 \end{result}
 \begin{problem}{\label{p:b:n:e:1}}
     The denominators of two irreducible fractions are $x$ and $y$. Find the
     minimum possible value of the denominator of their sum.
 \end{problem}
-\begin{result}{\label{r:b:n:e:4}}
+\begin{result}[GCD Trick]{\label{r:b:n:e:4}}
     Prove that for all positive integers $a,b,m,n$ with $a>b$ and $\gcd(a,b)=1$ we have
     \[\gcd(a^m-b^m,a^n-b^n)=a^{\gcd(m,n)}-b^{\gcd(m,n)}.\]
 \end{result}

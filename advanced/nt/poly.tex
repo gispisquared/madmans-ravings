@@ -1,0 +1,72 @@
+\subsection{Polynomials}
+\begin{result}[Hensel's Lemma]{\label{r:a:n:p:1}}
+Let $P$ be an integer polynomial.
+Let $r$ be an integer such that $P(r)\equiv 0\pmod n$ but $\gcd(P'(r),n)=1$.
+For any positive integer $m$, there is a unique $s$ mod $n^m$ such
+that $s\equiv r\pmod n$ and $P(s)\equiv 0\pmod {n^m}$.
+\end{result}
+\begin{itemize}
+  \item Let $p$ be prime and let $a$ and $b$ be positive integers such that
+    $p\nmid b$. Prove that there exists a positive integer $n$ such that
+    $p^a\mid n^n-b$.
+  \item Let $P$ be a nonconstant polynomial with integer coefficients. Prove that for any
+    integer $m$ there exist an integer $n$ and a prime $p$ such that $p^m\mid
+    P(n)$.
+\end{itemize}
+An integer polynomial is \emph{primitive} if its coefficients have gcd $1$.
+\begin{itemize}
+  \item Every nonzero rational polynomial has exactly one primitive multiple
+    with positive leading coefficient.
+  \item (Gauss' Lemma) The product of two primitive polynomials is primitive.
+  \item (Gauss' Lemma, alternate form) If an integer polynomial is the product
+    of two nonconstant rational polynomials then it is the product of two
+    nonconstant integer polynomials.
+\end{itemize}
+An integer polynomial is \emph{irreducible} over $\mathbb Z$ (for the rest of
+this handout, I'll shorten this to irreducible) if it is not the product of two
+nonconstant integer polynomials.
+
+Usually, to prove irreducibility you will assume for contradiction that the
+polynomial is reducible. Modular arithmetic arguments on the coefficients are
+often useful.
+\begin{itemize}
+  \item (Unique factorisation) Every integer polynomial can be factorised into a
+    product of a constant and primitive irreducible integer
+    polynomials. This factorisation is unique up to the permutation and sign of
+    these polynomials.
+  \item (Eisenstein's Criterion) If there exists a prime $q$ such that $q^2\nmid
+    a_0$, $q\mid a_i$ for each $i$ from $0$ to $n-1$, and $q\nmid a_n$, then $p$
+    is irreducible.
+  \item If an integer polynomial is irreducible mod $n$ for any positive integer $n$,
+      then it is irreducible over $\Zz$.
+\end{itemize}
+Let $p$ be prime.
+\begin{itemize}
+  \item Prove that unique factorisation holds for polynomials mod $p$. (This is
+    not true for all integers --- for instance,
+    $(x-1)^2\equiv(x-3)^2\pmod 4$.)
+  \item Prove that for every function $f:\Zz_p\to\Zz_p$ there is a unique polynomial $P$ in
+    $\Zz_p$ of degree less than $p-1$ such that $f(x)=P(x)$ for each
+    $x\in\Zz_p$.
+  \item Let $g$ be a generator mod $p$, and let $ab=p-1$. Prove that
+    \[\prod_{i=1}^a (x-g^{bi})\equiv x^a-1\pmod p.\]
+    What does this tell us about the roots of the cyclotomic polynomials in mod
+    $p$?
+  \item Consider all $\binom{p-1}k$ products of $k$ elements of $\Zz_p$. Prove
+    that their sum is divisible by $p$.
+  \item For any positive integer $n<p-1$, prove that
+    \[\sum_{i=1}^{p-1} i^n\equiv 0\pmod p.\]
+\end{itemize}
+Problems:
+\begin{itemize}
+  \item Prove that if $p$ is prime, then $1+x+x^2+\cdots+x^{p-1}$ is
+    irreducible.
+  \item Find all integer polynomials $p$ such that
+    \begin{itemize}
+      \item $p(n)>n$ for all positive integers $n$, and
+      \item for each positive integer $n$ there is a positive integer $k$ such
+        that $p^{(k)}(1)$ ($p$ repeated $k$ times) is divisible by $n$.
+    \end{itemize}
+  \item Let $p$ be prime. Find the least residue of the product of $(4-x)$ mod $p$, where $x$ runs
+    over all residues mod $p$ except the quadratic residues.
+\end{itemize}
